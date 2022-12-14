@@ -1,7 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels;
 
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

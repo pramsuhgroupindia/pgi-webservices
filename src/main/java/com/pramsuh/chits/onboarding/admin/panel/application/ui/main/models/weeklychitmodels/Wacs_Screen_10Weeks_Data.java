@@ -1,7 +1,8 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels;
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.SubData;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.*;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup40000Rs;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup50000Rs;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

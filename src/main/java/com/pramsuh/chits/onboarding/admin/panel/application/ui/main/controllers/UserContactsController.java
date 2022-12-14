@@ -4,7 +4,6 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata.UserContacts;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.commons.mobiledatarepositories.UserContactsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,23 +16,27 @@ public class UserContactsController {
 
 
     @GetMapping
-    public List<UserContacts> getAllUserContacts(){
+    public List<UserContacts> getAllUserContacts() {
         return userContactsRepository.findAll();
     }
 
-    @PostMapping
-    public UserContacts createUserContactsData(@RequestBody UserContacts userContacts){
-        return userContactsRepository.save(userContacts);
+    @GetMapping("{usernumber}")
+    public List<UserContacts> getAllUserContactsMainUserWise(@PathVariable String usernumber) {
+        return userContactsRepository.findAllByusernumber(usernumber);
     }
 
+//    @PostMapping
+//    public UserContacts createUserContactsData(@RequestBody UserContacts userContacts) {
+//        return userContactsRepository.save(userContacts);
+//    }
+
     @PostMapping
-    public List<UserContacts> createUserContactsListData(@RequestBody List<UserContacts> userContacts){
+    public List<UserContacts> createUserContactsListData(@RequestBody List<UserContacts> userContacts) {
         for (UserContacts userContact : userContacts) {
             userContactsRepository.save(userContact);
         }
         return userContacts;
     }
-
 
 
 }

@@ -1,4 +1,5 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,8 +24,8 @@ public class UserContacts {
     @Column(name = "mobile_number")
     private String mobile_number;
 
-    @Column(name = "user_number")
-    private String user_number;
+    @Column(name = "usernumber")
+    private String usernumber;
 
     @Column(name = "user_name")
     private String user_name;

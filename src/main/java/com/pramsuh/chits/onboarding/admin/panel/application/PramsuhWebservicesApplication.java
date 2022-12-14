@@ -1,12 +1,16 @@
 package com.pramsuh.chits.onboarding.admin.panel.application;
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.*;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.*;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup40000Rs;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup50000Rs;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata.UserContacts;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Customer;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.RegistrationDetails;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.screenmodels.WACS_SCREEN;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.*;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_10Weeks_Data;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_CGCategories;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_CGCategories_Duration;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_Statistics;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.AdminDataRepo;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.commons.mobiledatarepositories.UserContactsRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
@@ -15,9 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.ResponseEntity;
-
-import java.util.Optional;
 
 @SpringBootApplication
 public class PramsuhWebservicesApplication implements CommandLineRunner {
@@ -42,7 +43,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
 
         ScreenData screenData = new ScreenData();
 
-        ScreenDataStatistics screenDataStatistics  = new ScreenDataStatistics();
+        ScreenDataStatistics screenDataStatistics = new ScreenDataStatistics();
         screenDataStatistics.setTitle("ScreenDataStatistics");
         screenDataStatistics.setMNumofCatPlanned("1");
         screenDataStatistics.setMNumofCatPublished("1");
@@ -173,7 +174,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         registrationDetails.setPanNumber("ABCPW3300J");
         registrationDetails.setPassword("123456");
         registrationDetails.setConfirmPassword(registrationDetails.getPassword());
-        if(!registrationDetailsRepository.findProfileByMobileNumber(registrationDetails.getMobileNumber()).isPresent()) {
+        if (!registrationDetailsRepository.findProfileByMobileNumber(registrationDetails.getMobileNumber()).isPresent()) {
             registrationDetails = registrationDetailsRepository.save(registrationDetails);
             if (registrationDetails != null) {
                 Customer customer = new Customer();
@@ -184,19 +185,20 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         }
 
         UserContacts userContacts = new UserContacts();
-        userContacts.setFirst_name("USER");
+        userContacts.setFirst_name("USER99");
         userContacts.setMobile_number("9999999999");
         userContacts.setLast_name("CONTACT");
-        userContacts.setUser_number("0000000000");
+        userContacts.setUsernumber("9581286452");
         userContacts.setUser_name("MAINUSER");
         userContactsRepository.save(userContacts);
 
         UserContacts userContacts2 = new UserContacts();
-        userContacts2.setFirst_name("USER2");
+        userContacts2.setFirst_name("USER29");
         userContacts2.setMobile_number("9999999990");
         userContacts2.setLast_name("CONTACT2");
-        userContacts2.setUser_number("0000000000");
+        userContacts2.setUsernumber("9581286452");
         userContacts2.setUser_name("MAINUSER");
         userContactsRepository.save(userContacts2);
+
     }
 }

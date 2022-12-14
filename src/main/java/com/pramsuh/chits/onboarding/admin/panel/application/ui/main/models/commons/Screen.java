@@ -1,6 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.screenmodels.*;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.screenmodels.WACS_SCREEN;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

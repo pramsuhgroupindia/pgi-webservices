@@ -1,4 +1,5 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
