@@ -20,4 +20,7 @@ public class Customer {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "message")
+    private String message;
 }

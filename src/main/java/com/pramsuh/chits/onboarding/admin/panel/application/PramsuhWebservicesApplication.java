@@ -180,6 +180,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
                 Customer customer = new Customer();
                 customer.setMobileNumber(registrationDetails.getMobileNumber());
                 customer.setPassword(registrationDetails.getPassword());
+                customer.setMessage("Registered");
                 customerRepository.save(customer);
             }
         }
