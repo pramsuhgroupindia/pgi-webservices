@@ -5,6 +5,7 @@ import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profi
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.RegistrationDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,16 +26,6 @@ public class RegistrationDetailsController {
         return registrationDetailsRepository.findAll();
     }
 
-    @GetMapping("/profiles/customers")
-    public List<Customer> getAllProfilesFromCustomersTable() {
-        return customerRepository.findAll();
-    }
-
-    @GetMapping("{mobile_number}")
-    public ResponseEntity<Customer> getProfileByNumber(@PathVariable String mobile_number) {
-        Optional<Customer> customerDetails = Optional.of(customerRepository.findProfileByMobileNumber(mobile_number).orElseThrow());
-        return ResponseEntity.ok(customerDetails.get());
-    }
 
     @PostMapping
     public RegistrationDetails createRegistrationDetails(@RequestBody RegistrationDetails registrationDetails) {
