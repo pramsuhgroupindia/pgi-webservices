@@ -3,7 +3,10 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata.UserContacts;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.commons.mobiledatarepositories.UserContactsRepository;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +17,7 @@ public class UserContactsController {
     @Autowired
     UserContactsRepository userContactsRepository;
 
-
+    private EntityManager entityManager;
     @GetMapping
     public List<UserContacts> getAllUserContacts() {
         return userContactsRepository.findAll();
@@ -31,11 +34,13 @@ public class UserContactsController {
 //    }
 
     @PostMapping
-    public List<UserContacts> createUserContactsListData(@RequestBody List<UserContacts> userContacts) {
+    public ResponseEntity<String> createUserContactsListData(@RequestBody List<UserContacts> userContacts) {
         for (UserContacts userContact : userContacts) {
-            userContactsRepository.save(userContact);
+            userContact.setMessage("Uploaded");
         }
-        return userContacts;
+        userContactsRepository.saveAll(userContacts);
+        entityManager.persist(userContacts);
+        return ResponseEntity.ok("Uploaded");
     }
 
 

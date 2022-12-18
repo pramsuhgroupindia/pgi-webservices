@@ -30,5 +30,8 @@ public class UserContacts {
     @Column(name = "user_name")
     private String user_name;
 
+    @Column(name = "message")
+    private String message;
+
 
 }
