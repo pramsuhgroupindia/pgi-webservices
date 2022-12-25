@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/web/services/signup")
@@ -24,6 +25,11 @@ public class RegistrationDetailsController {
         return registrationDetailsRepository.findAll();
     }
 
+    @GetMapping("{mobile_number}")
+    public Optional<RegistrationDetails> getProfileByMobNum(@PathVariable String mobile_number) {
+        return registrationDetailsRepository.findProfileByMobileNumber(mobile_number);
+    }
+
 
     @PostMapping
     public ResponseEntity<Customer> createRegistrationDetails(@RequestBody RegistrationDetails registrationDetails) {
@@ -31,6 +37,7 @@ public class RegistrationDetailsController {
             RegistrationDetails registrationDetails1 = registrationDetailsRepository.save(registrationDetails);
             if (!customerRepository.findProfileByMobileNumber(registrationDetails.getMobileNumber()).isPresent()) {
                 Customer customer = new Customer();
+                customer.setCustomerName(registrationDetails1.getFullName());
                 customer.setMobileNumber(registrationDetails1.getMobileNumber());
                 customer.setPassword(registrationDetails1.getPassword());
                 customer.setMessage("Registered");

@@ -39,7 +39,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        AdminData adminData = new AdminData();
+        /*AdminData adminData = new AdminData();
 
         ScreenData screenData = new ScreenData();
 
@@ -178,6 +178,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
             registrationDetails = registrationDetailsRepository.save(registrationDetails);
             if (registrationDetails != null) {
                 Customer customer = new Customer();
+                customer.setCustomerName(registrationDetails.getFullName());
                 customer.setMobileNumber(registrationDetails.getMobileNumber());
                 customer.setPassword(registrationDetails.getPassword());
                 customer.setMessage("Registered");
@@ -199,7 +200,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         userContacts2.setLast_name("CONTACT2");
         userContacts2.setUsernumber("9581286452");
         userContacts2.setUser_name("MAINUSER");
-        userContactsRepository.save(userContacts2);
+        userContactsRepository.save(userContacts2);*/
 
     }
 }

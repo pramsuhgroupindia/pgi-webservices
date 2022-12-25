@@ -5,7 +5,6 @@ import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobil
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.commons.mobiledatarepositories.UserContactsRepository;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +38,9 @@ public class UserContactsController {
             userContact.setMessage("Uploaded");
         }
         userContactsRepository.saveAll(userContacts);
-        entityManager.persist(userContacts);
+        if(null != this.entityManager) {
+            entityManager.persist(userContacts);
+        }
         return ResponseEntity.ok("Uploaded");
     }
 
