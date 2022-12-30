@@ -4,13 +4,12 @@ import lombok.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "images")
-@Data
-@Builder
-public class Images {
+@Table(name = "files")
+@NoArgsConstructor
+
+public class FileDB {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -18,6 +17,7 @@ public class Images {
     private String name;
     @Column(name = "type")
     private String type;
+    @Lob
     @Column(name = "image")
     private byte[] image;
 

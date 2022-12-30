@@ -1,5 +1,4 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +8,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "location")
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,12 +19,6 @@ public class Customer {
     @Column(name = "mobileNumber")
     private String mobileNumber;
 
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "message")
-    private String message;
-
-
-
+    @Column(name = "address")
+    private String address;
 }

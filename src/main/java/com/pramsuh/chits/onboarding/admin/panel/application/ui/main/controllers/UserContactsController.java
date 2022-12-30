@@ -15,7 +15,6 @@ import java.util.List;
 public class UserContactsController {
     @Autowired
     UserContactsRepository userContactsRepository;
-
     private EntityManager entityManager;
     @GetMapping
     public List<UserContacts> getAllUserContacts() {

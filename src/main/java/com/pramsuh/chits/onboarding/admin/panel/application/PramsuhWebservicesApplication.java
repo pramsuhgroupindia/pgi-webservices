@@ -1,10 +1,12 @@
 package com.pramsuh.chits.onboarding.admin.panel.application;
 
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.interfaces.FilesStorageService;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.*;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup40000Rs;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup50000Rs;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata.UserContacts;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Customer;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Location;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.RegistrationDetails;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.screenmodels.WACS_SCREEN;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_10Weeks_Data;
@@ -14,7 +16,9 @@ import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weekl
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.AdminDataRepo;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.commons.mobiledatarepositories.UserContactsRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.LocationRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.RegistrationDetailsRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.services.FileStorageServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,6 +37,8 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     @Autowired
     private UserContactsRepository userContactsRepository;
 
+    @Autowired
+    LocationRepository locationRepository;
     public static void main(String[] args) {
         SpringApplication.run(PramsuhWebservicesApplication.class, args);
     }
@@ -202,5 +208,12 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         userContacts2.setUser_name("MAINUSER");
         userContactsRepository.save(userContacts2);*/
 
+        new FileStorageServicesImpl().init();
+
+        Location location = new Location();
+        location.setMobileNumber("1");
+        location.setAddress("Hyderabad");
+        location.setCustomerName("1");
+        locationRepository.save(location);
     }
 }
