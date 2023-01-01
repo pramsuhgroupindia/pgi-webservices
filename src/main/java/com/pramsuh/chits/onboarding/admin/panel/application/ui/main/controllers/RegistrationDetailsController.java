@@ -7,12 +7,11 @@ import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/web/services/signup")
+@RequestMapping("/api/v1/web/services/customer/signup")
 public class RegistrationDetailsController {
     @Autowired
     RegistrationDetailsRepository registrationDetailsRepository;
@@ -29,7 +28,6 @@ public class RegistrationDetailsController {
     public Optional<RegistrationDetails> getProfileByMobNum(@PathVariable String mobile_number) {
         return registrationDetailsRepository.findProfileByMobileNumber(mobile_number);
     }
-
 
     @PostMapping
     public ResponseEntity<Customer> createRegistrationDetails(@RequestBody RegistrationDetails registrationDetails) {
@@ -51,5 +49,4 @@ public class RegistrationDetailsController {
         customer1.setPassword("123456");
         return ResponseEntity.ok(customer1);
     }
-
 }

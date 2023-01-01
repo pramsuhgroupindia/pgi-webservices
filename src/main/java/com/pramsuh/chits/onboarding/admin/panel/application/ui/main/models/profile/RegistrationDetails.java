@@ -32,11 +32,15 @@ public class RegistrationDetails {
     @Column(name = "panNumber")
     private String panNumber;
 
-    @Column(name = "aadharCard")
-    private Byte[] aadharCard;
+    @Column(name = "aadharCardPhoto")
+    private String aadharCardPhoto;
 
-    @Column(name = "panCard")
-    private Byte[] panCard;
+    @Column(name = "panCardPhoto")
+    private String panCardPhoto;
+
+    @Column(name = "addressPhoto")
+    private String addressPhoto;
+
     @Column(name = "password")
     private String password;
     @Column(name = "confirmPassword")

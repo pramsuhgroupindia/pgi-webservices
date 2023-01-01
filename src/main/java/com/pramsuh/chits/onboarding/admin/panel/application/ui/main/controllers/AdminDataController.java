@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/web/services")
+@RequestMapping("/api/v1/web/services/admin/data")
 public class AdminDataController {
     @Autowired
     AdminDataRepo adminDataRepo;

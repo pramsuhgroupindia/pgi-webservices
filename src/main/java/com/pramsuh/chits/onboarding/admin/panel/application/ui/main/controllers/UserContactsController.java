@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/web/user/contacts")
+@RequestMapping("/api/v1/web/services/customer/contacts")
 public class UserContactsController {
     @Autowired
     UserContactsRepository userContactsRepository;
