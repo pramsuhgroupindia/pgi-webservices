@@ -9,9 +9,9 @@ import java.nio.file.Path;
 import java.util.stream.Stream;
 public interface FilesStorageService {
 
-    public void init();
+    public void init(String mobileNumber, String tag);
 
-    public void save(MultipartFile file);
+    public void save(MultipartFile file, String mobileNumber, String tag);
 
     public Resource load(String filename);
 

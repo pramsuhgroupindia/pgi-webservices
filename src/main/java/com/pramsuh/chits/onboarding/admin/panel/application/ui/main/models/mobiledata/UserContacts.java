@@ -15,23 +15,24 @@ public class UserContacts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "first_name")
-    private String first_name;
+    @Column(name = "firstName")
+    private String firstName;
 
-    @Column(name = "last_name")
-    private String last_name;
+    @Column(name = "lastName")
+    private String lastName;
 
-    @Column(name = "mobile_number")
-    private String mobile_number;
+    @Column(name = "mobileNumber")
+    private String mobileNumber;
 
-    @Column(name = "usernumber")
-    private String usernumber;
+    @Column(name = "userNumber")
+    private String userNumber;
 
-    @Column(name = "user_name")
-    private String user_name;
+    @Column(name = "userName")
+    private String userName;
 
     @Column(name = "message")
     private String message;
 
-
+    @Column(name = "aadharNumber")
+    private String aadharNumber;
 }

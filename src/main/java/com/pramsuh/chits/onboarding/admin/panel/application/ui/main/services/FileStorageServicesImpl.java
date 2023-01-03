@@ -1,4 +1,5 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.services;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -21,11 +22,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileStorageServicesImpl implements FilesStorageService {
     @Autowired
     private FilesDbRepository fileDBRepository;
-    private final Path root = Paths.get("uploads");
+    private Path root = null;
 
     @Override
-    public void init() {
+    public void init(String mobileNumber, String tag) {
         try {
+            root = Paths.get("kyc/"+mobileNumber+"/"+tag);
             Files.createDirectories(root);
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
@@ -33,7 +35,8 @@ public class FileStorageServicesImpl implements FilesStorageService {
     }
 
     @Override
-    public void save(MultipartFile file) {
+    public void save(MultipartFile file, String mobileNumber, String tag) {
+        init(mobileNumber, tag);
         try {
             Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
         } catch (Exception e) {

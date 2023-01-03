@@ -26,6 +26,7 @@ public class Customer {
     @Column(name = "message")
     private String message;
 
-
+    @Column(name = "aadharNumber")
+    private String aadharNumber;
 
 }

@@ -24,29 +24,29 @@ public class RegistrationDetailsController {
         return registrationDetailsRepository.findAll();
     }
 
-    @GetMapping("{mobile_number}")
-    public Optional<RegistrationDetails> getProfileByMobNum(@PathVariable String mobile_number) {
-        return registrationDetailsRepository.findProfileByMobileNumber(mobile_number);
+    @GetMapping("{aadharNumber}")
+    public Optional<RegistrationDetails> getProfileByMobNum(@PathVariable String aadharNumber) {
+        return registrationDetailsRepository.findProfileByaadharNumber(aadharNumber);
     }
 
     @PostMapping
-    public ResponseEntity<Customer> createRegistrationDetails(@RequestBody RegistrationDetails registrationDetails) {
-        if (!registrationDetailsRepository.findProfileByMobileNumber(registrationDetails.getMobileNumber()).isPresent()) {
+    public ResponseEntity<RegistrationDetails> createRegistrationDetails(@RequestBody RegistrationDetails registrationDetails) {
+        if (!registrationDetailsRepository.findProfileByaadharNumber(registrationDetails.getAadharNumber()).isPresent()) {
             RegistrationDetails registrationDetails1 = registrationDetailsRepository.save(registrationDetails);
-            if (!customerRepository.findProfileByMobileNumber(registrationDetails.getMobileNumber()).isPresent()) {
+            if (!customerRepository.findProfileByaadharNumber(registrationDetails.getAadharNumber()).isPresent()) {
                 Customer customer = new Customer();
                 customer.setCustomerName(registrationDetails1.getFullName());
                 customer.setMobileNumber(registrationDetails1.getMobileNumber());
                 customer.setPassword(registrationDetails1.getPassword());
-                customer.setMessage("Registered");
+                customer.setMessage("REGISTERED");
                 customerRepository.save(customer);
-                return ResponseEntity.ok(customer);
+                registrationDetails1.setMessage("REGISTERED");
+                return ResponseEntity.ok(registrationDetails1);
+            } else{
+                registrationDetails.setMessage("ALREADY REGISTERED");
             }
         }
-        Customer customer1 = new Customer();
-        customer1.setMessage("Not registered");
-        customer1.setMobileNumber("0000000000");
-        customer1.setPassword("123456");
-        return ResponseEntity.ok(customer1);
+        registrationDetails.setMessage("ERROR");
+        return ResponseEntity.ok(new RegistrationDetails());
     }
 }

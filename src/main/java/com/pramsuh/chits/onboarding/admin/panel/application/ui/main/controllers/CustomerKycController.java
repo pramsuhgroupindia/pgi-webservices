@@ -17,7 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 @RestController
-@RequestMapping("/api/v1/web/services/customer/signup/kyc")
+@RequestMapping("/api/v1/web/services/customer/signup/kyc/process")
 public class CustomerKycController {
     @Autowired
     RegistrationDetailsRepository registrationDetailsRepository;
@@ -30,7 +30,7 @@ public class CustomerKycController {
                                                      @RequestParam("AADHAR") MultipartFile multipartFile1,
                                                      @RequestParam("PAN") MultipartFile multipartFile2,
                                                      @RequestParam("ADDRESS") MultipartFile multipartFile3) throws IOException {
-        if (registeredCustomer.getMobileNumber().equalsIgnoreCase(registrationDetailsRepository.findProfileByMobileNumber(registeredCustomer.getMobileNumber()).get().getMobileNumber())) {
+        if (registeredCustomer.getAadharNumber().equalsIgnoreCase(registrationDetailsRepository.findProfileByaadharNumber(registeredCustomer.getAadharNumber()).get().getAadharNumber())) {
             String aadharcardphoto = StringUtils.cleanPath(multipartFile1.getOriginalFilename());
             String pancardphoto = StringUtils.cleanPath(multipartFile2.getOriginalFilename());
             String addressphoto = StringUtils.cleanPath(multipartFile3.getOriginalFilename());
@@ -43,16 +43,16 @@ public class CustomerKycController {
             newDetails.setPanNumber(registeredCustomer.getPanNumber());
             newDetails.setPassword(registeredCustomer.getPassword());
             newDetails.setConfirmPassword(registeredCustomer.getConfirmPassword());
-            newDetails.setAadharCardPhoto(aadharcardphoto);
-            newDetails.setPanCardPhoto(pancardphoto);
-            newDetails.setAddressPhoto(addressphoto);
+            newDetails.setAadharCard(aadharcardphoto);
+            newDetails.setPanCard(pancardphoto);
+            newDetails.setAddressCard(addressphoto);
             registrationDetailsRepository.delete(registeredCustomer);
             newDetails = registrationDetailsRepository.save(newDetails);
             String uploadDir = "kyc/" + newDetails.getMobileNumber()+"/";
             saveFile(uploadDir, aadharcardphoto, multipartFile1);
             saveFile(uploadDir, pancardphoto, multipartFile2);
             saveFile(uploadDir, addressphoto, multipartFile3);
-            if (!customerRepository.findProfileByMobileNumber(newDetails.getMobileNumber()).isPresent()) {
+            if (!customerRepository.findProfileByaadharNumber(newDetails.getMobileNumber()).isPresent()) {
                 Customer customer = new Customer();
                 customer.setCustomerName(newDetails.getFullName());
                 customer.setMobileNumber(newDetails.getMobileNumber());

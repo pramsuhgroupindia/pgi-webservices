@@ -208,12 +208,12 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         userContacts2.setUser_name("MAINUSER");
         userContactsRepository.save(userContacts2);*/
 
-        new FileStorageServicesImpl().init();
-
-        Location location = new Location();
-        location.setMobileNumber("1");
-        location.setAddress("Hyderabad");
-        location.setCustomerName("1");
-        locationRepository.save(location);
+//        new FileStorageServicesImpl().init("9581286452", "aadhar");
+//
+//        Location location = new Location();
+//        location.setMobileNumber("1");
+//        location.setAddress("Hyderabad");
+//        location.setCustomerName("1");
+//        locationRepository.save(location);
     }
 }

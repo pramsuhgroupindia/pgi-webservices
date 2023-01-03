@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface UserContactsRepository extends JpaRepository<UserContacts, Long> {
 
-    List<UserContacts> findAllByusernumber(String userNumber);
+    List<UserContacts> findAllByuserNumber(String userNumber);
 }

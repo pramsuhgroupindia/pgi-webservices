@@ -1,8 +1,8 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.exception.FileUploadExceptionAdvice;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.interfaces.FilesStorageService;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.FileDB;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.RegistrationDetails;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.ResponseFile;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.ResponseMessage;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.FilesDbRepository;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/v1/web/services/kyc")
+@RequestMapping("/api/v1/web/services/customer/signup/kyc")
 public class ImagesController {
 
     @Autowired
@@ -27,18 +27,34 @@ public class ImagesController {
     @Autowired
     FilesStorageService storageService;
 
-    @PostMapping("/upload")
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
+    @PostMapping(value="/upload", consumes="*/*")
+    public ResponseEntity<ResponseMessage> uploadFiles(@RequestBody RegistrationDetails details,
+                                                       @RequestParam("AADHAR") MultipartFile aadhar,
+                                                       @RequestParam("PAN") MultipartFile pan,
+                                                       @RequestParam("ADDRESS") MultipartFile address) {
         String message = "";
-        try {
-            storageService.save(file);
-            //imagesRepository.save(new FileDB(0, file.getOriginalFilename(), file.getContentType(), file.getBytes()));
-            message = "Uploaded the file successfully: " + file.getOriginalFilename();
-            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-        } catch (Exception e) {
-            message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
-        }
+            try{
+                storageService.save(aadhar, details.getMobileNumber(), "aadhar");
+                message = "1 .Uploaded the file successfully: " + aadhar.getOriginalFilename();
+            }catch (Exception e) {
+                message = "Could not upload the file: " + aadhar.getOriginalFilename() ;
+                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+            }
+            try{
+                storageService.save(pan, details.getMobileNumber(), "pan");
+                message = message+" 2.Uploaded the file successfully: " + pan.getOriginalFilename();
+            }catch (Exception e) {
+                message = "Could not upload the file: " + pan.getOriginalFilename() ;
+                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+            }
+            try{
+                storageService.save(address, details.getMobileNumber(), "address");
+                message = message+" 3. Uploaded the file successfully: " + address.getOriginalFilename();
+            }catch (Exception e) {
+                message = "Could not upload the file: " + address.getOriginalFilename() ;
+                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("UPLOADED"));
     }
 
     @GetMapping("/files")
@@ -63,7 +79,6 @@ public class ImagesController {
     @GetMapping("/files/{id}")
     public ResponseEntity<byte[]> getFile(@PathVariable String id) {
         FileDB fileDB = storageService.getFile(Long.valueOf(id));
-
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")
                 .body(fileDB.getImage());

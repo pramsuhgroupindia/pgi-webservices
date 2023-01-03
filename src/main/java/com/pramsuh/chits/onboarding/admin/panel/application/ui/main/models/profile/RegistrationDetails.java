@@ -14,7 +14,7 @@ public class RegistrationDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "full_name")
+    @Column(name = "fullName")
     private String fullName;
 
     @Column(name = "mobileNumber")
@@ -23,6 +23,11 @@ public class RegistrationDetails {
     @Column(name = "emailId")
     private String emailId;
 
+    @Column(name = "dateOfBirth")
+    private String dateOfBirth;
+
+    @Column(name = "occupation")
+    private String occupation;
     @Column(name = "address")
     private String address;
 
@@ -32,19 +37,45 @@ public class RegistrationDetails {
     @Column(name = "panNumber")
     private String panNumber;
 
-    @Column(name = "aadharCardPhoto")
-    private String aadharCardPhoto;
+    @Column(name = "aadharCard")
+    private String aadharCard;
 
-    @Column(name = "panCardPhoto")
-    private String panCardPhoto;
+    @Column(name = "panCard")
+    private String panCard;
 
-    @Column(name = "addressPhoto")
-    private String addressPhoto;
+    @Column(name = "addressCard")
+    private String addressCard;
 
     @Column(name = "password")
     private String password;
     @Column(name = "confirmPassword")
     private String confirmPassword;
 
+    @Column(name = "message")
+    private String message;
+
+    @Column(name = "nomineeFullName")
+    private String nomineeFullName;
+
+    @Column(name = "nomineeAge")
+    private String nomineeAge;
+
+    @Column(name = "nomineeAddress")
+    private String nomineeAddress;
+
+    @Column(name = "nomineeAadharNumber")
+    private String nomineeAadharNumber;
+
+    @Column(name = "nomineePanNumber")
+    private String nomineePanNumber;
+
+    @Column(name = "nomineeMobNumber")
+    private String nomineeMobNumber;
+
+    @Column(name = "nomineeOccupation")
+    private String nomineeOccupation;
+
+    @Column(name = "nomineeRelation")
+    private String nomineeRelation;
 
 }

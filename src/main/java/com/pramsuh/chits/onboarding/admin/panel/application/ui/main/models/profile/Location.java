@@ -21,4 +21,7 @@ public class Location {
 
     @Column(name = "address")
     private String address;
+
+    @Column(name = "aadharNumber")
+    private String aadharNumber;
 }

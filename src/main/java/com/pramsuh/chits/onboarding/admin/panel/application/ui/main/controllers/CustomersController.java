@@ -22,13 +22,16 @@ public class CustomersController {
 
     @PostMapping
     public ResponseEntity<Customer> getProfileByNumber(@RequestBody Customer customer) {
-        if(customerRepository.findProfileByMobileNumber(customer.getMobileNumber()).isPresent()){
-            if(customerRepository.findProfileByMobileNumber(customer.getMobileNumber()).get().getPassword().equalsIgnoreCase(customer.getPassword()) ) {
+        if(customerRepository.findProfileByaadharNumber(customer.getAadharNumber()).isPresent()){
+            if(customerRepository.findProfileByaadharNumber(customer.getAadharNumber()).get().getPassword().equalsIgnoreCase(customer.getPassword()) ) {
                 customer.setMessage("FOUND");
+                return ResponseEntity.ok(customer);
+            }else{
+                customer.setMessage("NOT FOUND");
                 return ResponseEntity.ok(customer);
             }
         }
-        customer.setMessage("NOT FOUND");
+        customer.setMessage("EXCEPTIONAL");
         return ResponseEntity.ok(customer);
     }
 }

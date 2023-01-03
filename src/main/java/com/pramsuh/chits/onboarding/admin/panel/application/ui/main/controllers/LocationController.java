@@ -20,17 +20,17 @@ public class LocationController {
         return locationRepository.findAll();
     }
 
-    @GetMapping("{mobileNumber}")
-    public ResponseEntity<Location> getLocationByNumber(@PathVariable String mobileNumber) {
-        if(locationRepository.findLocationByMobileNumber(mobileNumber).isPresent()){
-                return ResponseEntity.ok(locationRepository.findLocationByMobileNumber(mobileNumber).get());
+    @GetMapping("{aadharNumber}")
+    public ResponseEntity<Location> getLocationByNumber(@PathVariable String aadharNumber) {
+        if(locationRepository.findLocationByaadharNumber(aadharNumber).isPresent()){
+                return ResponseEntity.ok(locationRepository.findLocationByaadharNumber(aadharNumber).get());
         }
         return ResponseEntity.ok(null);
     }
 
     @PostMapping
     public ResponseEntity<Location> postLocation(@RequestBody Location location) {
-        locationRepository.save(location);
+        Location userLocation = locationRepository.save(location);
         return ResponseEntity.ok(location);
     }
 }

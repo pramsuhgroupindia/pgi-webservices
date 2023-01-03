@@ -21,9 +21,9 @@ public class UserContactsController {
         return userContactsRepository.findAll();
     }
 
-    @GetMapping("{usernumber}")
-    public List<UserContacts> getAllUserContactsMainUserWise(@PathVariable String usernumber) {
-        return userContactsRepository.findAllByusernumber(usernumber);
+    @GetMapping("{userNumber}")
+    public List<UserContacts> getAllUserContactsMainUserWise(@PathVariable String userNumber) {
+        return userContactsRepository.findAllByuserNumber(userNumber);
     }
 
 //    @PostMapping
@@ -34,13 +34,16 @@ public class UserContactsController {
     @PostMapping
     public ResponseEntity<String> createUserContactsListData(@RequestBody List<UserContacts> userContacts) {
         for (UserContacts userContact : userContacts) {
-            userContact.setMessage("Uploaded");
+            userContact.setMessage("SUCCESS");
         }
-        userContactsRepository.saveAll(userContacts);
+        List<UserContacts> contactsList = userContactsRepository.saveAll(userContacts);
         if(null != this.entityManager) {
             entityManager.persist(userContacts);
         }
-        return ResponseEntity.ok("Uploaded");
+        if(contactsList == null){
+            return ResponseEntity.ok("ERROR");
+        }
+        return ResponseEntity.ok("SUCCESS");
     }
 
 
