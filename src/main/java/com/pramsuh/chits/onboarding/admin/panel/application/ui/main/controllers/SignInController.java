@@ -1,7 +1,9 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Customer;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
+
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.SignupDetails;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.SignInData;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.SignupDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
@@ -11,27 +13,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/web/services/customer/signin")
-public class CustomersController {
+public class SignInController {
     @Autowired
-    CustomerRepository customerRepository;
+    SignupDetailsRepository signupDetailsRepository;
 
     @GetMapping("/profiles/customers")
-    public List<Customer> getAllProfilesFromCustomersTable() {
-        return customerRepository.findAll();
+    public List<SignupDetails> getAllProfilesFromCustomersTable() {
+        return signupDetailsRepository.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Customer> getProfileByNumber(@RequestBody Customer customer) {
-        if(customerRepository.findProfileByaadharNumber(customer.getAadharNumber()).isPresent()){
-            if(customerRepository.findProfileByaadharNumber(customer.getAadharNumber()).get().getPassword().equalsIgnoreCase(customer.getPassword()) ) {
-                customer.setMessage("FOUND");
-                return ResponseEntity.ok(customer);
+    public ResponseEntity<SignInData> getProfileByNumber(@RequestBody SignInData signInData) {
+        if(signupDetailsRepository.findProfileByAadharNumber(signInData.getAadharNumber()).isPresent()){
+            if(signupDetailsRepository.findProfileByAadharNumber(signInData.getAadharNumber()).get().getPassword().equalsIgnoreCase(signInData.getPassword()) ) {
+                signInData.setMessage("FOUND");
+                return ResponseEntity.ok(signInData);
             }else{
-                customer.setMessage("NOT FOUND");
-                return ResponseEntity.ok(customer);
+                signInData.setMessage("NOT FOUND");
+                return ResponseEntity.ok(signInData);
             }
         }
-        customer.setMessage("EXCEPTIONAL");
-        return ResponseEntity.ok(customer);
+        signInData.setMessage("EXCEPTIONAL");
+        return ResponseEntity.ok(signInData);
     }
 }

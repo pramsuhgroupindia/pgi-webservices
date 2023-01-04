@@ -1,9 +1,9 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Customer;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.RegistrationDetails;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.SignupDetails;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.RegistrationDetailsRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.SignupDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -20,21 +20,21 @@ import java.nio.file.StandardCopyOption;
 @RequestMapping("/api/v1/web/services/customer/signup/kyc/process")
 public class CustomerKycController {
     @Autowired
-    RegistrationDetailsRepository registrationDetailsRepository;
+    SignupDetailsRepository signupDetailsRepository;
 
     @Autowired
     CustomerRepository customerRepository;
 
     @PostMapping(consumes={"multipart/form-data"})
-    public ResponseEntity<Customer> uploadKycDetails(@RequestBody RegistrationDetails registeredCustomer,
+    public ResponseEntity<Customer> uploadKycDetails(@RequestBody SignupDetails registeredCustomer,
                                                      @RequestParam("AADHAR") MultipartFile multipartFile1,
                                                      @RequestParam("PAN") MultipartFile multipartFile2,
                                                      @RequestParam("ADDRESS") MultipartFile multipartFile3) throws IOException {
-        if (registeredCustomer.getAadharNumber().equalsIgnoreCase(registrationDetailsRepository.findProfileByaadharNumber(registeredCustomer.getAadharNumber()).get().getAadharNumber())) {
+        if (registeredCustomer.getAadharNumber().equalsIgnoreCase(signupDetailsRepository.findProfileByAadharNumber(registeredCustomer.getAadharNumber()).get().getAadharNumber())) {
             String aadharcardphoto = StringUtils.cleanPath(multipartFile1.getOriginalFilename());
             String pancardphoto = StringUtils.cleanPath(multipartFile2.getOriginalFilename());
             String addressphoto = StringUtils.cleanPath(multipartFile3.getOriginalFilename());
-            RegistrationDetails newDetails = new RegistrationDetails();
+            SignupDetails newDetails = new SignupDetails();
             newDetails.setFullName(registeredCustomer.getFullName());
             newDetails.setMobileNumber(registeredCustomer.getMobileNumber());
             newDetails.setEmailId(registeredCustomer.getEmailId());
@@ -46,8 +46,8 @@ public class CustomerKycController {
             newDetails.setAadharCard(aadharcardphoto);
             newDetails.setPanCard(pancardphoto);
             newDetails.setAddressCard(addressphoto);
-            registrationDetailsRepository.delete(registeredCustomer);
-            newDetails = registrationDetailsRepository.save(newDetails);
+            signupDetailsRepository.delete(registeredCustomer);
+            newDetails = signupDetailsRepository.save(newDetails);
             String uploadDir = "kyc/" + newDetails.getMobileNumber()+"/";
             saveFile(uploadDir, aadharcardphoto, multipartFile1);
             saveFile(uploadDir, pancardphoto, multipartFile2);

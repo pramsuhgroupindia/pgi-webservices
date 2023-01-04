@@ -1,24 +1,10 @@
 package com.pramsuh.chits.onboarding.admin.panel.application;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.interfaces.FilesStorageService;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.*;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup40000Rs;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.commons.chitgroups.ChitGroup50000Rs;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata.UserContacts;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Customer;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Location;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.RegistrationDetails;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.screenmodels.WACS_SCREEN;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_10Weeks_Data;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_CGCategories;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_CGCategories_Duration;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.weeklychitmodels.Wacs_Screen_Statistics;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.AdminDataRepo;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.commons.mobiledatarepositories.UserContactsRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.LocationRepository;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.RegistrationDetailsRepository;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.services.FileStorageServicesImpl;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.SignupDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -30,7 +16,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     @Autowired
     private AdminDataRepo adminDataRepo;
     @Autowired
-    private RegistrationDetailsRepository registrationDetailsRepository;
+    private SignupDetailsRepository signupDetailsRepository;
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -169,7 +155,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         adminData.setScreenData(screenData);
         adminDataRepo.save(adminData);
 
-        RegistrationDetails registrationDetails = new RegistrationDetails();
+        SignupDetails registrationDetails = new SignupDetails();
         registrationDetails.setAddress("Shamshabad");
         registrationDetails.setAadharCard(null);
         registrationDetails.setPanCard(null);
@@ -180,8 +166,8 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         registrationDetails.setPanNumber("ABCPW3300J");
         registrationDetails.setPassword("123456");
         registrationDetails.setConfirmPassword(registrationDetails.getPassword());
-        if (!registrationDetailsRepository.findProfileByMobileNumber(registrationDetails.getMobileNumber()).isPresent()) {
-            registrationDetails = registrationDetailsRepository.save(registrationDetails);
+        if (!signupDetailsRepository.findProfileByMobileNumber(registrationDetails.getMobileNumber()).isPresent()) {
+            registrationDetails = signupDetailsRepository.save(registrationDetails);
             if (registrationDetails != null) {
                 Customer customer = new Customer();
                 customer.setCustomerName(registrationDetails.getFullName());

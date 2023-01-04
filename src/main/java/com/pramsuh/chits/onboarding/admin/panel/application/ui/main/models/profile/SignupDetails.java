@@ -9,21 +9,21 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "customer_details")
-public class RegistrationDetails {
+@Table(name = "registration_details")
+public class SignupDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "fullName")
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "mobileNumber")
+    @Column(name = "mobile_number")
     private String mobileNumber;
 
-    @Column(name = "emailId")
+    @Column(name = "email_id")
     private String emailId;
 
-    @Column(name = "dateOfBirth")
+    @Column(name = "date_of_birth")
     private String dateOfBirth;
 
     @Column(name = "occupation")
@@ -31,51 +31,51 @@ public class RegistrationDetails {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "aadharNumber")
+    @Column(name = "aadhar_number")
     private String aadharNumber;
 
-    @Column(name = "panNumber")
+    @Column(name = "pan_number")
     private String panNumber;
 
-    @Column(name = "aadharCard")
+    @Column(name = "aadhar_card")
     private String aadharCard;
 
-    @Column(name = "panCard")
+    @Column(name = "pan_card")
     private String panCard;
 
-    @Column(name = "addressCard")
+    @Column(name = "address_card")
     private String addressCard;
 
     @Column(name = "password")
     private String password;
-    @Column(name = "confirmPassword")
+    @Column(name = "confirm_password")
     private String confirmPassword;
 
     @Column(name = "message")
     private String message;
 
-    @Column(name = "nomineeFullName")
+    @Column(name = "nominee_full_name")
     private String nomineeFullName;
 
-    @Column(name = "nomineeAge")
+    @Column(name = "nominee_age")
     private String nomineeAge;
 
-    @Column(name = "nomineeAddress")
+    @Column(name = "nominee_address")
     private String nomineeAddress;
 
-    @Column(name = "nomineeAadharNumber")
+    @Column(name = "nominee_aadhar_number")
     private String nomineeAadharNumber;
 
-    @Column(name = "nomineePanNumber")
+    @Column(name = "nominee_pan_number")
     private String nomineePanNumber;
 
-    @Column(name = "nomineeMobNumber")
+    @Column(name = "nominee_mob_number")
     private String nomineeMobNumber;
 
-    @Column(name = "nomineeOccupation")
+    @Column(name = "nominee_occupation")
     private String nomineeOccupation;
 
-    @Column(name = "nomineeRelation")
+    @Column(name = "nominee_relation")
     private String nomineeRelation;
 
 }

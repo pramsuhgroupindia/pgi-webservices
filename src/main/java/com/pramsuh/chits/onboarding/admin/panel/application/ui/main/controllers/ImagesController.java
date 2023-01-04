@@ -2,7 +2,7 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.interfaces.FilesStorageService;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.FileDB;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.RegistrationDetails;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.SignupDetails;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.ResponseFile;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.ResponseMessage;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.FilesDbRepository;
@@ -28,7 +28,7 @@ public class ImagesController {
     FilesStorageService storageService;
 
     @PostMapping(value="/upload", consumes="*/*")
-    public ResponseEntity<ResponseMessage> uploadFiles(@RequestBody RegistrationDetails details,
+    public ResponseEntity<ResponseMessage> uploadFiles(@RequestBody SignupDetails details,
                                                        @RequestParam("AADHAR") MultipartFile aadhar,
                                                        @RequestParam("PAN") MultipartFile pan,
                                                        @RequestParam("ADDRESS") MultipartFile address) {
