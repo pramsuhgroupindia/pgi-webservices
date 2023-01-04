@@ -33,20 +33,28 @@ public class RegistrationDetailsController {
     public ResponseEntity<RegistrationDetails> createRegistrationDetails(@RequestBody RegistrationDetails registrationDetails) {
         if (!registrationDetailsRepository.findProfileByaadharNumber(registrationDetails.getAadharNumber()).isPresent()) {
             RegistrationDetails registrationDetails1 = registrationDetailsRepository.save(registrationDetails);
-            if (!customerRepository.findProfileByaadharNumber(registrationDetails.getAadharNumber()).isPresent()) {
-                Customer customer = new Customer();
-                customer.setCustomerName(registrationDetails1.getFullName());
-                customer.setMobileNumber(registrationDetails1.getMobileNumber());
-                customer.setPassword(registrationDetails1.getPassword());
-                customer.setMessage("REGISTERED");
-                customerRepository.save(customer);
+            if(registrationDetails1 != null){
                 registrationDetails1.setMessage("REGISTERED");
                 return ResponseEntity.ok(registrationDetails1);
-            } else{
-                registrationDetails.setMessage("ALREADY REGISTERED");
             }
+//            if (!customerRepository.findProfileByaadharNumber(registrationDetails.getAadharNumber()).isPresent()) {
+//                Customer customer = new Customer();
+//                customer.setCustomerName(registrationDetails1.getFullName());
+//                customer.setMobileNumber(registrationDetails1.getMobileNumber());
+//                customer.setPassword(registrationDetails1.getPassword());
+//                customer.setAadharNumber(registrationDetails1.getAadharNumber());
+//                customer.setMessage("REGISTERED");
+//                customerRepository.save(customer);
+//                registrationDetails1.setMessage("REGISTERED");
+//                return ResponseEntity.ok(registrationDetails1);
+//            } else{
+//                registrationDetails.setMessage("ALREADY REGISTERED");
+//            }
+        } else{
+            registrationDetails.setMessage("ALREADY REGISTERED");
+            return ResponseEntity.ok(registrationDetails);
         }
         registrationDetails.setMessage("ERROR");
-        return ResponseEntity.ok(new RegistrationDetails());
+        return ResponseEntity.ok(registrationDetails);
     }
 }
