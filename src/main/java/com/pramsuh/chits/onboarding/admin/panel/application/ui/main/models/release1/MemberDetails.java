@@ -1,4 +1,4 @@
-package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile;
+package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.release1;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "registration_details")
-public class SignupDetails {
+@Table(name = "member_details")
+public class MemberDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -77,13 +77,5 @@ public class SignupDetails {
 
     @Column(name = "nominee_relation")
     private String nomineeRelation;
-    @Column(name = "cibil")
-    private String cibilConsent;
-    @Column(name = "cfa")
-    private String cfaConsent;
-    @Column(name = "privacy")
-    private String privacyConsent;
-    @Column(name = "data")
-    private String dataConsent;
 
 }

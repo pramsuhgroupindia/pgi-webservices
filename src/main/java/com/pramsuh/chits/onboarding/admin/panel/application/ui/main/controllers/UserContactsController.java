@@ -21,9 +21,9 @@ public class UserContactsController {
         return userContactsRepository.findAll();
     }
 
-    @GetMapping("{userNumber}")
-    public List<UserContacts> getAllUserContactsMainUserWise(@PathVariable String userNumber) {
-        return userContactsRepository.findAllByuserNumber(userNumber);
+    @GetMapping("{aadharNumber}")
+    public List<UserContacts> getAllUserContactsMainUserWise(@PathVariable String aadharNumber) {
+        return userContactsRepository.findAllByuserNumber(aadharNumber);
     }
 
 //    @PostMapping

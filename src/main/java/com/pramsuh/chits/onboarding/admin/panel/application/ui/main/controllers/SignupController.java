@@ -1,8 +1,10 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.SignupDetails;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.release1.MemberDetails;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.SignupDetailsRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.release1.MemberDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,8 @@ public class SignupController {
     @Autowired
     SignupDetailsRepository signupDetailsRepository;
 
+    @Autowired
+    MemberDetailsRepository memberDetailsRepository;
     @Autowired
     CustomerRepository customerRepository;
 
@@ -30,26 +34,38 @@ public class SignupController {
 
     @PostMapping
     public ResponseEntity<SignupDetails> createRegistrationDetails(@RequestBody SignupDetails signupDetails) {
-        System.out.println("Object is "+signupDetailsRepository.findProfileByAadharNumber(signupDetails.getAadharNumber()).isPresent());
         if (!signupDetailsRepository.findProfileByAadharNumber(signupDetails.getAadharNumber()).isPresent()) {
             SignupDetails signupDetails1 = signupDetailsRepository.save(signupDetails);
+            if (!memberDetailsRepository.findProfileByAadharNumber(signupDetails1.getAadharNumber()).isPresent()) {
+                MemberDetails memberDetails = new MemberDetails();
+                memberDetails.setFullName(signupDetails1.getFullName());
+                memberDetails.setEmailId(signupDetails1.getEmailId());
+                memberDetails.setMobileNumber(signupDetails1.getMobileNumber());
+                memberDetails.setDateOfBirth(signupDetails1.getDateOfBirth());
+                memberDetails.setOccupation(signupDetails1.getOccupation());
+                memberDetails.setAddress(signupDetails1.getAddress());
+                memberDetails.setAadharNumber(signupDetails1.getAadharNumber());
+                memberDetails.setPanNumber(signupDetails1.getPanNumber());
+                memberDetails.setPassword(signupDetails1.getPassword());
+                memberDetails.setConfirmPassword(signupDetails1.getConfirmPassword());
+                memberDetails.setNomineeFullName(signupDetails1.getNomineeFullName());
+                memberDetails.setAadharCard(signupDetails1.getAadharCard());
+                memberDetails.setPanCard(signupDetails1.getPanCard());
+                memberDetails.setAddressCard(signupDetails1.getAddressCard());
+                memberDetails.setNomineeAge(signupDetails1.getNomineeAge());
+                memberDetails.setNomineeAddress(signupDetails1.getNomineeAddress());
+                memberDetails.setNomineeAadharNumber(signupDetails1.getNomineeAadharNumber());
+                memberDetails.setNomineePanNumber(signupDetails1.getNomineePanNumber());
+                memberDetails.setNomineeMobNumber(signupDetails1.getNomineeMobNumber());
+                memberDetails.setOccupation(signupDetails1.getOccupation());
+                memberDetails.setNomineeRelation(signupDetails1.getNomineeRelation());
+                memberDetails.setMessage("REGISTERED");
+                memberDetailsRepository.save(memberDetails);
+            }
             if(signupDetails1 != null){
                 signupDetails1.setMessage("REGISTERED");
                 return ResponseEntity.ok(signupDetails1);
             }
-//            if (!customerRepository.findProfileByaadharNumber(signupDetails.getAadharNumber()).isPresent()) {
-//                Customer customer = new Customer();
-//                customer.setCustomerName(signupDetails1.getFullName());
-//                customer.setMobileNumber(signupDetails1.getMobileNumber());
-//                customer.setPassword(signupDetails1.getPassword());
-//                customer.setAadharNumber(signupDetails1.getAadharNumber());
-//                customer.setMessage("REGISTERED");
-//                customerRepository.save(customer);
-//                signupDetails1.setMessage("REGISTERED");
-//                return ResponseEntity.ok(signupDetails1);
-//            } else{
-//                signupDetails.setMessage("ALREADY REGISTERED");
-//            }
         } else{
             signupDetails.setMessage("ALREADY REGISTERED");
             return ResponseEntity.ok(signupDetails);
