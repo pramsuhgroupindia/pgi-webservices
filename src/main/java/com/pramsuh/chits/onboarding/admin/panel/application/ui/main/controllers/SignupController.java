@@ -1,10 +1,10 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.SignupDetails;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.release1.MemberDetails;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.CustomerRepository;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.SignupDetailsRepository;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.release1.MemberDetailsRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.SignupDetails;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.MemberDetails;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.CustomerRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.SignupDetailsRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.MemberDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

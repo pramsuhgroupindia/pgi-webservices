@@ -1,10 +1,7 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata.UserContacts;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Customer;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Location;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.SMSInbox;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.SMSInboxRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.SMSInbox;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.SMSInboxRepository;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

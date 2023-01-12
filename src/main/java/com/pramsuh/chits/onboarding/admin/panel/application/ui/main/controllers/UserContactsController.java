@@ -1,8 +1,8 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.mobiledata.UserContacts;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.commons.mobiledatarepositories.UserContactsRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.UserContacts;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.UserContactsRepository;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

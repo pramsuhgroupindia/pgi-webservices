@@ -1,5 +1,5 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.exception;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.ResponseMessage;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.ResponseMessage;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.http.HttpStatus;

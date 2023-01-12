@@ -1,7 +1,7 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.profile.Location;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.profile.repositories.LocationRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.Location;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
