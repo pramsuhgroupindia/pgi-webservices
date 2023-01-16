@@ -1,13 +1,22 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.mocking;
 
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.Customer;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.SignupDetails;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class CustomerMocker {
-    @Autowired
-    private CustomerRepository customerRepository;
 
-    public void mockCustomerDataTable(){
 
+    public Customer mockCustomerDataTable(CustomerRepository customerRepository, SignupDetails signupDetails){
+        Customer customer = new Customer();
+        customer.setCustomerName(signupDetails.getFullName());
+        customer.setPassword(signupDetails.getPassword());
+        customer.setAadharNumber(signupDetails.getAadharNumber());
+        customer.setMobileNumber(signupDetails.getMobileNumber());
+        customer.setMessage("REGISTERED");
+        if(!customerRepository.findProfileByaadharNumber(customer.getAadharNumber()).isPresent()){
+            customerRepository.save(customer);
+        }
+        return customer;
     }
 }

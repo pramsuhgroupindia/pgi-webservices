@@ -8,36 +8,143 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class MonthlyChitSchemesMocker {
 
-    @Autowired
-    private MonthlyAuctionableDurationsRepository monthlyAuctionableDurationsRepository;
-
-    @Autowired
-    private MonthlyChitGroupsRepository monthlyChitGroupsRepository;
-
-    public void mockMonthlySchemesTableData(){
-        mockMonthlyAuctionableDurations();
-        mockMonthlyChitGroups15();
-        mockMonthlyChitGroups20();
-        mockMonthlyChitGroups25();
-        mockMonthlyChitGroups30();
-        mockMonthlyChitGroups40();
-        mockMonthlyChitGroups50();
+    public void mockMonthlySchemesTableData(MonthlyAuctionableDurationsRepository monthlyAuctionableDurationsRepository,
+                                            MonthlyChitGroupsRepository monthlyChitGroupsRepository) {
+        mockMonthlyAuctionableDurations(monthlyAuctionableDurationsRepository);
+        mockMonthlyChitGroups10(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups12(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups15(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups20(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups25(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups30(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups35(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups40(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups45(monthlyChitGroupsRepository);
+        mockMonthlyChitGroups50(monthlyChitGroupsRepository);
     }
 
-    private void mockMonthlyAuctionableDurations(){
+    private void mockMonthlyAuctionableDurations(MonthlyAuctionableDurationsRepository monthlyAuctionableDurationsRepository) {
         MonthlyAuctionableDurations monthlyAuctionableDurations = new MonthlyAuctionableDurations();
-        monthlyAuctionableDurations.setM12("15 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+
+        monthlyAuctionableDurations.setM10("10 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM10dtoggle("1");
+
+        monthlyAuctionableDurations.setM12("12 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM12dtoggle("1");
+
+        monthlyAuctionableDurations.setM15("15 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM15dtoggle("1");
+
         monthlyAuctionableDurations.setM20("20 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM20dtoggle("1");
+
         monthlyAuctionableDurations.setM25("25 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM25dtoggle("1");
+
         monthlyAuctionableDurations.setM30("30 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM30dtoggle("1");
+
+        monthlyAuctionableDurations.setM35("35 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM35dtoggle("1");
+
         monthlyAuctionableDurations.setM40("40 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM40dtoggle("1");
+
+        monthlyAuctionableDurations.setM45("45 MONTHS DURATIONS MONTHLY CHIT GROUPS");
+        monthlyAuctionableDurations.setM45dtoggle("1");
+
         monthlyAuctionableDurations.setM50("50 MONTHS DURATIONS MONTHLY CHIT GROUPS");
-        if(!monthlyAuctionableDurationsRepository.existsById(Integer.toUnsignedLong(1))) {
+        monthlyAuctionableDurations.setM50dtoggle("1");
+
+        if (!monthlyAuctionableDurationsRepository.existsById(Integer.toUnsignedLong(1))) {
             monthlyAuctionableDurationsRepository.save(monthlyAuctionableDurations);
         }
     }
+    private void mockMonthlyChitGroups10(MonthlyChitGroupsRepository monthlyChitGroupsRepository){
+        MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
+        monthlyChitGroups1.setMTitle("10 MONTHS 5,00,000 INR GROUP (P10M05L01)");
+        monthlyChitGroups1.setMVisibility("1");
+        monthlyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 15");
+        monthlyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
+        monthlyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 14");
+        monthlyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 14");
+        monthlyChitGroups1.setMBookingStatus("Booking: OPEN");
+        monthlyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        monthlyChitGroups1.setMaxBidRange("Maximum Bid%: 30% of Chit Value");
+        monthlyChitGroups1.setMinPrizeRange("Minimum Prize: 3,50,000 Rs");
+        monthlyChitGroups1.setMaxPrizeRange("Maximum Prize: 5,25,000 Rs");
+        monthlyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 15");
+        monthlyChitGroups1.setCode("P10M05L01");
+        monthlyChitGroups1.setNumberOfTickets("15");
+        monthlyChitGroups1.setAmount("25000 INR PER TICKET");
+        monthlyChitGroups1.setValue("5,00,000 INR");
+        monthlyChitGroups1.setDuration("15 MONTHS");
+        monthlyChitGroups1.setTime("02:00 PM");
+        monthlyChitGroups1.setTotalinstallmentsnumber("15");
+        monthlyChitGroups1.setDay("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setNoauction("First Auction Goes to Company");
+        monthlyChitGroups1.setDueday("Every 20th DAY OF MONTH");
+        monthlyChitGroups1.setDistribution("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setFrequency("MONTHLY 1 AUCTION");
+        monthlyChitGroups1.setSubscription("84.80% OF CHIT VALUE()(4,24,000 INR PER TICKET)");
+        monthlyChitGroups1.setDividend("15.20% OF CHIT VALUE(76,000 INR PER TICKET)");
+        monthlyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        monthlyChitGroups1.setEfees("1% OF CHIT VALUE(5000 INR PER TICKET)");
+        monthlyChitGroups1.setPaymentfrequency("MONTHLY, DAILY, WEEKLY, BIWEEKLY");
+        monthlyChitGroups1.setNoofguaranters("THREE GUARANTORS ARE REQUIRED");
+        monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        monthlyChitGroups1.setRollid("10");
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
+            monthlyChitGroupsRepository.save(monthlyChitGroups1);
+        }
+    }
 
-    private void mockMonthlyChitGroups15(){
+    private void mockMonthlyChitGroups12(MonthlyChitGroupsRepository monthlyChitGroupsRepository){
+        MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
+        monthlyChitGroups1.setMTitle("12 MONTHS 5,00,000 INR GROUP (P12M05L01)");
+        monthlyChitGroups1.setMVisibility("1");
+        monthlyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 15");
+        monthlyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
+        monthlyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 14");
+        monthlyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 14");
+        monthlyChitGroups1.setMBookingStatus("Booking: OPEN");
+        monthlyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        monthlyChitGroups1.setMaxBidRange("Maximum Bid%: 30% of Chit Value");
+        monthlyChitGroups1.setMinPrizeRange("Minimum Prize: 3,50,000 Rs");
+        monthlyChitGroups1.setMaxPrizeRange("Maximum Prize: 5,25,000 Rs");
+        monthlyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 15");
+        monthlyChitGroups1.setCode("P12M05L01");
+        monthlyChitGroups1.setNumberOfTickets("15");
+        monthlyChitGroups1.setAmount("25000 INR PER TICKET");
+        monthlyChitGroups1.setValue("5,00,000 INR");
+        monthlyChitGroups1.setDuration("15 MONTHS");
+        monthlyChitGroups1.setTime("02:00 PM");
+        monthlyChitGroups1.setTotalinstallmentsnumber("15");
+        monthlyChitGroups1.setDay("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setNoauction("First Auction Goes to Company");
+        monthlyChitGroups1.setDueday("Every 20th DAY OF MONTH");
+        monthlyChitGroups1.setDistribution("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setFrequency("MONTHLY 1 AUCTION");
+        monthlyChitGroups1.setSubscription("84.80% OF CHIT VALUE()(4,24,000 INR PER TICKET)");
+        monthlyChitGroups1.setDividend("15.20% OF CHIT VALUE(76,000 INR PER TICKET)");
+        monthlyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        monthlyChitGroups1.setEfees("1% OF CHIT VALUE(5000 INR PER TICKET)");
+        monthlyChitGroups1.setPaymentfrequency("MONTHLY, DAILY, WEEKLY, BIWEEKLY");
+        monthlyChitGroups1.setNoofguaranters("THREE GUARANTORS ARE REQUIRED");
+        monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        monthlyChitGroups1.setRollid("12");
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
+            monthlyChitGroupsRepository.save(monthlyChitGroups1);
+        }
+    }
+
+    private void mockMonthlyChitGroups15(MonthlyChitGroupsRepository monthlyChitGroupsRepository) {
         MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
         monthlyChitGroups1.setMTitle("15 MONTHS 5,00,000 INR GROUP (P15M05L01)");
         monthlyChitGroups1.setMVisibility("1");
@@ -74,7 +181,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups1.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups1);
         }
         MonthlyChitGroups monthlyChitGroups2 = new MonthlyChitGroups();
@@ -113,7 +220,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups2.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups2);
         }
         MonthlyChitGroups monthlyChitGroups3 = new MonthlyChitGroups();
@@ -152,7 +259,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups3.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups4 = new MonthlyChitGroups();
@@ -191,7 +298,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups4.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups4);
         }
         MonthlyChitGroups monthlyChitGroups5 = new MonthlyChitGroups();
@@ -230,7 +337,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups5.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups5);
         }
         MonthlyChitGroups monthlyChitGroups6 = new MonthlyChitGroups();
@@ -269,7 +376,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups6.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups6.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups6.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups6);
         }
         MonthlyChitGroups monthlyChitGroups7 = new MonthlyChitGroups();
@@ -308,7 +415,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups7.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups7.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups7.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups8 = new MonthlyChitGroups();
@@ -347,7 +454,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups8.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups8.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups8.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups8);
         }
         MonthlyChitGroups monthlyChitGroups9 = new MonthlyChitGroups();
@@ -386,7 +493,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups9.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups9.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups9.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups9);
         }
         MonthlyChitGroups monthlyChitGroups10 = new MonthlyChitGroups();
@@ -425,7 +532,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups10.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups10.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups10.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups10);
         }
         MonthlyChitGroups monthlyChitGroups11 = new MonthlyChitGroups();
@@ -464,7 +571,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups11.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups11.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups11.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups11);
         }
         MonthlyChitGroups monthlyChitGroups12 = new MonthlyChitGroups();
@@ -503,7 +610,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups12.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups12.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups12.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups13 = new MonthlyChitGroups();
@@ -542,7 +649,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups13.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups13.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups13.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups13);
         }
         MonthlyChitGroups monthlyChitGroups14 = new MonthlyChitGroups();
@@ -581,7 +688,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups14.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups14.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups14.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups14);
         }
         MonthlyChitGroups monthlyChitGroups15 = new MonthlyChitGroups();
@@ -620,7 +727,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups15.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups15.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups15.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups15);
         }
         MonthlyChitGroups monthlyChitGroups16 = new MonthlyChitGroups();
@@ -659,7 +766,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups16.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups16.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups16.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups16);
         }
         MonthlyChitGroups monthlyChitGroups17 = new MonthlyChitGroups();
@@ -698,7 +805,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups17.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups17.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups17.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups18 = new MonthlyChitGroups();
@@ -737,7 +844,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups18.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups18.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups18.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups18);
         }
         MonthlyChitGroups monthlyChitGroups19 = new MonthlyChitGroups();
@@ -776,7 +883,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups19.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups19.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups19.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups19);
         }
         MonthlyChitGroups monthlyChitGroups20 = new MonthlyChitGroups();
@@ -815,12 +922,12 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups20.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups20.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups20.setRollid("15");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups20);
         }
     }
 
-    private void mockMonthlyChitGroups20(){
+    private void mockMonthlyChitGroups20(MonthlyChitGroupsRepository monthlyChitGroupsRepository) {
         MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
         monthlyChitGroups1.setMTitle("20 MONTHS 5,00,000 INR GROUP (P20M05L01)");
         monthlyChitGroups1.setMVisibility("1");
@@ -857,7 +964,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups1.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups1);
         }
         MonthlyChitGroups monthlyChitGroups2 = new MonthlyChitGroups();
@@ -896,7 +1003,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups2.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups2);
         }
         MonthlyChitGroups monthlyChitGroups3 = new MonthlyChitGroups();
@@ -935,7 +1042,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups3.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups4 = new MonthlyChitGroups();
@@ -974,7 +1081,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups4.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups4);
         }
         MonthlyChitGroups monthlyChitGroups5 = new MonthlyChitGroups();
@@ -1013,7 +1120,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups5.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups5);
         }
         MonthlyChitGroups monthlyChitGroups6 = new MonthlyChitGroups();
@@ -1052,7 +1159,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups6.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups6.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups6.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups6);
         }
         MonthlyChitGroups monthlyChitGroups7 = new MonthlyChitGroups();
@@ -1091,7 +1198,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups7.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups7.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups7.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups7);
         }
         MonthlyChitGroups monthlyChitGroups8 = new MonthlyChitGroups();
@@ -1130,10 +1237,10 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups8.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups8.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups8.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups8);
         }
-        MonthlyChitGroups monthlyChitGroups9= new MonthlyChitGroups();
+        MonthlyChitGroups monthlyChitGroups9 = new MonthlyChitGroups();
         monthlyChitGroups9.setMTitle("20 MONTHS 5,00,000 INR GROUP (P20M05L09)");
         monthlyChitGroups9.setMVisibility("0");
         monthlyChitGroups9.setMTotalNumberOfTickets("Total Tickets: 20");
@@ -1169,7 +1276,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups9.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups9.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups9.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups9);
         }
         MonthlyChitGroups monthlyChitGroups10 = new MonthlyChitGroups();
@@ -1208,7 +1315,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups10.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups10.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups10.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups10);
         }
         MonthlyChitGroups monthlyChitGroups11 = new MonthlyChitGroups();
@@ -1247,7 +1354,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups11.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups11.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups11.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups11);
         }
         MonthlyChitGroups monthlyChitGroups12 = new MonthlyChitGroups();
@@ -1286,7 +1393,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups12.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups12.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups12.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups12);
         }
         MonthlyChitGroups monthlyChitGroups13 = new MonthlyChitGroups();
@@ -1325,7 +1432,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups13.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups13.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups13.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups13);
         }
         MonthlyChitGroups monthlyChitGroups14 = new MonthlyChitGroups();
@@ -1364,7 +1471,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups14.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups14.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups14.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups14);
         }
         MonthlyChitGroups monthlyChitGroups15 = new MonthlyChitGroups();
@@ -1403,7 +1510,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups15.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups15.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups15.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups15);
         }
         MonthlyChitGroups monthlyChitGroups16 = new MonthlyChitGroups();
@@ -1442,7 +1549,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups16.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups16.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups16.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups16);
         }
         MonthlyChitGroups monthlyChitGroups17 = new MonthlyChitGroups();
@@ -1481,7 +1588,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups17.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups17.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups17.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups17);
         }
         MonthlyChitGroups monthlyChitGroups18 = new MonthlyChitGroups();
@@ -1520,7 +1627,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups18.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups18.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups18.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups18);
         }
         MonthlyChitGroups monthlyChitGroups19 = new MonthlyChitGroups();
@@ -1559,7 +1666,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups19.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups19.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups19.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups19);
         }
         MonthlyChitGroups monthlyChitGroups20 = new MonthlyChitGroups();
@@ -1598,12 +1705,12 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups20.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups20.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups20.setRollid("20");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups20);
         }
     }
 
-    private void mockMonthlyChitGroups25(){
+    private void mockMonthlyChitGroups25(MonthlyChitGroupsRepository monthlyChitGroupsRepository) {
         MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
         monthlyChitGroups1.setMTitle("25 MONTHS 10,00,000 INR GROUP (P25M10L01)");
         monthlyChitGroups1.setMVisibility("1");
@@ -1640,7 +1747,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups1.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups1);
         }
         MonthlyChitGroups monthlyChitGroups2 = new MonthlyChitGroups();
@@ -1679,7 +1786,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups2.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups2);
         }
         MonthlyChitGroups monthlyChitGroups3 = new MonthlyChitGroups();
@@ -1718,7 +1825,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups3.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups4 = new MonthlyChitGroups();
@@ -1757,7 +1864,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups4.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups4);
         }
         MonthlyChitGroups monthlyChitGroups5 = new MonthlyChitGroups();
@@ -1796,7 +1903,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups5.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups5);
         }
         MonthlyChitGroups monthlyChitGroups6 = new MonthlyChitGroups();
@@ -1835,7 +1942,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups6.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups6.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups6.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups6);
         }
         MonthlyChitGroups monthlyChitGroups7 = new MonthlyChitGroups();
@@ -1874,7 +1981,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups7.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups7.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups7.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups7);
         }
         MonthlyChitGroups monthlyChitGroups8 = new MonthlyChitGroups();
@@ -1913,7 +2020,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups8.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups8.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups8.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups8);
         }
         MonthlyChitGroups monthlyChitGroups9 = new MonthlyChitGroups();
@@ -1952,7 +2059,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups9.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups9.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups9.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups9);
         }
         MonthlyChitGroups monthlyChitGroups10 = new MonthlyChitGroups();
@@ -1991,7 +2098,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups10.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups10.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups10.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups10);
         }
         MonthlyChitGroups monthlyChitGroups11 = new MonthlyChitGroups();
@@ -2030,7 +2137,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups11.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups11.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups11.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups11);
         }
         MonthlyChitGroups monthlyChitGroups12 = new MonthlyChitGroups();
@@ -2069,7 +2176,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups12.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups12.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups12.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups12);
         }
         MonthlyChitGroups monthlyChitGroups13 = new MonthlyChitGroups();
@@ -2108,7 +2215,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups13.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups13.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups13.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups13);
         }
         MonthlyChitGroups monthlyChitGroups14 = new MonthlyChitGroups();
@@ -2147,7 +2254,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups14.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups14.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups14.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups14);
         }
         MonthlyChitGroups monthlyChitGroups15 = new MonthlyChitGroups();
@@ -2186,7 +2293,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups15.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups15.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups15.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups15);
         }
         MonthlyChitGroups monthlyChitGroups16 = new MonthlyChitGroups();
@@ -2225,7 +2332,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups16.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups16.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups16.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups16);
         }
         MonthlyChitGroups monthlyChitGroups17 = new MonthlyChitGroups();
@@ -2264,7 +2371,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups17.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups17.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups17.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups17);
         }
         MonthlyChitGroups monthlyChitGroups18 = new MonthlyChitGroups();
@@ -2303,7 +2410,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups18.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups18.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups18.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups18);
         }
         MonthlyChitGroups monthlyChitGroups19 = new MonthlyChitGroups();
@@ -2342,7 +2449,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups19.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups19.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups19.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups19);
         }
         MonthlyChitGroups monthlyChitGroups20 = new MonthlyChitGroups();
@@ -2381,13 +2488,13 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups20.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups20.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups20.setRollid("25");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups20);
         }
 
     }
 
-    private void mockMonthlyChitGroups30(){
+    private void mockMonthlyChitGroups30(MonthlyChitGroupsRepository monthlyChitGroupsRepository) {
         MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
         monthlyChitGroups1.setMTitle("30 MONTHS 10,00,000 INR GROUP (P30M10L01)");
         monthlyChitGroups1.setMVisibility("1");
@@ -2424,7 +2531,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups1.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups1);
         }
         MonthlyChitGroups monthlyChitGroups2 = new MonthlyChitGroups();
@@ -2463,7 +2570,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups2.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups2);
         }
         MonthlyChitGroups monthlyChitGroups3 = new MonthlyChitGroups();
@@ -2502,7 +2609,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups3.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups4 = new MonthlyChitGroups();
@@ -2541,7 +2648,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups4.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups4);
         }
         MonthlyChitGroups monthlyChitGroups5 = new MonthlyChitGroups();
@@ -2580,7 +2687,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups5.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups5);
         }
         MonthlyChitGroups monthlyChitGroups6 = new MonthlyChitGroups();
@@ -2619,7 +2726,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups6.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups6.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups6.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups6);
         }
         MonthlyChitGroups monthlyChitGroups7 = new MonthlyChitGroups();
@@ -2658,7 +2765,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups7.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups7.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups7.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups7);
         }
         MonthlyChitGroups monthlyChitGroups8 = new MonthlyChitGroups();
@@ -2697,7 +2804,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups8.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups8.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups8.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups8);
         }
         MonthlyChitGroups monthlyChitGroups9 = new MonthlyChitGroups();
@@ -2736,7 +2843,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups9.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups9.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups9.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups9);
         }
         MonthlyChitGroups monthlyChitGroups10 = new MonthlyChitGroups();
@@ -2775,7 +2882,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups10.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups10.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups10.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups10);
         }
         MonthlyChitGroups monthlyChitGroups11 = new MonthlyChitGroups();
@@ -2814,7 +2921,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups11.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups11.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups11.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups11);
         }
         MonthlyChitGroups monthlyChitGroups12 = new MonthlyChitGroups();
@@ -2853,7 +2960,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups12.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups12.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups12.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups12);
         }
         MonthlyChitGroups monthlyChitGroups13 = new MonthlyChitGroups();
@@ -2892,7 +2999,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups13.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups13.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups13.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups13);
         }
         MonthlyChitGroups monthlyChitGroups14 = new MonthlyChitGroups();
@@ -2931,7 +3038,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups14.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups14.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups14.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups14);
         }
         MonthlyChitGroups monthlyChitGroups15 = new MonthlyChitGroups();
@@ -2970,7 +3077,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups15.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups15.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups15.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups15);
         }
         MonthlyChitGroups monthlyChitGroups16 = new MonthlyChitGroups();
@@ -3009,7 +3116,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups16.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups16.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups16.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups16);
         }
         MonthlyChitGroups monthlyChitGroups17 = new MonthlyChitGroups();
@@ -3048,7 +3155,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups17.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups17.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups17.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups17);
         }
         MonthlyChitGroups monthlyChitGroups18 = new MonthlyChitGroups();
@@ -3087,7 +3194,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups18.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups18.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups18.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups18);
         }
         MonthlyChitGroups monthlyChitGroups19 = new MonthlyChitGroups();
@@ -3126,7 +3233,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups19.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups19.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups19.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups19);
         }
         MonthlyChitGroups monthlyChitGroups20 = new MonthlyChitGroups();
@@ -3165,13 +3272,55 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups20.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups20.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups20.setRollid("30");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups20);
         }
 
     }
 
-    private void mockMonthlyChitGroups40(){
+    private void mockMonthlyChitGroups35(MonthlyChitGroupsRepository monthlyChitGroupsRepository){
+        MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
+        monthlyChitGroups1.setMTitle("35 MONTHS 10,00,000 INR GROUP (P35M10L01)");
+        monthlyChitGroups1.setMVisibility("1");
+        monthlyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 30");
+        monthlyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 29");
+        monthlyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 29");
+        monthlyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        monthlyChitGroups1.setMBookingStatus("Booking: OPEN");
+        monthlyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        monthlyChitGroups1.setMaxBidRange("Maximum Bid%: 30% of Chit Value");
+        monthlyChitGroups1.setMinPrizeRange("Minimum Prize: 7,00,000 Rs");
+        monthlyChitGroups1.setMaxPrizeRange("Maximum Prize: 10,25,000 Rs");
+        monthlyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
+        monthlyChitGroups1.setCode("P35M10L01");
+        monthlyChitGroups1.setNumberOfTickets("30");
+        monthlyChitGroups1.setAmount("40000 INR PER TICKET");
+        monthlyChitGroups1.setValue("10,00,000 INR");
+        monthlyChitGroups1.setDuration("30 MONTHS");
+        monthlyChitGroups1.setTime("06:00 PM");
+        monthlyChitGroups1.setTotalinstallmentsnumber("30");
+        monthlyChitGroups1.setDay("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setNoauction("First Auction Goes to Company");
+        monthlyChitGroups1.setDueday("Every 20th DAY OF MONTH");
+        monthlyChitGroups1.setDistribution("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setFrequency("MONTHLY 1 AUCTION");
+        monthlyChitGroups1.setSubscription("84.52% OF CHIT VALUE(8,45,200 INR PER TICKET)");
+        monthlyChitGroups1.setDividend("15.48% OF CHIT VALUE(1,54,800 INR PER TICKET)");
+        monthlyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        monthlyChitGroups1.setEfees("1% OF CHIT VALUE(10,000 INR PER TICKET)");
+        monthlyChitGroups1.setPaymentfrequency("MONTHLY, DAILY, WEEKLY, BIWEEKLY");
+        monthlyChitGroups1.setNoofguaranters("FOUR GUARANTORS ARE REQUIRED");
+        monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        monthlyChitGroups1.setRollid("35");
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
+            monthlyChitGroupsRepository.save(monthlyChitGroups1);
+        }
+    }
+
+    private void mockMonthlyChitGroups40(MonthlyChitGroupsRepository monthlyChitGroupsRepository) {
         MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
         monthlyChitGroups1.setMTitle("40 MONTHS 10,00,000 INR GROUP (P40M10L01)");
         monthlyChitGroups1.setMVisibility("1");
@@ -3208,7 +3357,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups1.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups1);
         }
         MonthlyChitGroups monthlyChitGroups2 = new MonthlyChitGroups();
@@ -3247,7 +3396,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups2.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups2);
         }
         MonthlyChitGroups monthlyChitGroups3 = new MonthlyChitGroups();
@@ -3286,7 +3435,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups3.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups4 = new MonthlyChitGroups();
@@ -3325,7 +3474,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups4.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups4);
         }
         MonthlyChitGroups monthlyChitGroups5 = new MonthlyChitGroups();
@@ -3364,7 +3513,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups5.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups5);
         }
         MonthlyChitGroups monthlyChitGroups6 = new MonthlyChitGroups();
@@ -3403,7 +3552,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups6.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups6.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups6.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups6);
         }
         MonthlyChitGroups monthlyChitGroups7 = new MonthlyChitGroups();
@@ -3442,7 +3591,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups7.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups7.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups7.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups7);
         }
         MonthlyChitGroups monthlyChitGroups8 = new MonthlyChitGroups();
@@ -3481,7 +3630,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups8.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups8.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups8.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups8);
         }
         MonthlyChitGroups monthlyChitGroups9 = new MonthlyChitGroups();
@@ -3520,7 +3669,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups9.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups9.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups9.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups9);
         }
         MonthlyChitGroups monthlyChitGroups10 = new MonthlyChitGroups();
@@ -3559,7 +3708,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups10.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups10.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups10.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups10);
         }
         MonthlyChitGroups monthlyChitGroups11 = new MonthlyChitGroups();
@@ -3598,7 +3747,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups11.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups11.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups11.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups11);
         }
         MonthlyChitGroups monthlyChitGroups12 = new MonthlyChitGroups();
@@ -3637,7 +3786,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups12.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups12.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups12.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups12);
         }
         MonthlyChitGroups monthlyChitGroups13 = new MonthlyChitGroups();
@@ -3676,7 +3825,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups13.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups13.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups13.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups13);
         }
         MonthlyChitGroups monthlyChitGroups14 = new MonthlyChitGroups();
@@ -3715,7 +3864,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups14.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups14.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups14.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups14);
         }
         MonthlyChitGroups monthlyChitGroups15 = new MonthlyChitGroups();
@@ -3754,7 +3903,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups15.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups15.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups15.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups15);
         }
         MonthlyChitGroups monthlyChitGroups16 = new MonthlyChitGroups();
@@ -3793,7 +3942,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups16.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups16.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups16.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups16);
         }
         MonthlyChitGroups monthlyChitGroups17 = new MonthlyChitGroups();
@@ -3832,7 +3981,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups17.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups17.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups17.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups17);
         }
         MonthlyChitGroups monthlyChitGroups18 = new MonthlyChitGroups();
@@ -3871,7 +4020,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups18.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups18.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups18.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups18);
         }
         MonthlyChitGroups monthlyChitGroups19 = new MonthlyChitGroups();
@@ -3910,7 +4059,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups19.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups19.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups19.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups19);
         }
         MonthlyChitGroups monthlyChitGroups20 = new MonthlyChitGroups();
@@ -3949,13 +4098,55 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups20.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups20.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups20.setRollid("40");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups20);
         }
 
     }
 
-    private void mockMonthlyChitGroups50(){
+    private void mockMonthlyChitGroups45(MonthlyChitGroupsRepository monthlyChitGroupsRepository){
+        MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
+        monthlyChitGroups1.setMTitle("45 MONTHS 10,00,000 INR GROUP (P45M10L01)");
+        monthlyChitGroups1.setMVisibility("1");
+        monthlyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 40");
+        monthlyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 39");
+        monthlyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        monthlyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 39");
+        monthlyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        monthlyChitGroups1.setMBookingStatus("Booking: OPEN");
+        monthlyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        monthlyChitGroups1.setMaxBidRange("Maximum Bid%: 30% of Chit Value");
+        monthlyChitGroups1.setMinPrizeRange("Minimum Prize: 7,00,000 Rs");
+        monthlyChitGroups1.setMaxPrizeRange("Maximum Prize: 10,25,000 Rs");
+        monthlyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
+        monthlyChitGroups1.setCode("P45M10L01");
+        monthlyChitGroups1.setNumberOfTickets("40");
+        monthlyChitGroups1.setAmount("40000 INR PER TICKET");
+        monthlyChitGroups1.setValue("10,00,000 INR");
+        monthlyChitGroups1.setDuration("40 MONTHS");
+        monthlyChitGroups1.setTime("06:00 PM");
+        monthlyChitGroups1.setTotalinstallmentsnumber("40");
+        monthlyChitGroups1.setDay("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setNoauction("First Auction Goes to Company");
+        monthlyChitGroups1.setDueday("Every 20th DAY OF MONTH");
+        monthlyChitGroups1.setDistribution("Every 25th DAY OF MONTH");
+        monthlyChitGroups1.setFrequency("MONTHLY 1 AUCTION");
+        monthlyChitGroups1.setSubscription("84.52% OF CHIT VALUE(8,45,200 INR PER TICKET)");
+        monthlyChitGroups1.setDividend("15.48% OF CHIT VALUE(1,54,800 INR PER TICKET)");
+        monthlyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        monthlyChitGroups1.setEfees("1% OF CHIT VALUE(10,000 INR PER TICKET)");
+        monthlyChitGroups1.setPaymentfrequency("MONTHLY, DAILY, WEEKLY, BIWEEKLY");
+        monthlyChitGroups1.setNoofguaranters("FOUR GUARANTORS ARE REQUIRED");
+        monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        monthlyChitGroups1.setRollid("45");
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
+            monthlyChitGroupsRepository.save(monthlyChitGroups1);
+        }
+    }
+
+    private void mockMonthlyChitGroups50(MonthlyChitGroupsRepository monthlyChitGroupsRepository) {
         MonthlyChitGroups monthlyChitGroups1 = new MonthlyChitGroups();
         monthlyChitGroups1.setMTitle("50 MONTHS 10,00,000 INR GROUP (P50M10L01)");
         monthlyChitGroups1.setMVisibility("1");
@@ -3992,7 +4183,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups1.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups1.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups1);
         }
         MonthlyChitGroups monthlyChitGroups2 = new MonthlyChitGroups();
@@ -4031,7 +4222,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups2.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups2.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups2);
         }
         MonthlyChitGroups monthlyChitGroups3 = new MonthlyChitGroups();
@@ -4070,7 +4261,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups3.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups3.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups3);
         }
         MonthlyChitGroups monthlyChitGroups4 = new MonthlyChitGroups();
@@ -4109,7 +4300,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups4.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups4.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups4);
         }
         MonthlyChitGroups monthlyChitGroups5 = new MonthlyChitGroups();
@@ -4148,7 +4339,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups5.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups5.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups5);
         }
         MonthlyChitGroups monthlyChitGroups6 = new MonthlyChitGroups();
@@ -4187,7 +4378,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups6.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups6.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups6.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups6.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups6);
         }
         MonthlyChitGroups monthlyChitGroups7 = new MonthlyChitGroups();
@@ -4226,7 +4417,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups7.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups7.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups7.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups7.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups7);
         }
         MonthlyChitGroups monthlyChitGroups8 = new MonthlyChitGroups();
@@ -4265,7 +4456,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups8.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups8.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups8.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups8.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups8);
         }
         MonthlyChitGroups monthlyChitGroups9 = new MonthlyChitGroups();
@@ -4304,7 +4495,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups9.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups9.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups9.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups9.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups9);
         }
         MonthlyChitGroups monthlyChitGroups10 = new MonthlyChitGroups();
@@ -4343,7 +4534,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups10.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups10.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups10.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups10.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups10);
         }
         MonthlyChitGroups monthlyChitGroups11 = new MonthlyChitGroups();
@@ -4382,7 +4573,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups11.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups11.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups11.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups11.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups11);
         }
         MonthlyChitGroups monthlyChitGroups12 = new MonthlyChitGroups();
@@ -4421,7 +4612,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups12.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups12.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups12.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups12.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups12);
         }
         MonthlyChitGroups monthlyChitGroups13 = new MonthlyChitGroups();
@@ -4460,7 +4651,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups13.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups13.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups13.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups13.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups13);
         }
         MonthlyChitGroups monthlyChitGroups14 = new MonthlyChitGroups();
@@ -4499,7 +4690,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups14.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups14.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups14.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups14.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups14);
         }
         MonthlyChitGroups monthlyChitGroups15 = new MonthlyChitGroups();
@@ -4538,7 +4729,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups15.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups15.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups15.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups15.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups15);
         }
         MonthlyChitGroups monthlyChitGroups16 = new MonthlyChitGroups();
@@ -4577,7 +4768,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups16.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups16.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups16.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups16.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups16);
         }
         MonthlyChitGroups monthlyChitGroups17 = new MonthlyChitGroups();
@@ -4616,7 +4807,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups17.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups17.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups17.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups17.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups17);
         }
         MonthlyChitGroups monthlyChitGroups18 = new MonthlyChitGroups();
@@ -4655,7 +4846,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups18.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups18.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups18.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups18.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups18);
         }
         MonthlyChitGroups monthlyChitGroups19 = new MonthlyChitGroups();
@@ -4694,7 +4885,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups19.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups19.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups19.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups19.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups19);
         }
         MonthlyChitGroups monthlyChitGroups20 = new MonthlyChitGroups();
@@ -4733,7 +4924,7 @@ public class MonthlyChitSchemesMocker {
         monthlyChitGroups20.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
         monthlyChitGroups20.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
         monthlyChitGroups20.setRollid("50");
-        if(null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())){
+        if (null == monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups20.getCode())) {
             monthlyChitGroupsRepository.save(monthlyChitGroups20);
         }
 

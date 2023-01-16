@@ -3,9 +3,8 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.BiWeeklyAuctionableDurations;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.BiWeeklyAuctionableDurationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +17,13 @@ public class BiWeeklyAuctionableDurationController {
     @GetMapping
     public List<BiWeeklyAuctionableDurations> getAllSelectedSchemeDurations() {
         return biWeeklyAuctionableDurationsRepository.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createBiWeeklyChitDurationsList(@RequestBody BiWeeklyAuctionableDurations biWeeklyAuctionableDurations){
+        if(null != biWeeklyAuctionableDurationsRepository.save(biWeeklyAuctionableDurations)){
+            return ResponseEntity.ok("SUCCESS");
+        }
+        return ResponseEntity.ok("FAILURE");
     }
 }

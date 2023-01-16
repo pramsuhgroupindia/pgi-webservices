@@ -3,10 +3,8 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.TeeklyChitGroups;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.TeeklyChitGroupsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,19 @@ public class TeeklyChitGroupsController {
     @GetMapping
     public List<TeeklyChitGroups> getAllTeeklySchemeDurationAmountGroups() {
         return teeklyChitGroupsRepository.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createTeeklyChitGroup(@RequestBody TeeklyChitGroups teeklyChitGroups){
+        if(teeklyChitGroupsRepository.findChitGroupByCode(teeklyChitGroups.getCode()) == null) {
+            TeeklyChitGroups teeklyChitGroups1 = teeklyChitGroupsRepository.save(teeklyChitGroups);
+            if(teeklyChitGroups1 != null) {
+                return ResponseEntity.ok("SUCCESS");
+            } else{
+                return ResponseEntity.ok("FAILURE");
+            }
+        } else {
+            return ResponseEntity.ok("ALREADY GROUP CREATED WITH SAME CODE");
+        }
     }
 }

@@ -4,52 +4,85 @@ import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.Weekl
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.WeeklyChitGroups;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.WeeklyAuctionableDurationsRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.WeeklyChitGroupsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class WeeklyChitSchemesMocker {
 
-    @Autowired
-    private WeeklyAuctionableDurationsRepository weeklyAuctionableDurationsRepository;
-
-    @Autowired
-    private WeeklyChitGroupsRepository weeklyChitGroupsRepository;
-
-    public void mockWeeklySchemesTableData(){
-        mockWeeklyAuctionableDurations();
-        mockWeeklyChitGroups10();
-        mockWeeklyChitGroups15();
-        mockWeeklyChitGroups20();
-        mockWeeklyChitGroups25();
-        mockWeeklyChitGroups30();
-        mockWeeklyChitGroups40();
-        mockWeeklyChitGroups50();
-        mockWeeklyChitGroups60();
-        mockWeeklyChitGroups70();
-        mockWeeklyChitGroups80();
-        mockWeeklyChitGroups90();
-        mockWeeklyChitGroups100();
+    public void mockWeeklySchemesTableData(WeeklyAuctionableDurationsRepository weeklyAuctionableDurationsRepository, WeeklyChitGroupsRepository weeklyChitGroupsRepository ){
+        mockWeeklyAuctionableDurations(weeklyAuctionableDurationsRepository);
+        mockWeeklyChitGroups10(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups15(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups20(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups25(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups30(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups40(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups50(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups60(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups70(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups80(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups90(weeklyChitGroupsRepository);
+        mockWeeklyChitGroups100(weeklyChitGroupsRepository);
     }
 
-    private void mockWeeklyAuctionableDurations(){
+    private void mockWeeklyAuctionableDurations(WeeklyAuctionableDurationsRepository weeklyAuctionableDurationsRepository){
         WeeklyAuctionableDurations weeklyAuctionableDurations = new WeeklyAuctionableDurations();
+
         weeklyAuctionableDurations.setW10("10 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW10dtoggle("1");
+
         weeklyAuctionableDurations.setW15("15 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW15dtoggle("1");
+
         weeklyAuctionableDurations.setW20("20 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW20dtoggle("1");
+
         weeklyAuctionableDurations.setW25("25 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW25dtoggle("1");
+
         weeklyAuctionableDurations.setW30("30 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW30dtoggle("1");
+
         weeklyAuctionableDurations.setW40("40 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW40dtoggle("1");
+
         weeklyAuctionableDurations.setW50("50 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW50dtoggle("1");
+
         weeklyAuctionableDurations.setW60("60 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW60dtoggle("1");
+
         weeklyAuctionableDurations.setW70("70 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW70dtoggle("1");
+
         weeklyAuctionableDurations.setW80("80 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW80dtoggle("1");
+
         weeklyAuctionableDurations.setW90("90 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW90dtoggle("1");
+
         weeklyAuctionableDurations.setW100("100 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW100dtoggle("1");
+
+        weeklyAuctionableDurations.setW120("120 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW120dtoggle("1");
+
+        weeklyAuctionableDurations.setW140("140 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW140dtoggle("1");
+
+        weeklyAuctionableDurations.setW160("160 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW160dtoggle("1");
+
+        weeklyAuctionableDurations.setW180("180 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW180dtoggle("1");
+
+        weeklyAuctionableDurations.setW200("200 WEEKS DURATIONS WEEKLY CHIT GROUPS");
+        weeklyAuctionableDurations.setW200dtoggle("1");
+
         if(!weeklyAuctionableDurationsRepository.existsById(Integer.toUnsignedLong(1))) {
             weeklyAuctionableDurationsRepository.save(weeklyAuctionableDurations);
         }
     }
 
-    private void mockWeeklyChitGroups10() {
+    private void mockWeeklyChitGroups10(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("10 WEEKS 50,000 INR GROUP (P10W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -637,595 +670,206 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups15() {
-        WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
-        weeklyChitGroups1.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K01)");
-        weeklyChitGroups1.setMVisibility("1");
-        weeklyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 15");
-        weeklyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
-        weeklyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 14");
-        weeklyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups1.setMBookingStatus("Booking: OPEN");
-        weeklyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups1.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups1.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups1.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups1.setCode("P15W50K01");
-        weeklyChitGroups1.setNumberOfTickets("15");
-        weeklyChitGroups1.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups1.setValue("50,000 INR");
-        weeklyChitGroups1.setDuration("15 WEEKS");
-        weeklyChitGroups1.setTime("04:00 PM");
-        weeklyChitGroups1.setTotalinstallmentsnumber("15");
-        weeklyChitGroups1.setDay("Every Friday of Week");
-        weeklyChitGroups1.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups1.setDueday("Every Wednesday of Week");
-        weeklyChitGroups1.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups1.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups1.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups1.setDividend("5.826% OF CHIT VALUE(2913 INR PER TICKET)");
-        weeklyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups1.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups1.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups1.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups1.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups1.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups1);
+    private void mockWeeklyChitGroups15(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
+        WeeklyChitGroups ob1 = new WeeklyChitGroups();
+        ob1.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K01)");
+        ob1.setMVisibility("1");
+        ob1.setMTotalNumberOfTickets("Total Tickets: 15");
+        ob1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
+        ob1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        ob1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        ob1.setMTotalNumberOfAuctions("Total  Auctions: 14");
+        ob1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        ob1.setMBookingStatus("Booking: OPEN");
+        ob1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        ob1.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
+        ob1.setMinPrizeRange("Minimum Prize: 40,000 Rs");
+        ob1.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        ob1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
+        ob1.setCode("P15W50K01");
+        ob1.setNumberOfTickets("15");
+        ob1.setAmount("5000 INR PER TICKET");
+        ob1.setValue("50,000 INR");
+        ob1.setDuration("15 WEEKS");
+        ob1.setTime("04:00 PM");
+        ob1.setTotalinstallmentsnumber("15");
+        ob1.setDay("Every Friday of Week");
+        ob1.setNoauction("First Auction Goes to Company");
+        ob1.setDueday("Every Wednesday of Week");
+        ob1.setDistribution("Every Wednesday of Week");
+        ob1.setFrequency("WEEKLY 1 AUCTION");
+        ob1.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
+        ob1.setDividend("5.826% OF CHIT VALUE(2913 INR PER TICKET)");
+        ob1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        ob1.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        ob1.setPaymentfrequency("DAILY, WEEKLY");
+        ob1.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        ob1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        ob1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        ob1.setRollid("15");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(ob1.getCode())){
+            weeklyChitGroupsRepository.save(ob1);
         }
-        WeeklyChitGroups weeklyChitGroups2 = new WeeklyChitGroups();
-        weeklyChitGroups2.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K02)");
-        weeklyChitGroups2.setMVisibility("0");
-        weeklyChitGroups2.setMTotalNumberOfTickets("Total Tickets: 15");
-        weeklyChitGroups2.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
-        weeklyChitGroups2.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups2.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups2.setMTotalNumberOfAuctions("Total  Auctions: 0");
-        weeklyChitGroups2.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups2.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups2.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups2.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups2.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups2.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups2.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups2.setCode("P15W50K02");
-        weeklyChitGroups2.setNumberOfTickets("15");
-        weeklyChitGroups2.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups2.setValue("50,000 INR");
-        weeklyChitGroups2.setDuration("15 WEEKS");
-        weeklyChitGroups2.setTime("04:10 PM");
-        weeklyChitGroups2.setTotalinstallmentsnumber("15");
-        weeklyChitGroups2.setDay("Every Friday of Week");
-        weeklyChitGroups2.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups2.setDueday("Every Wednesday of Week");
-        weeklyChitGroups2.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups2.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups2.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups2.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups2.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups2.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups2.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups2.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups2.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups2.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups2);
+        WeeklyChitGroups ob2 = new WeeklyChitGroups();
+        ob2.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K02)");
+        ob2.setMVisibility("0");
+        ob2.setMTotalNumberOfTickets("Total Tickets: 15");
+        ob2.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
+        ob2.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        ob2.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        ob2.setMTotalNumberOfAuctions("Total  Auctions: 0");
+        ob2.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        ob2.setMBookingStatus("Booking: SCHEDULED");
+        ob2.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        ob2.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
+        ob2.setMinPrizeRange("Minimum Prize: 40,000 Rs");
+        ob2.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        ob2.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
+        ob2.setCode("P15W50K02");
+        ob2.setNumberOfTickets("15");
+        ob2.setAmount("5000 INR PER TICKET");
+        ob2.setValue("50,000 INR");
+        ob2.setDuration("15 WEEKS");
+        ob2.setTime("04:10 PM");
+        ob2.setTotalinstallmentsnumber("15");
+        ob2.setDay("Every Friday of Week");
+        ob2.setNoauction("First Auction Goes to Company");
+        ob2.setDueday("Every Wednesday of Week");
+        ob2.setDistribution("Every Wednesday of Week");
+        ob2.setFrequency("WEEKLY 1 AUCTION");
+        ob2.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
+        ob2.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
+        ob2.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        ob2.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        ob2.setPaymentfrequency("DAILY, WEEKLY");
+        ob2.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        ob2.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        ob2.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        ob2.setRollid("15");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(ob2.getCode())){
+            weeklyChitGroupsRepository.save(ob2);
         }
-        WeeklyChitGroups weeklyChitGroups3 = new WeeklyChitGroups();
-        weeklyChitGroups3.setMTitle("15 WEEKS 50,000 INR GROUP (P15W5K03)");
-        weeklyChitGroups3.setMVisibility("0");
-        weeklyChitGroups3.setMTotalNumberOfTickets("Total Tickets: 15");
-        weeklyChitGroups3.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
-        weeklyChitGroups3.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups3.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups3.setMTotalNumberOfAuctions("Total  Auctions: 14");
-        weeklyChitGroups3.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups3.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups3.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups3.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups3.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups3.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups3.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups3.setCode("P15W5K03");
-        weeklyChitGroups3.setNumberOfTickets("15");
-        weeklyChitGroups3.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups3.setValue("50,000 INR");
-        weeklyChitGroups3.setDuration("15 WEEKS");
-        weeklyChitGroups3.setTime("04:20 PM");
-        weeklyChitGroups3.setTotalinstallmentsnumber("15");
-        weeklyChitGroups3.setDay("Every Friday of Week");
-        weeklyChitGroups3.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups3.setDueday("Every Wednesday of Week");
-        weeklyChitGroups3.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups3.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups3.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups3.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups3.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups3.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups3.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups3.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups3.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups3.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups3);
+        WeeklyChitGroups ob3 = new WeeklyChitGroups();
+        ob3.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K03)");
+        ob3.setMVisibility("0");
+        ob3.setMTotalNumberOfTickets("Total Tickets: 15");
+        ob3.setMTotalNumberOfAvailableTickets("Total Available Tickets: 14");
+        ob3.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        ob3.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        ob3.setMTotalNumberOfAuctions("Total  Auctions: 14");
+        ob3.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        ob3.setMBookingStatus("Booking: SCHEDULED");
+        ob3.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        ob3.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
+        ob3.setMinPrizeRange("Minimum Prize: 40,000 Rs");
+        ob3.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        ob3.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
+        ob3.setCode("P15W50K03");
+        ob3.setNumberOfTickets("15");
+        ob3.setAmount("5000 INR PER TICKET");
+        ob3.setValue("50,000 INR");
+        ob3.setDuration("15 WEEKS");
+        ob3.setTime("04:20 PM");
+        ob3.setTotalinstallmentsnumber("15");
+        ob3.setDay("Every Friday of Week");
+        ob3.setNoauction("First Auction Goes to Company");
+        ob3.setDueday("Every Wednesday of Week");
+        ob3.setDistribution("Every Wednesday of Week");
+        ob3.setFrequency("WEEKLY 1 AUCTION");
+        ob3.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
+        ob3.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
+        ob3.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        ob3.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        ob3.setPaymentfrequency("DAILY, WEEKLY");
+        ob3.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        ob3.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        ob3.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        ob3.setRollid("15");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(ob3.getCode())){
+            weeklyChitGroupsRepository.save(ob3);
         }
-        WeeklyChitGroups weeklyChitGroups4 = new WeeklyChitGroups();
-        weeklyChitGroups4.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K04)");
-        weeklyChitGroups4.setMVisibility("0");
-        weeklyChitGroups4.setMTotalNumberOfTickets("Total Tickets: 15");
-        weeklyChitGroups4.setMTotalNumberOfAvailableTickets("Total Available Tickets: 0");
-        weeklyChitGroups4.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups4.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups4.setMTotalNumberOfAuctions("Total  Auctions: 14");
-        weeklyChitGroups4.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups4.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups4.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups4.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups4.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups4.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups4.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups4.setCode("P15W50K04");
-        weeklyChitGroups4.setNumberOfTickets("15");
-        weeklyChitGroups4.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups4.setValue("50,000 INR");
-        weeklyChitGroups4.setDuration("15 WEEKS");
-        weeklyChitGroups4.setTime("04:25 PM");
-        weeklyChitGroups4.setTotalinstallmentsnumber("15");
-        weeklyChitGroups4.setDay("Every Friday of Week");
-        weeklyChitGroups4.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups4.setDueday("Every Wednesday of Week");
-        weeklyChitGroups4.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups4.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups4.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups4.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups4.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups4.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups4.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups4.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups4.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups4.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups4);
+        WeeklyChitGroups ob4 = new WeeklyChitGroups();
+        ob4.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K04)");
+        ob4.setMVisibility("0");
+        ob4.setMTotalNumberOfTickets("Total Tickets: 15");
+        ob4.setMTotalNumberOfAvailableTickets("Total Available Tickets: 0");
+        ob4.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        ob4.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        ob4.setMTotalNumberOfAuctions("Total  Auctions: 14");
+        ob4.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        ob4.setMBookingStatus("Booking: SCHEDULED");
+        ob4.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        ob4.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
+        ob4.setMinPrizeRange("Minimum Prize: 40,000 Rs");
+        ob4.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        ob4.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
+        ob4.setCode("P15W50K04");
+        ob4.setNumberOfTickets("15");
+        ob4.setAmount("5000 INR PER TICKET");
+        ob4.setValue("50,000 INR");
+        ob4.setDuration("15 WEEKS");
+        ob4.setTime("04:25 PM");
+        ob4.setTotalinstallmentsnumber("15");
+        ob4.setDay("Every Friday of Week");
+        ob4.setNoauction("First Auction Goes to Company");
+        ob4.setDueday("Every Wednesday of Week");
+        ob4.setDistribution("Every Wednesday of Week");
+        ob4.setFrequency("WEEKLY 1 AUCTION");
+        ob4.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
+        ob4.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
+        ob4.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        ob4.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        ob4.setPaymentfrequency("DAILY, WEEKLY");
+        ob4.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        ob4.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        ob4.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        ob4.setRollid("15");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(ob4.getCode())){
+            weeklyChitGroupsRepository.save(ob4);
         }
-        WeeklyChitGroups weeklyChitGroups5 = new WeeklyChitGroups();
-        weeklyChitGroups5.setMTitle("10 WEEKS 50,000 INR GROUP (P10W50K05)");
-        weeklyChitGroups5.setMVisibility("0");
-        weeklyChitGroups5.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups5.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups5.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups5.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups5.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups5.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups5.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups5.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups5.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups5.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups5.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups5.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups5.setCode("P10W50K05");
-        weeklyChitGroups5.setNumberOfTickets("15");
-        weeklyChitGroups5.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups5.setValue("50,000 INR");
-        weeklyChitGroups5.setDuration("15 WEEKS");
-        weeklyChitGroups5.setTime("04:30 PM");
-        weeklyChitGroups5.setTotalinstallmentsnumber("15");
-        weeklyChitGroups5.setDay("Every Friday of Week");
-        weeklyChitGroups5.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups5.setDueday("Every Wednesday of Week");
-        weeklyChitGroups5.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups5.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups5.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups5.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups5.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups5.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups5.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups5.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups5.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups5.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups5);
+        WeeklyChitGroups ob5 = new WeeklyChitGroups();
+        ob5.setMTitle("15 WEEKS 50,000 INR GROUP (P15W50K05)");
+        ob5.setMVisibility("0");
+        ob5.setMTotalNumberOfTickets("Total Tickets: 10");
+        ob5.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
+        ob5.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        ob5.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        ob5.setMTotalNumberOfAuctions("Total  Auctions: 9");
+        ob5.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        ob5.setMBookingStatus("Booking: SCHEDULED");
+        ob5.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        ob5.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
+        ob5.setMinPrizeRange("Minimum Prize: 40,000 Rs");
+        ob5.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        ob5.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
+        ob5.setCode("P15W50K05");
+        ob5.setNumberOfTickets("15");
+        ob5.setAmount("5000 INR PER TICKET");
+        ob5.setValue("50,000 INR");
+        ob5.setDuration("15 WEEKS");
+        ob5.setTime("04:30 PM");
+        ob5.setTotalinstallmentsnumber("15");
+        ob5.setDay("Every Friday of Week");
+        ob5.setNoauction("First Auction Goes to Company");
+        ob5.setDueday("Every Wednesday of Week");
+        ob5.setDistribution("Every Wednesday of Week");
+        ob5.setFrequency("WEEKLY 1 AUCTION");
+        ob5.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
+        ob5.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
+        ob5.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        ob5.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        ob5.setPaymentfrequency("DAILY, WEEKLY");
+        ob5.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        ob5.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        ob5.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        ob5.setRollid("15");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(ob5.getCode())){
+            weeklyChitGroupsRepository.save(ob5);
         }
-        WeeklyChitGroups weeklyChitGroups6 = new WeeklyChitGroups();
-        weeklyChitGroups6.setMTitle("10 WEEKS 50,000 INR GROUP (P10W50K06)");
-        weeklyChitGroups6.setMVisibility("0");
-        weeklyChitGroups6.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups6.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups6.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups6.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups6.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups6.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups6.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups6.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups6.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups6.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups6.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups6.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups6.setCode("P10W50K06");
-        weeklyChitGroups6.setNumberOfTickets("15");
-        weeklyChitGroups6.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups6.setValue("50,000 INR");
-        weeklyChitGroups6.setDuration("15 WEEKS");
-        weeklyChitGroups6.setTime("04:35 PM");
-        weeklyChitGroups6.setTotalinstallmentsnumber("15");
-        weeklyChitGroups6.setDay("Every Friday of Week");
-        weeklyChitGroups6.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups6.setDueday("Every Wednesday of Week");
-        weeklyChitGroups6.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups6.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups6.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups6.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups6.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups6.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups6.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups6.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups6.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups6.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups6.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups6.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups6);
-        }
-        WeeklyChitGroups weeklyChitGroups7 = new WeeklyChitGroups();
-        weeklyChitGroups7.setMTitle("10 WEEKS 50,000 INR GROUP (P10W50K07)");
-        weeklyChitGroups7.setMVisibility("0");
-        weeklyChitGroups7.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups7.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups7.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups7.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups7.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups7.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups7.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups7.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups7.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups7.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups7.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups7.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups7.setCode("P10W50K07");
-        weeklyChitGroups7.setNumberOfTickets("15");
-        weeklyChitGroups7.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups7.setValue("50,000 INR");
-        weeklyChitGroups7.setDuration("15 WEEKS");
-        weeklyChitGroups7.setTime("04:40 PM");
-        weeklyChitGroups7.setTotalinstallmentsnumber("15");
-        weeklyChitGroups7.setDay("Every Friday of Week");
-        weeklyChitGroups7.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups7.setDueday("Every Wednesday of Week");
-        weeklyChitGroups7.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups7.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups7.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups7.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups7.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups7.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups7.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups7.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups7.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups7.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups7.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups7.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups7);
-        }
-        WeeklyChitGroups weeklyChitGroups8 = new WeeklyChitGroups();
-        weeklyChitGroups8.setMTitle("10 WEEKS 50,000 INR GROUP (P10W50K08)");
-        weeklyChitGroups8.setMVisibility("0");
-        weeklyChitGroups8.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups8.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups8.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups8.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups8.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups8.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups8.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups8.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups8.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups8.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups8.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups8.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups8.setCode("P10W50K08");
-        weeklyChitGroups8.setNumberOfTickets("15");
-        weeklyChitGroups8.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups8.setValue("50,000 INR");
-        weeklyChitGroups8.setDuration("15 WEEKS");
-        weeklyChitGroups8.setTime("04:45 PM");
-        weeklyChitGroups8.setTotalinstallmentsnumber("15");
-        weeklyChitGroups8.setDay("Every Friday of Week");
-        weeklyChitGroups8.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups8.setDueday("Every Wednesday of Week");
-        weeklyChitGroups8.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups8.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups8.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups8.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups8.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups8.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups8.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups8.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups8.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups8.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups8.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups8.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups8);
-        }
-        WeeklyChitGroups weeklyChitGroups9 = new WeeklyChitGroups();
-        weeklyChitGroups9.setMTitle("10 WEEKS 50,000 INR GROUP (P10W50K09)");
-        weeklyChitGroups9.setMVisibility("0");
-        weeklyChitGroups9.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups9.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups9.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups9.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups9.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups9.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups9.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups9.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups9.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups9.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups9.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups9.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups9.setCode("P10W50K09");
-        weeklyChitGroups9.setNumberOfTickets("15");
-        weeklyChitGroups9.setAmount("5000 INR PER TICKET");
-        weeklyChitGroups9.setValue("50,000 INR");
-        weeklyChitGroups9.setDuration("15 WEEKS");
-        weeklyChitGroups9.setTime("04:50 PM");
-        weeklyChitGroups9.setTotalinstallmentsnumber("15");
-        weeklyChitGroups9.setDay("Every Friday of Week");
-        weeklyChitGroups9.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups9.setDueday("Every Wednesday of Week");
-        weeklyChitGroups9.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups9.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups9.setSubscription("94.174% OF CHIT VALUE(44049 INR PER TICKET)");
-        weeklyChitGroups9.setDividend("5.826% OF CHIT VALUE(5951 INR PER TICKET)");
-        weeklyChitGroups9.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups9.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
-        weeklyChitGroups9.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups9.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups9.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups9.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups9.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups9.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups9);
-        }
-        WeeklyChitGroups weeklyChitGroups10 = new WeeklyChitGroups();
-        weeklyChitGroups10.setMTitle("10 WEEKS 45,000 INR GROUP (P10W45K01)");
-        weeklyChitGroups10.setMVisibility("0");
-        weeklyChitGroups10.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups10.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups10.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups10.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups10.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups10.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups10.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups10.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups10.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups10.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups10.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups10.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups10.setCode("P10W45K01");
-        weeklyChitGroups10.setNumberOfTickets("15");
-        weeklyChitGroups10.setAmount("4500 INR PER TICKET");
-        weeklyChitGroups10.setValue("45,000 INR");
-        weeklyChitGroups10.setDuration("15 WEEKS");
-        weeklyChitGroups10.setTime("04:55 PM");
-        weeklyChitGroups10.setTotalinstallmentsnumber("15");
-        weeklyChitGroups10.setDay("Every Friday of Week");
-        weeklyChitGroups10.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups10.setDueday("Every Wednesday of Week");
-        weeklyChitGroups10.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups10.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups10.setSubscription("94.174% OF CHIT VALUE(42379 INR PER TICKET)");
-        weeklyChitGroups10.setDividend("5.826% OF CHIT VALUE(2622 INR PER TICKET)");
-        weeklyChitGroups10.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups10.setEfees("1% OF CHIT VALUE(450 INR PER TICKET)");
-        weeklyChitGroups10.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups10.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups10.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups10.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups10.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups10.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups10);
-        }
-        WeeklyChitGroups weeklyChitGroups11 = new WeeklyChitGroups();
-        weeklyChitGroups11.setMTitle("10 WEEKS 40,000 INR GROUP (P10W40K01)");
-        weeklyChitGroups11.setMVisibility("0");
-        weeklyChitGroups11.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups11.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups11.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups11.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups11.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups11.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups11.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups11.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups11.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups11.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups11.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups11.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups11.setCode("P10W40K01");
-        weeklyChitGroups11.setNumberOfTickets("15");
-        weeklyChitGroups11.setAmount("4000 INR PER TICKET");
-        weeklyChitGroups11.setValue("40,000 INR");
-        weeklyChitGroups11.setDuration("15 WEEKS");
-        weeklyChitGroups11.setTime("05:00 PM");
-        weeklyChitGroups11.setTotalinstallmentsnumber("15");
-        weeklyChitGroups11.setDay("Every Friday of Week");
-        weeklyChitGroups11.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups11.setDueday("Every Wednesday of Week");
-        weeklyChitGroups11.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups11.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups11.setSubscription("94.174% OF CHIT VALUE(37670 INR PER TICKET)");
-        weeklyChitGroups11.setDividend("5.826% OF CHIT VALUE(2330 INR PER TICKET)");
-        weeklyChitGroups11.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups11.setEfees("1% OF CHIT VALUE(400 INR PER TICKET)");
-        weeklyChitGroups11.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups11.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups11.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups11.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups11.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups11.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups11);
-        }
-        WeeklyChitGroups weeklyChitGroups12 = new WeeklyChitGroups();
-        weeklyChitGroups12.setMTitle("10 WEEKS 35,000 INR GROUP (P10W35K01)");
-        weeklyChitGroups12.setMVisibility("0");
-        weeklyChitGroups12.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups12.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups12.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups12.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups12.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups12.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups12.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups12.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups12.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups12.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups12.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups12.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups12.setCode("P10W35K01");
-        weeklyChitGroups12.setNumberOfTickets("15");
-        weeklyChitGroups12.setAmount("3500 INR PER TICKET");
-        weeklyChitGroups12.setValue("35,000 INR");
-        weeklyChitGroups12.setDuration("15 WEEKS");
-        weeklyChitGroups12.setTime("05:05 PM");
-        weeklyChitGroups12.setTotalinstallmentsnumber("15");
-        weeklyChitGroups12.setDay("Every Friday of Week");
-        weeklyChitGroups12.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups12.setDueday("Every Wednesday of Week");
-        weeklyChitGroups12.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups12.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups12.setSubscription("94.174% OF CHIT VALUE(32960 INR PER TICKET)");
-        weeklyChitGroups12.setDividend("5.826% OF CHIT VALUE(2040 INR PER TICKET)");
-        weeklyChitGroups12.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups12.setEfees("1% OF CHIT VALUE(350 INR PER TICKET)");
-        weeklyChitGroups12.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups12.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups12.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups12.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups12.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups12.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups12);
-        }
-        WeeklyChitGroups weeklyChitGroups13 = new WeeklyChitGroups();
-        weeklyChitGroups13.setMTitle("10 WEEKS 30,000 INR GROUP (P10W30K01)");
-        weeklyChitGroups13.setMVisibility("0");
-        weeklyChitGroups13.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups13.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups13.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups13.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups13.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups13.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups13.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups13.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups13.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups13.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups13.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups13.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups13.setCode("P10W30K01");
-        weeklyChitGroups13.setNumberOfTickets("15");
-        weeklyChitGroups13.setAmount("3000 INR PER TICKET");
-        weeklyChitGroups13.setValue("30,000 INR");
-        weeklyChitGroups13.setDuration("15 WEEKS");
-        weeklyChitGroups13.setTime("05:10 PM");
-        weeklyChitGroups13.setTotalinstallmentsnumber("15");
-        weeklyChitGroups13.setDay("Every Friday of Week");
-        weeklyChitGroups13.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups13.setDueday("Every Wednesday of Week");
-        weeklyChitGroups13.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups13.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups13.setSubscription("94.174% OF CHIT VALUE(28252 INR PER TICKET)");
-        weeklyChitGroups13.setDividend("5.826% OF CHIT VALUE(1748 INR PER TICKET)");
-        weeklyChitGroups13.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups13.setEfees("1% OF CHIT VALUE(300 INR PER TICKET)");
-        weeklyChitGroups13.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups13.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups13.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups13.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups13.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups13.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups13);
-        }
-        WeeklyChitGroups weeklyChitGroups14 = new WeeklyChitGroups();
-        weeklyChitGroups14.setMTitle("10 WEEKS 25,000 INR GROUP (P10W25K01)");
-        weeklyChitGroups14.setMVisibility("0");
-        weeklyChitGroups14.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups14.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups14.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups14.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups14.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups14.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups14.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups14.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups14.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups14.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups14.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups14.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups14.setCode("P10W25K01");
-        weeklyChitGroups14.setNumberOfTickets("15");
-        weeklyChitGroups14.setAmount("2500 INR PER TICKET");
-        weeklyChitGroups14.setValue("25,000 INR");
-        weeklyChitGroups14.setDuration("15 WEEKS");
-        weeklyChitGroups14.setTime("05:15 PM");
-        weeklyChitGroups14.setTotalinstallmentsnumber("15");
-        weeklyChitGroups14.setDay("Every Friday of Week");
-        weeklyChitGroups14.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups14.setDueday("Every Wednesday of Week");
-        weeklyChitGroups14.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups14.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups14.setSubscription("94.174% OF CHIT VALUE(23544 INR PER TICKET)");
-        weeklyChitGroups14.setDividend("5.826% OF CHIT VALUE(1456 INR PER TICKET)");
-        weeklyChitGroups14.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups14.setEfees("1% OF CHIT VALUE(250 INR PER TICKET)");
-        weeklyChitGroups14.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups14.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups14.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups14.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups14.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups14.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups14);
-        }
-        WeeklyChitGroups weeklyChitGroups15 = new WeeklyChitGroups();
-        weeklyChitGroups15.setMTitle("10 WEEKS 20,000 INR GROUP (P10W20K01)");
-        weeklyChitGroups15.setMVisibility("0");
-        weeklyChitGroups15.setMTotalNumberOfTickets("Total Tickets: 10");
-        weeklyChitGroups15.setMTotalNumberOfAvailableTickets("Total Available Tickets: 9");
-        weeklyChitGroups15.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
-        weeklyChitGroups15.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
-        weeklyChitGroups15.setMTotalNumberOfAuctions("Total  Auctions: 9");
-        weeklyChitGroups15.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
-        weeklyChitGroups15.setMBookingStatus("Booking: SCHEDULED");
-        weeklyChitGroups15.setMinBidRange("Minimum Bid%: 0% of Chit Value");
-        weeklyChitGroups15.setMaxBidRange("Maximum Bid%: 20% of Chit Value");
-        weeklyChitGroups15.setMinPrizeRange("Minimum Prize: 40,000 Rs");
-        weeklyChitGroups15.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
-        weeklyChitGroups15.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups15.setCode("P10W20K01");
-        weeklyChitGroups15.setNumberOfTickets("15");
-        weeklyChitGroups15.setAmount("2000 INR PER TICKET");
-        weeklyChitGroups15.setValue("20,000 INR");
-        weeklyChitGroups15.setDuration("15 WEEKS");
-        weeklyChitGroups15.setTime("05:20 PM");
-        weeklyChitGroups15.setTotalinstallmentsnumber("15");
-        weeklyChitGroups15.setDay("Every Friday of Week");
-        weeklyChitGroups15.setNoauction("First Auction Goes to Company");
-        weeklyChitGroups15.setDueday("Every Wednesday of Week");
-        weeklyChitGroups15.setDistribution("Every Wednesday of Week");
-        weeklyChitGroups15.setFrequency("WEEKLY 1 AUCTION");
-        weeklyChitGroups15.setSubscription("94.174% OF CHIT VALUE(18835 INR PER TICKET)");
-        weeklyChitGroups15.setDividend("5.826% OF CHIT VALUE(1165 INR PER TICKET)");
-        weeklyChitGroups15.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
-        weeklyChitGroups15.setEfees("1% OF CHIT VALUE(200 INR PER TICKET)");
-        weeklyChitGroups15.setPaymentfrequency("DAILY, WEEKLY");
-        weeklyChitGroups15.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
-        weeklyChitGroups15.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
-        weeklyChitGroups15.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
-        weeklyChitGroups15.setRollid("15");
-        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups15.getCode())){
-            weeklyChitGroupsRepository.save(weeklyChitGroups15);
-        }
+
     }
 
-    private void mockWeeklyChitGroups20(){
+    private void mockWeeklyChitGroups20(WeeklyChitGroupsRepository weeklyChitGroupsRepository ){
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("20 WEEKS 50,000 INR GROUP (P20W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -1695,7 +1339,7 @@ public class WeeklyChitSchemesMocker {
             weeklyChitGroupsRepository.save(weeklyChitGroups12);
         }
         WeeklyChitGroups weeklyChitGroups13 = new WeeklyChitGroups();
-        weeklyChitGroups13.setMTitle("20 WEEKS 20,000 INR GROUP (P20W20K01)");
+        weeklyChitGroups13.setMTitle("20 WEEKS 20,000 INR GROUP (P20W20K13)");
         weeklyChitGroups13.setMVisibility("1");
         weeklyChitGroups13.setMTotalNumberOfTickets("Total Tickets: 20");
         weeklyChitGroups13.setMTotalNumberOfAvailableTickets("Total Available Tickets: 19");
@@ -1709,7 +1353,7 @@ public class WeeklyChitSchemesMocker {
         weeklyChitGroups13.setMinPrizeRange("Minimum Prize: 37,500 Rs");
         weeklyChitGroups13.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
         weeklyChitGroups13.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups13.setCode("P20W20K01");
+        weeklyChitGroups13.setCode("P20W20K13");
         weeklyChitGroups13.setNumberOfTickets("20");
         weeklyChitGroups13.setAmount("1000 INR PER TICKET");
         weeklyChitGroups13.setValue("20,000 INR");
@@ -1734,7 +1378,7 @@ public class WeeklyChitSchemesMocker {
             weeklyChitGroupsRepository.save(weeklyChitGroups13);
         }
         WeeklyChitGroups weeklyChitGroups14 = new WeeklyChitGroups();
-        weeklyChitGroups14.setMTitle("20 WEEKS 30,000 INR GROUP (P20W30K01)");
+        weeklyChitGroups14.setMTitle("20 WEEKS 30,000 INR GROUP (P20W30K14)");
         weeklyChitGroups14.setMVisibility("1");
         weeklyChitGroups14.setMTotalNumberOfTickets("Total Tickets: 20");
         weeklyChitGroups14.setMTotalNumberOfAvailableTickets("Total Available Tickets: 19");
@@ -1748,7 +1392,7 @@ public class WeeklyChitSchemesMocker {
         weeklyChitGroups14.setMinPrizeRange("Minimum Prize: 37,500 Rs");
         weeklyChitGroups14.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
         weeklyChitGroups14.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups14.setCode("P20W30K01");
+        weeklyChitGroups14.setCode("P20W30K14");
         weeklyChitGroups14.setNumberOfTickets("20");
         weeklyChitGroups14.setAmount("1500 INR PER TICKET");
         weeklyChitGroups14.setValue("30,000 INR");
@@ -1773,7 +1417,7 @@ public class WeeklyChitSchemesMocker {
             weeklyChitGroupsRepository.save(weeklyChitGroups14);
         }
         WeeklyChitGroups weeklyChitGroups15 = new WeeklyChitGroups();
-        weeklyChitGroups15.setMTitle("20 WEEKS 40,000 INR GROUP (P20W40K01)");
+        weeklyChitGroups15.setMTitle("20 WEEKS 40,000 INR GROUP (P20W40K15)");
         weeklyChitGroups15.setMVisibility("1");
         weeklyChitGroups15.setMTotalNumberOfTickets("Total Tickets: 20");
         weeklyChitGroups15.setMTotalNumberOfAvailableTickets("Total Available Tickets: 19");
@@ -1787,7 +1431,7 @@ public class WeeklyChitSchemesMocker {
         weeklyChitGroups15.setMinPrizeRange("Minimum Prize: 30,500 Rs");
         weeklyChitGroups15.setMaxPrizeRange("Maximum Prize: 40,000 Rs");
         weeklyChitGroups15.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups15.setCode("P20W40K01");
+        weeklyChitGroups15.setCode("P20W40K15");
         weeklyChitGroups15.setNumberOfTickets("20");
         weeklyChitGroups15.setAmount("2000 INR PER TICKET");
         weeklyChitGroups15.setValue("40,000 INR");
@@ -1813,7 +1457,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups25() {
+    private void mockWeeklyChitGroups25(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("25 WEEKS 50,000 INR GROUP (P25W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -2401,7 +2045,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups30() {
+    private void mockWeeklyChitGroups30(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("30 WEEKS 50,000 INR GROUP (P30W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -2989,7 +2633,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups40() {
+    private void mockWeeklyChitGroups40(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("40 WEEKS 50,000 INR GROUP (P40W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -3434,7 +3078,7 @@ public class WeeklyChitSchemesMocker {
         weeklyChitGroups12.setMinPrizeRange("Minimum Prize: 37,500 Rs");
         weeklyChitGroups12.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
         weeklyChitGroups12.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 0");
-        weeklyChitGroups12.setCode("PvW50K12");
+        weeklyChitGroups12.setCode("P40WW50K12");
         weeklyChitGroups12.setNumberOfTickets("40");
         weeklyChitGroups12.setAmount("2500 INR PER TICKET");
         weeklyChitGroups12.setValue("50,000 INR");
@@ -3577,7 +3221,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups50() {
+    private void mockWeeklyChitGroups50(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("50 WEEKS 50,000 INR GROUP (P50W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -4165,7 +3809,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups60() {
+    private void mockWeeklyChitGroups60(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("60 WEEKS 50,000 INR GROUP (P60W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -4753,7 +4397,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups70() {
+    private void mockWeeklyChitGroups70(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("70 WEEKS 50,000 INR GROUP (P70W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -5341,7 +4985,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups80() {
+    private void mockWeeklyChitGroups80(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("80 WEEKS 50,000 INR GROUP (P80W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -5929,7 +5573,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups90() {
+    private void mockWeeklyChitGroups90(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("90 WEEKS 50,000 INR GROUP (P90W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -6517,7 +6161,7 @@ public class WeeklyChitSchemesMocker {
         }
     }
 
-    private void mockWeeklyChitGroups100() {
+    private void mockWeeklyChitGroups100(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
         WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
         weeklyChitGroups1.setMTitle("100 WEEKS 50,000 INR GROUP (P100W50K01)");
         weeklyChitGroups1.setMVisibility("1");
@@ -7104,4 +6748,219 @@ public class WeeklyChitSchemesMocker {
             weeklyChitGroupsRepository.save(weeklyChitGroups15);
         }
     }
+
+    private void mockWeeklyChitGroups120(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
+        WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
+        weeklyChitGroups1.setMTitle("120 WEEKS 50,000 INR GROUP (P120W50K01)");
+        weeklyChitGroups1.setMVisibility("1");
+        weeklyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 100");
+        weeklyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 99");
+        weeklyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 99");
+        weeklyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        weeklyChitGroups1.setMBookingStatus("Booking: OPEN");
+        weeklyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        weeklyChitGroups1.setMaxBidRange("Maximum Bid%: 25% of Chit Value");
+        weeklyChitGroups1.setMinPrizeRange("Minimum Prize: 37,500 Rs");
+        weeklyChitGroups1.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        weeklyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 4");
+        weeklyChitGroups1.setCode("P120W50K01");
+        weeklyChitGroups1.setNumberOfTickets("100");
+        weeklyChitGroups1.setAmount("2500 INR PER TICKET");
+        weeklyChitGroups1.setValue("50,000 INR");
+        weeklyChitGroups1.setDuration("100 WEEKS");
+        weeklyChitGroups1.setTime("08:00 PM");
+        weeklyChitGroups1.setTotalinstallmentsnumber("100");
+        weeklyChitGroups1.setDay("Every Friday of Week");
+        weeklyChitGroups1.setNoauction("First Auction Goes to Company");
+        weeklyChitGroups1.setDueday("Every Wednesday of Week");
+        weeklyChitGroups1.setDistribution("Every Wednesday of Week");
+        weeklyChitGroups1.setFrequency("WEEKLY 1 AUCTION");
+        weeklyChitGroups1.setSubscription("88.09% OF CHIT VALUE(44049 INR PER TICKET)");
+        weeklyChitGroups1.setDividend("11.90% OF CHIT VALUE(5951 INR PER TICKET)");
+        weeklyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        weeklyChitGroups1.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        weeklyChitGroups1.setPaymentfrequency("DAILY, WEEKLY, BIWEEKLY");
+        weeklyChitGroups1.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        weeklyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        weeklyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        weeklyChitGroups1.setRollid("120");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups1.getCode())){
+            weeklyChitGroupsRepository.save(weeklyChitGroups1);
+        }
+    }
+
+    private void mockWeeklyChitGroups140(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
+        WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
+        weeklyChitGroups1.setMTitle("140 WEEKS 50,000 INR GROUP (P140W50K01)");
+        weeklyChitGroups1.setMVisibility("1");
+        weeklyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 100");
+        weeklyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 99");
+        weeklyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 99");
+        weeklyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        weeklyChitGroups1.setMBookingStatus("Booking: OPEN");
+        weeklyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        weeklyChitGroups1.setMaxBidRange("Maximum Bid%: 25% of Chit Value");
+        weeklyChitGroups1.setMinPrizeRange("Minimum Prize: 37,500 Rs");
+        weeklyChitGroups1.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        weeklyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 4");
+        weeklyChitGroups1.setCode("P140W50K01");
+        weeklyChitGroups1.setNumberOfTickets("100");
+        weeklyChitGroups1.setAmount("2500 INR PER TICKET");
+        weeklyChitGroups1.setValue("50,000 INR");
+        weeklyChitGroups1.setDuration("100 WEEKS");
+        weeklyChitGroups1.setTime("08:00 PM");
+        weeklyChitGroups1.setTotalinstallmentsnumber("100");
+        weeklyChitGroups1.setDay("Every Friday of Week");
+        weeklyChitGroups1.setNoauction("First Auction Goes to Company");
+        weeklyChitGroups1.setDueday("Every Wednesday of Week");
+        weeklyChitGroups1.setDistribution("Every Wednesday of Week");
+        weeklyChitGroups1.setFrequency("WEEKLY 1 AUCTION");
+        weeklyChitGroups1.setSubscription("88.09% OF CHIT VALUE(44049 INR PER TICKET)");
+        weeklyChitGroups1.setDividend("11.90% OF CHIT VALUE(5951 INR PER TICKET)");
+        weeklyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        weeklyChitGroups1.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        weeklyChitGroups1.setPaymentfrequency("DAILY, WEEKLY, BIWEEKLY");
+        weeklyChitGroups1.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        weeklyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        weeklyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        weeklyChitGroups1.setRollid("140");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups1.getCode())){
+            weeklyChitGroupsRepository.save(weeklyChitGroups1);
+        }
+
+    }
+
+    private void mockWeeklyChitGroups160(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
+        WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
+        weeklyChitGroups1.setMTitle("160 WEEKS 50,000 INR GROUP (P160W50K01)");
+        weeklyChitGroups1.setMVisibility("1");
+        weeklyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 100");
+        weeklyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 99");
+        weeklyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 99");
+        weeklyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        weeklyChitGroups1.setMBookingStatus("Booking: OPEN");
+        weeklyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        weeklyChitGroups1.setMaxBidRange("Maximum Bid%: 25% of Chit Value");
+        weeklyChitGroups1.setMinPrizeRange("Minimum Prize: 37,500 Rs");
+        weeklyChitGroups1.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        weeklyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 4");
+        weeklyChitGroups1.setCode("P160W50K01");
+        weeklyChitGroups1.setNumberOfTickets("100");
+        weeklyChitGroups1.setAmount("2500 INR PER TICKET");
+        weeklyChitGroups1.setValue("50,000 INR");
+        weeklyChitGroups1.setDuration("100 WEEKS");
+        weeklyChitGroups1.setTime("08:00 PM");
+        weeklyChitGroups1.setTotalinstallmentsnumber("100");
+        weeklyChitGroups1.setDay("Every Friday of Week");
+        weeklyChitGroups1.setNoauction("First Auction Goes to Company");
+        weeklyChitGroups1.setDueday("Every Wednesday of Week");
+        weeklyChitGroups1.setDistribution("Every Wednesday of Week");
+        weeklyChitGroups1.setFrequency("WEEKLY 1 AUCTION");
+        weeklyChitGroups1.setSubscription("88.09% OF CHIT VALUE(44049 INR PER TICKET)");
+        weeklyChitGroups1.setDividend("11.90% OF CHIT VALUE(5951 INR PER TICKET)");
+        weeklyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        weeklyChitGroups1.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        weeklyChitGroups1.setPaymentfrequency("DAILY, WEEKLY, BIWEEKLY");
+        weeklyChitGroups1.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        weeklyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        weeklyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        weeklyChitGroups1.setRollid("160");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups1.getCode())){
+            weeklyChitGroupsRepository.save(weeklyChitGroups1);
+        }
+
+    }
+
+    private void mockWeeklyChitGroups180(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
+        WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
+        weeklyChitGroups1.setMTitle("180 WEEKS 50,000 INR GROUP (P180W50K01)");
+        weeklyChitGroups1.setMVisibility("1");
+        weeklyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 100");
+        weeklyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 99");
+        weeklyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 99");
+        weeklyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        weeklyChitGroups1.setMBookingStatus("Booking: OPEN");
+        weeklyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        weeklyChitGroups1.setMaxBidRange("Maximum Bid%: 25% of Chit Value");
+        weeklyChitGroups1.setMinPrizeRange("Minimum Prize: 37,500 Rs");
+        weeklyChitGroups1.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        weeklyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 4");
+        weeklyChitGroups1.setCode("P180W50K01");
+        weeklyChitGroups1.setNumberOfTickets("100");
+        weeklyChitGroups1.setAmount("2500 INR PER TICKET");
+        weeklyChitGroups1.setValue("50,000 INR");
+        weeklyChitGroups1.setDuration("100 WEEKS");
+        weeklyChitGroups1.setTime("08:00 PM");
+        weeklyChitGroups1.setTotalinstallmentsnumber("100");
+        weeklyChitGroups1.setDay("Every Friday of Week");
+        weeklyChitGroups1.setNoauction("First Auction Goes to Company");
+        weeklyChitGroups1.setDueday("Every Wednesday of Week");
+        weeklyChitGroups1.setDistribution("Every Wednesday of Week");
+        weeklyChitGroups1.setFrequency("WEEKLY 1 AUCTION");
+        weeklyChitGroups1.setSubscription("88.09% OF CHIT VALUE(44049 INR PER TICKET)");
+        weeklyChitGroups1.setDividend("11.90% OF CHIT VALUE(5951 INR PER TICKET)");
+        weeklyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        weeklyChitGroups1.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        weeklyChitGroups1.setPaymentfrequency("DAILY, WEEKLY, BIWEEKLY");
+        weeklyChitGroups1.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        weeklyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        weeklyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        weeklyChitGroups1.setRollid("180");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups1.getCode())){
+            weeklyChitGroupsRepository.save(weeklyChitGroups1);
+        }
+
+    }
+
+    private void mockWeeklyChitGroups200(WeeklyChitGroupsRepository weeklyChitGroupsRepository ) {
+        WeeklyChitGroups weeklyChitGroups1 = new WeeklyChitGroups();
+        weeklyChitGroups1.setMTitle("200 WEEKS 50,000 INR GROUP (P200W50K01)");
+        weeklyChitGroups1.setMVisibility("1");
+        weeklyChitGroups1.setMTotalNumberOfTickets("Total Tickets: 100");
+        weeklyChitGroups1.setMTotalNumberOfAvailableTickets("Total Available Tickets: 99");
+        weeklyChitGroups1.setMTotalNumberOfBookedTickets("Total Booked Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfVacantTickets("Total Vacant Tickets: 0");
+        weeklyChitGroups1.setMTotalNumberOfAuctions("Total  Auctions: 99");
+        weeklyChitGroups1.setMTotalNumberOfTicketsSold("Total Tickets Sold: 0");
+        weeklyChitGroups1.setMBookingStatus("Booking: OPEN");
+        weeklyChitGroups1.setMinBidRange("Minimum Bid%: 0% of Chit Value");
+        weeklyChitGroups1.setMaxBidRange("Maximum Bid%: 25% of Chit Value");
+        weeklyChitGroups1.setMinPrizeRange("Minimum Prize: 37,500 Rs");
+        weeklyChitGroups1.setMaxPrizeRange("Maximum Prize: 50,000 Rs");
+        weeklyChitGroups1.setMTotalNumberOfAgreementsSigned("Total Agreements Signed: 4");
+        weeklyChitGroups1.setCode("P200W50K01");
+        weeklyChitGroups1.setNumberOfTickets("100");
+        weeklyChitGroups1.setAmount("2500 INR PER TICKET");
+        weeklyChitGroups1.setValue("50,000 INR");
+        weeklyChitGroups1.setDuration("100 WEEKS");
+        weeklyChitGroups1.setTime("08:00 PM");
+        weeklyChitGroups1.setTotalinstallmentsnumber("100");
+        weeklyChitGroups1.setDay("Every Friday of Week");
+        weeklyChitGroups1.setNoauction("First Auction Goes to Company");
+        weeklyChitGroups1.setDueday("Every Wednesday of Week");
+        weeklyChitGroups1.setDistribution("Every Wednesday of Week");
+        weeklyChitGroups1.setFrequency("WEEKLY 1 AUCTION");
+        weeklyChitGroups1.setSubscription("88.09% OF CHIT VALUE(44049 INR PER TICKET)");
+        weeklyChitGroups1.setDividend("11.90% OF CHIT VALUE(5951 INR PER TICKET)");
+        weeklyChitGroups1.setMethod("LUCKY DRAW ON COMPANY MOBILE APP");
+        weeklyChitGroups1.setEfees("1% OF CHIT VALUE(500 INR PER TICKET)");
+        weeklyChitGroups1.setPaymentfrequency("DAILY, WEEKLY, BIWEEKLY");
+        weeklyChitGroups1.setNoofguaranters("ZERO GUARANTORS ARE REQUIRED");
+        weeklyChitGroups1.setJoiningdocs("AADHAAR CARD, PAN CARD, ADDRESS PROOF");
+        weeklyChitGroups1.setPrizeclaimdocs("INCOME PROOF, BANK STATEMENT, 3 SIGNED CHEQUES, 3 SIGNED PROMISSORY NOTES");
+        weeklyChitGroups1.setRollid("200");
+        if(null == weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups1.getCode())){
+            weeklyChitGroupsRepository.save(weeklyChitGroups1);
+        }
+
+    }
+
 }

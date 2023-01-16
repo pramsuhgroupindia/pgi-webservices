@@ -3,9 +3,8 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.DailyAuctionableDurations;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.DailyAuctionableDurationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +17,13 @@ public class DailyAuctionableDurationController {
     @GetMapping
     public List<DailyAuctionableDurations> getAllSelectedSchemeDurations() {
         return dailyAuctionableDurationsRepository.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createDailyChitDurationsList(@RequestBody DailyAuctionableDurations dailyAuctionableDurations){
+       if(null != dailyAuctionableDurationsRepository.save(dailyAuctionableDurations)){
+           return ResponseEntity.ok("SUCCESS");
+       }
+        return ResponseEntity.ok("FAILURE");
     }
 }

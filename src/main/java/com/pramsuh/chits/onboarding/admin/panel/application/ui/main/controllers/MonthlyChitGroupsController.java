@@ -3,10 +3,8 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.MonthlyChitGroups;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.MonthlyChitGroupsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,19 @@ public class MonthlyChitGroupsController {
     @GetMapping
     public List<MonthlyChitGroups> getAllMonthlySchemeDurationAmountGroups() {
         return monthlyChitGroupsRepository.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createMonthlyChitGroup(@RequestBody MonthlyChitGroups monthlyChitGroups){
+        if(monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups.getCode()) == null) {
+            MonthlyChitGroups monthlyChitGroups1 = monthlyChitGroupsRepository.save(monthlyChitGroups);
+            if(monthlyChitGroups1 != null) {
+                return ResponseEntity.ok("SUCCESS");
+            } else{
+                return ResponseEntity.ok("FAILURE");
+            }
+        } else {
+            return ResponseEntity.ok("ALREADY GROUP CREATED WITH SAME CODE");
+        }
     }
 }

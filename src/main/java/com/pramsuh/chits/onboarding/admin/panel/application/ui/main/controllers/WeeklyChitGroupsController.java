@@ -3,10 +3,8 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.WeeklyChitGroups;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.WeeklyChitGroupsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,19 @@ public class WeeklyChitGroupsController {
     @GetMapping
     public List<WeeklyChitGroups> getAllWeeklySchemeDurationAmountGroups() {
         return weeklyChitGroupsRepository.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createWeeklyChitGroup(@RequestBody WeeklyChitGroups weeklyChitGroups){
+        if(weeklyChitGroupsRepository.findChitGroupByCode(weeklyChitGroups.getCode()) == null) {
+            WeeklyChitGroups weeklyChitGroups1 = weeklyChitGroupsRepository.save(weeklyChitGroups);
+            if(weeklyChitGroups1 != null) {
+                return ResponseEntity.ok("SUCCESS");
+            } else{
+                return ResponseEntity.ok("FAILURE");
+            }
+        } else {
+            return ResponseEntity.ok("ALREADY GROUP CREATED WITH SAME CODE");
+        }
     }
 }

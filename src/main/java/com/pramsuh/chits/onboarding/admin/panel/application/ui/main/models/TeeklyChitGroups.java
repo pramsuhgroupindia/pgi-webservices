@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "tweeklychitgroups")
+@Table(name = "teeklychitgroups")
 public class TeeklyChitGroups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -16,7 +16,7 @@ public class UserContactsController {
     @Autowired
     UserContactsRepository userContactsRepository;
     private EntityManager entityManager;
-    @GetMapping
+    @GetMapping("/all")
     public List<UserContacts> getAllUserContacts() {
         return userContactsRepository.findAll();
     }

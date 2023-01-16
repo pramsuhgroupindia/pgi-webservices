@@ -18,97 +18,109 @@ public class DailyAuctionableDurations {
     @Column(name = "d10")
     private String d10;
 
+    @Column(name = "d10dtoggle")
+    private String d10dtoggle;
+
     @Column(name = "d15")
     private String d15;
+
+    @Column(name = "d15dtoggle")
+    private String d15dtoggle;
 
     @Column(name = "d20")
     private String d20;
 
+    @Column(name = "d20dtoggle")
+    private String d20dtoggle;
+
     @Column(name = "d25")
     private String d25;
+
+    @Column(name = "d25dtoggle")
+    private String d25dtoggle;
 
     @Column(name = "d30")
     private String d30;
 
+    @Column(name = "d30dtoggle")
+    private String d30dtoggle;
+
     @Column(name = "d40")
     private String d40;
+
+    @Column(name = "d40dtoggle")
+    private String d40dtoggle;
 
     @Column(name = "d50")
     private String d50;
 
+    @Column(name = "d50dtoggle")
+    private String d50dtoggle;
+
     @Column(name = "d60")
     private String d60;
+
+    @Column(name = "d60dtoggle")
+    private String d60dtoggle;
 
     @Column(name = "d70")
     private String d70;
 
+    @Column(name = "d70dtoggle")
+    private String d70dtoggle;
+
     @Column(name = "d80")
     private String d80;
+
+    @Column(name = "d80dtoggle")
+    private String d80dtoggle;
 
     @Column(name = "d90")
     private String d90;
 
+    @Column(name = "d90dtoggle")
+    private String d90dtoggle;
+
     @Column(name = "d100")
     private String d100;
 
-    @Column(name = "d110")
-    private String d110;
-
-    @Column(name = "d120")
-    private String d120;
-
-    @Column(name = "d130")
-    private String d130;
-
-    @Column(name = "d140")
-    private String d140;
+    @Column(name = "d100dtoggle")
+    private String d100dtoggle;
 
     @Column(name = "d150")
     private String d150;
 
-    @Column(name = "d160")
-    private String d160;
-
-    @Column(name = "d170")
-    private String d170;
-
-    @Column(name = "d180")
-    private String d180;
-
-    @Column(name = "d190")
-    private String d190;
+    @Column(name = "d150dtoggle")
+    private String d150dtoggle;
 
     @Column(name = "d200")
     private String d200;
 
-    @Column(name = "d210")
-    private String d210;
-
-    @Column(name = "d220")
-    private String d220;
-
-    @Column(name = "d230")
-    private String d230;
-
-    @Column(name = "d240")
-    private String d240;
+    @Column(name = "d200dtoggle")
+    private String d200dtoggle;
 
     @Column(name = "d250")
     private String d250;
 
-    @Column(name = "d260")
-    private String d260;
-
-    @Column(name = "d270")
-    private String d270;
-
-    @Column(name = "d280")
-    private String d280;
-
-    @Column(name = "d290")
-    private String d290;
+    @Column(name = "d250dtoggle")
+    private String d250dtoggle;
 
     @Column(name = "d300")
     private String d300;
+
+    @Column(name = "d300dtoggle")
+    private String d300dtoggle;
+
+    @Column(name = "d400")
+    private String d400;
+
+    @Column(name = "d400dtoggle")
+    private String d400dtoggle;
+
+    @Column(name = "d500")
+    private String d500;
+
+    @Column(name = "d500dtoggle")
+    private String d500dtoggle;
 
 }

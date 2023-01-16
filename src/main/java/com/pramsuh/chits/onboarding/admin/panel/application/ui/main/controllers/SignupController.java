@@ -22,7 +22,7 @@ public class SignupController {
     @Autowired
     CustomerRepository customerRepository;
 
-    @GetMapping("/profiles")
+    @GetMapping("/all")
     public List<SignupDetails> getAllProfiles() {
         return signupDetailsRepository.findAll();
     }

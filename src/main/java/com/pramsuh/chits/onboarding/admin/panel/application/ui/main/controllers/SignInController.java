@@ -23,7 +23,7 @@ public class SignInController {
 
     @Autowired
     MemberDetailsRepository memberDetailsRepository;
-    @GetMapping("/profiles/customers")
+    @GetMapping("/all")
     public List<SignupDetails> getAllProfilesFromCustomersTable() {
         return signupDetailsRepository.findAll();
     }
