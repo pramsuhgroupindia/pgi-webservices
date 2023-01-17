@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/web/services/customer/smsinbox")
+@RequestMapping("/api/v1/chit/funds/web/services/customer/smsinbox")
 public class SMSInboxController {
     @Autowired
     SMSInboxRepository smsInboxRepository;

@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/web/services/customer/signin")
+@RequestMapping("/api/v1/chit/funds/web/services/customer/signin")
 public class SignInController {
     @Autowired
     SignupDetailsRepository signupDetailsRepository;

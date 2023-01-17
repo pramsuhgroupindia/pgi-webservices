@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/web/services/customer/contacts")
+@RequestMapping("/api/v1/chit/funds/web/services/customer/contacts")
 public class UserContactsController {
     @Autowired
     UserContactsRepository userContactsRepository;
@@ -37,9 +37,7 @@ public class UserContactsController {
             userContact.setMessage("SUCCESS");
         }
         List<UserContacts> contactsList = userContactsRepository.saveAll(userContacts);
-        if(null != this.entityManager) {
-            entityManager.persist(userContacts);
-        }
+
         if(contactsList == null){
             return ResponseEntity.ok("ERROR");
         }

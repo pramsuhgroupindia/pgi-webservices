@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/web/services/auctionable/schemes")
+@RequestMapping("/api/v1/chit/funds/web/services/auctionable/schemes")
 public class AuctionableSchemesController {
     @Autowired
     AuctionableSchemesRepository auctionableSchemesRepository;

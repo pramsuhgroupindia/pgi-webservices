@@ -2,6 +2,10 @@ package com.pramsuh.chits.onboarding.admin.panel.application;
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.mocking.*;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.*;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.mockers.NeoBankSignUpMocker;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.models.NeoBankSignUp;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.repositories.NeoBankMemberRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.repositories.NeoBankSignUpRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -69,6 +73,11 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     @Autowired
     private MonthlyChitGroupsRepository monthlyChitGroupsRepository;
 
+    @Autowired
+    private NeoBankSignUpRepository neoBankSignUpRepository;
+
+    @Autowired
+    private NeoBankMemberRepository neoBankMemberRepository;
     public static void main(String[] args) {
         SpringApplication.run(PramsuhWebservicesApplication.class, args);
     }
@@ -76,6 +85,15 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
      //   mock();
+        mockNeoBank(neoBankSignUpRepository, neoBankMemberRepository);
+    }
+
+    private void mockNeoBank(NeoBankSignUpRepository neoBankSignUpRepository, NeoBankMemberRepository neoBankMemberRepository) {
+        NeoBankSignUp neoBankSignUp =  mockNeoSignUp(neoBankSignUpRepository, neoBankMemberRepository);
+    }
+
+    private NeoBankSignUp mockNeoSignUp(NeoBankSignUpRepository neoBankSignUpRepository, NeoBankMemberRepository neoBankMemberRepository) {
+        return new NeoBankSignUpMocker().mockSignUpDetailsTableData(neoBankSignUpRepository, neoBankMemberRepository);
     }
 
     public void mock(){

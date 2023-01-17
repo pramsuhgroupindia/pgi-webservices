@@ -12,15 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/web/services/customer/signup")
+@RequestMapping("/api/v1/chit/funds/web/services/customer/signup")
 public class SignupController {
     @Autowired
     SignupDetailsRepository signupDetailsRepository;
 
     @Autowired
     MemberDetailsRepository memberDetailsRepository;
-    @Autowired
-    CustomerRepository customerRepository;
 
     @GetMapping("/all")
     public List<SignupDetails> getAllProfiles() {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/web/services/auctionable/schemes/durations/monthly/amounts")
+@RequestMapping("/api/v1/chit/funds/web/services/auctionable/schemes/durations/monthly/amounts")
 public class MonthlyChitGroupsController {
     @Autowired
     MonthlyChitGroupsRepository monthlyChitGroupsRepository;
