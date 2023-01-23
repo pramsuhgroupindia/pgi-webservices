@@ -14,10 +14,10 @@ public class TeeklyChitGroupsController {
     @Autowired
     TeeklyChitGroupsRepository teeklyChitGroupsRepository;
 
-    @GetMapping("{duration}")
-    public List<TeeklyChitGroups> getAllSelectedTeeklySchemeDurationAmountGroups(@PathVariable String duration) {
-        return teeklyChitGroupsRepository.findAllChitGroupsByDuration(duration);
-    }
+//    @GetMapping("{duration}")
+//    public List<TeeklyChitGroups> getAllSelectedTeeklySchemeDurationAmountGroups(@PathVariable String duration) {
+//        return teeklyChitGroupsRepository.findAllChitGroupsByDuration(duration);
+//    }
 
     @GetMapping("{code}")
     public TeeklyChitGroups getSelectedTeeklySchemeDurationAmountGroup(@PathVariable String code) {

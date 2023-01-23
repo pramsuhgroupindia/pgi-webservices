@@ -14,10 +14,10 @@ public class DailyChitGroupsController {
     @Autowired
     DailyChitGroupsRepository dailyChitGroupsRepository;
 
-    @GetMapping("{duration}")
-    public List<DailyChitGroups> getAllSelectedDailySchemeDurationAmountGroups(@PathVariable String duration) {
-        return dailyChitGroupsRepository.findAllChitGroupsByDuration(duration);
-    }
+//    @GetMapping("{duration}")
+//    public List<DailyChitGroups> getAllSelectedDailySchemeDurationAmountGroups(@PathVariable String duration) {
+//        return dailyChitGroupsRepository.findAllChitGroupsByDuration(duration);
+//    }
 
     @GetMapping("{code}")
     public DailyChitGroups getSelectedDailySchemeDurationAmountGroup(@PathVariable String code) {

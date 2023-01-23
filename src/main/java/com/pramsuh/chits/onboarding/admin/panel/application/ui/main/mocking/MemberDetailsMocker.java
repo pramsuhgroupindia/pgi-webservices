@@ -8,7 +8,6 @@ public class MemberDetailsMocker {
 
     public MemberDetails mockMemberDetailsTableData(MemberDetailsRepository memberDetailsRepository, SignupDetails signupDetails){
         MemberDetails memberDetails = null;
-        if (!memberDetailsRepository.findProfileByAadharNumber(signupDetails.getAadharNumber()).isPresent()) {
             memberDetails = new MemberDetails();
             memberDetails.setFullName(signupDetails.getFullName());
             memberDetails.setEmailId(signupDetails.getEmailId());
@@ -32,6 +31,7 @@ public class MemberDetailsMocker {
             memberDetails.setOccupation(signupDetails.getOccupation());
             memberDetails.setNomineeRelation(signupDetails.getNomineeRelation());
             memberDetails.setMessage("REGISTERED");
+        if (!memberDetailsRepository.findProfileByAadharNumber(signupDetails.getAadharNumber()).isPresent()) {
             memberDetailsRepository.save(memberDetails);
         }
         return memberDetails;

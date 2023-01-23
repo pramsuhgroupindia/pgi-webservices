@@ -74,6 +74,15 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     private MonthlyChitGroupsRepository monthlyChitGroupsRepository;
 
     @Autowired
+    ContactUsRepository contactUsRepository;
+
+    @Autowired
+    QuestionsAnswersRepository questionsAnswersRepository;
+
+    @Autowired
+    FeedbackRepository feedbackRepository;
+
+    @Autowired
     private NeoBankSignUpRepository neoBankSignUpRepository;
 
     @Autowired
@@ -84,7 +93,11 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-     //   mock();
+        mock();
+    }
+
+    private void mock(){
+        mockChitFund();
         mockNeoBank(neoBankSignUpRepository, neoBankMemberRepository);
     }
 
@@ -96,7 +109,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
         return new NeoBankSignUpMocker().mockSignUpDetailsTableData(neoBankSignUpRepository, neoBankMemberRepository);
     }
 
-    public void mock(){
+    public void mockChitFund(){
 
         SignUpDetailsMocker signUpDetailsMocker = new SignUpDetailsMocker();
         SignupDetails signupDetails = signUpDetailsMocker.mockSignUpDetailsTableData(signupDetailsRepository);
@@ -139,6 +152,15 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
 
         MonthlyChitSchemesMocker monthlyChitSchemesMocker = new MonthlyChitSchemesMocker();
         monthlyChitSchemesMocker.mockMonthlySchemesTableData(monthlyAuctionableDurationsRepository, monthlyChitGroupsRepository);
+
+        ContactUsMocker contactUsMocker = new ContactUsMocker();
+        contactUsMocker.mockBranchInfo(contactUsRepository);
+
+        QuestionAnswerMocker questionAnswerMocker = new QuestionAnswerMocker();
+        questionAnswerMocker.mockQuestionAnswers(questionsAnswersRepository);
+
+        FeedbackMocker feedbackMocker  =new FeedbackMocker();
+        feedbackMocker.mockFeedback(feedbackRepository);
     }
 
 

@@ -2,8 +2,10 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.EnrollRequests;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.EnrollRequestsRepository;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.EnrollmentStatus;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -13,13 +15,22 @@ import java.util.List;
 public class EnrollRequestsController {
     @Autowired
     EnrollRequestsRepository enrollRequestsRepository;
-    @GetMapping("/all")
-    public List<EnrollRequests> getAllEnrollments() {
-        return enrollRequestsRepository.findAll();
+    @GetMapping("/all/inprogress")
+    public ResponseEntity<List<EnrollRequests>> getAllInProgressEnrollments(@RequestParam String aadhar_number, @RequestParam EnrollmentStatus status) {
+        return new ResponseEntity<List<EnrollRequests>>(enrollRequestsRepository.findByAadharNumberAndStatus(aadhar_number, status), HttpStatus.OK);
     }
 
-    @GetMapping("{aadharNumber}")
-    public List<EnrollRequests> getAllEnrollmentsMainUserWise(@PathVariable String aadhar_number) {
+    @GetMapping("/all/approved")
+    public ResponseEntity<List<EnrollRequests>> getAllApprovedEnrollments(@RequestParam String aadhar_number, @RequestParam EnrollmentStatus status) {
+        return new ResponseEntity<List<EnrollRequests>>(enrollRequestsRepository.findByAadharNumberAndStatus(aadhar_number, status), HttpStatus.OK);
+    }
+
+    @GetMapping("/all/rejected")
+    public ResponseEntity<List<EnrollRequests>> getAllRejectedEnrollments(@RequestParam String aadhar_number, @RequestParam EnrollmentStatus status) {
+        return new ResponseEntity<List<EnrollRequests>>(enrollRequestsRepository.findByAadharNumberAndStatus(aadhar_number, status), HttpStatus.OK);
+    }
+    @GetMapping("/all")
+    public List<EnrollRequests> getAllEnrollmentsMainUserWise(@RequestParam String aadhar_number) {
         return enrollRequestsRepository.findAllByAadharNumber(aadhar_number);
     }
 

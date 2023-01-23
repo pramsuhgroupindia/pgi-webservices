@@ -15,10 +15,10 @@ public class UserContacts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "firstName")
+    @Column(name = "firstName", columnDefinition = "LONGTEXT")
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "lastName", columnDefinition = "LONGTEXT")
     private String lastName;
 
     @Column(name = "mobileNumber")

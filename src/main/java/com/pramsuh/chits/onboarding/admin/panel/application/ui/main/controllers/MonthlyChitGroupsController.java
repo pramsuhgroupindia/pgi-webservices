@@ -14,10 +14,10 @@ public class MonthlyChitGroupsController {
     @Autowired
     MonthlyChitGroupsRepository monthlyChitGroupsRepository;
 
-    @GetMapping("{duration}")
-    public List<MonthlyChitGroups> getAllSelectedMonthlySchemeDurationAmountGroups(@PathVariable String duration) {
-        return monthlyChitGroupsRepository.findAllChitGroupsByDuration(duration);
-    }
+//    @GetMapping("{duration}")
+//    public List<MonthlyChitGroups> getAllSelectedMonthlySchemeDurationAmountGroups(@PathVariable String duration) {
+//        return monthlyChitGroupsRepository.findAllChitGroupsByDuration(duration);
+//    }
 
     @GetMapping("{code}")
     public MonthlyChitGroups getSelectedMonthlySchemeDurationAmountGroup(@PathVariable String code) {
