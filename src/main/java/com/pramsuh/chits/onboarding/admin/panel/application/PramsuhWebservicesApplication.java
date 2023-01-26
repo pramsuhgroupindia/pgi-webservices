@@ -83,6 +83,9 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     FeedbackRepository feedbackRepository;
 
     @Autowired
+    ChitGroupReadingsRepository chitGroupReadingsRepository;
+
+    @Autowired
     private NeoBankSignUpRepository neoBankSignUpRepository;
 
     @Autowired
@@ -110,7 +113,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     }
 
     public void mockChitFund(){
-
+        /*
         SignUpDetailsMocker signUpDetailsMocker = new SignUpDetailsMocker();
         SignupDetails signupDetails = signUpDetailsMocker.mockSignUpDetailsTableData(signupDetailsRepository);
 
@@ -161,6 +164,11 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
 
         FeedbackMocker feedbackMocker  =new FeedbackMocker();
         feedbackMocker.mockFeedback(feedbackRepository);
+
+
+        ChitGroupReadingsMocker chitGroupReadingsMocker = new ChitGroupReadingsMocker();
+        chitGroupReadingsMocker.mockReadings(chitGroupReadingsRepository);
+    */
     }
 
 
