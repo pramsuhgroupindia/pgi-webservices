@@ -7,6 +7,7 @@ import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.m
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.repositories.NeoBankMemberRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.repositories.NeoBankSignUpRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.*;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.FileStorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -113,6 +114,7 @@ public class PramsuhWebservicesApplication implements CommandLineRunner {
     }
 
     public void mockChitFund(){
+
         /*
         SignUpDetailsMocker signUpDetailsMocker = new SignUpDetailsMocker();
         SignupDetails signupDetails = signUpDetailsMocker.mockSignUpDetailsTableData(signupDetailsRepository);

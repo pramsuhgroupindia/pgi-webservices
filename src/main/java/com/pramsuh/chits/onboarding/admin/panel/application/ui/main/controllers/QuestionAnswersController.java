@@ -17,7 +17,7 @@ public class QuestionAnswersController {
     @Autowired
     QuestionsAnswersRepository questionsAnswersRepository;
 
-    @GetMapping()
+    @GetMapping("/all")
     public ResponseEntity<List<QuestionsAnswers>> findAll() {
         return new ResponseEntity<List<QuestionsAnswers>>(questionsAnswersRepository.findAll(), HttpStatus.OK);
     }

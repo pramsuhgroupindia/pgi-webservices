@@ -1,15 +1,11 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.ContactUs;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.Feedback;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.FeedbackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +24,11 @@ public class FeedbackController {
     @GetMapping
     public ResponseEntity<List<Feedback>> getListOfAllFeedbacks() {
         return new ResponseEntity<List<Feedback>>(feedbackRepository.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createFeedback(@RequestBody Feedback feedback){
+        feedbackRepository.save(feedback);
+        return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
     }
 }
