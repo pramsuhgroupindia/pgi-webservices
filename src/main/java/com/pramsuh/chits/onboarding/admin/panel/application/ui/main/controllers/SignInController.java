@@ -44,8 +44,9 @@ public class SignInController {
                     return ResponseEntity.ok(memberDetails.get());
                 } else {
                     signInData.setMessage("NOT REGISTERED");
-                    memberDetails.get().setMessage("NOT FOUND");
-                    return ResponseEntity.ok(memberDetails.get());
+                    MemberDetails member = new MemberDetails();
+                    member.setMessage("NOT FOUND");
+                    return ResponseEntity.ok(member);
                 }
             }catch(NoSuchElementException e){
                 signInData.setMessage("NoSuchElementException");

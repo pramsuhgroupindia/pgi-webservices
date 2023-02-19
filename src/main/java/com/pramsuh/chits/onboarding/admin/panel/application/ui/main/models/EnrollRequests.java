@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,6 +17,7 @@ public class EnrollRequests {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(name = "full_name")
     private String fullName;
 
@@ -91,4 +94,9 @@ public class EnrollRequests {
     @Column(name = "frequency")
     private String frequency;
 
+    @Column(name="now")
+    private LocalDateTime now;
+
+    @Column(name="updated")
+    private LocalDateTime updated;
 }

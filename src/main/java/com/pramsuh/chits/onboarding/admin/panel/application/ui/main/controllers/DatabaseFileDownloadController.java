@@ -25,12 +25,12 @@ public class DatabaseFileDownloadController {
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {
         // Load file as Resource
-        DatabaseFile databaseFile = fileStorageService.getFile(fileName);
+        DatabaseFile databaseFile = fileStorageService.getFile(0);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(databaseFile.getFileType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + databaseFile.getFileName() + "\"")
-                .body(new ByteArrayResource(databaseFile.getData()));
+                .body(new ByteArrayResource(null));
     }
 
 }

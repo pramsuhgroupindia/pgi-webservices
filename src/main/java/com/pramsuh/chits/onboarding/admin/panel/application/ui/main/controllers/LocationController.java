@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -30,6 +31,7 @@ public class LocationController {
 
     @PostMapping
     public ResponseEntity<Location> postLocation(@RequestBody Location location) {
+        location.setNow(LocalDateTime.now());
         Location userLocation = locationRepository.save(location);
         return ResponseEntity.ok(location);
     }

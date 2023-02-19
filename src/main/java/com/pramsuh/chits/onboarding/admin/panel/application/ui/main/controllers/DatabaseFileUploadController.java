@@ -21,7 +21,7 @@ public class DatabaseFileUploadController {
     private DatabaseFileService fileStorageService;
 
     @PostMapping("/uploadFile")
-    public Response uploadFile(@RequestParam("file") MultipartFile file) {
+    public Response uploadFile(@RequestParam(value="file") MultipartFile file) {
         DatabaseFile fileName = fileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()

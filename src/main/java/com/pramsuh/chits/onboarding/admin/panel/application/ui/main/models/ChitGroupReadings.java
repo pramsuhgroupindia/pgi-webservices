@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,5 +35,10 @@ public class ChitGroupReadings {
     @Column(name = "prize")
     private String prize;
 
+    @Column(name="now")
+    private LocalDateTime now;
+
+    @Column(name="updated")
+    private LocalDateTime updated;
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +32,7 @@ public class TeeklyChitGroupsController {
 
     @PostMapping
     public ResponseEntity<String> createTeeklyChitGroup(@RequestBody TeeklyChitGroups teeklyChitGroups){
+        teeklyChitGroups.setNow(LocalDateTime.now());
         if(teeklyChitGroupsRepository.findChitGroupByCode(teeklyChitGroups.getCode()) == null) {
             TeeklyChitGroups teeklyChitGroups1 = teeklyChitGroupsRepository.save(teeklyChitGroups);
             if(teeklyChitGroups1 != null) {

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +32,7 @@ public class DailyChitGroupsController {
 
     @PostMapping
     public ResponseEntity<String> createDailyChitGroup(@RequestBody DailyChitGroups dailyChitGroups){
+        dailyChitGroups.setNow(LocalDateTime.now());
         if(dailyChitGroupsRepository.findChitGroupByCode(dailyChitGroups.getCode()) == null) {
             DailyChitGroups dailyChitGroups1 = dailyChitGroupsRepository.save(dailyChitGroups);
             if(dailyChitGroups1 != null) {

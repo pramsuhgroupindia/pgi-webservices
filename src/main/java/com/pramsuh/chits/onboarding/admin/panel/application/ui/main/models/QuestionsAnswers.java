@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,5 +27,9 @@ public class QuestionsAnswers {
     @Column(name = "answer", columnDefinition = "LONGTEXT")
     private String answer;
 
+    @Column(name="now")
+    private LocalDateTime now;
 
+    @Column(name="updated")
+    private LocalDateTime updated;
 }

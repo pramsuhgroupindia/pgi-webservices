@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -75,4 +77,9 @@ public class MonthlyAuctionableDurations {
     @Column(name = "m50dtoggle")
     private String m50dtoggle;
 
+    @Column(name="now")
+    private LocalDateTime now;
+
+    @Column(name="updated")
+    private LocalDateTime updated;
 }

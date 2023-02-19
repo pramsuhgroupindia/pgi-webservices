@@ -8,6 +8,8 @@ import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,17 +23,18 @@ public class SignupController {
     MemberDetailsRepository memberDetailsRepository;
 
     @GetMapping("/all")
-    public List<SignupDetails> getAllProfiles() {
-        return signupDetailsRepository.findAll();
+    public List<MemberDetails> findAll() {
+        return memberDetailsRepository.findAll();
     }
 
     @GetMapping("{aadharNumber}")
-    public Optional<SignupDetails> getProfileByMobNum(@PathVariable String aadharNumber) {
+    public Optional<SignupDetails> findProfileByAadharNumber(@PathVariable String aadharNumber) {
         return signupDetailsRepository.findProfileByAadharNumber(aadharNumber);
     }
 
     @PostMapping
     public ResponseEntity<SignupDetails> createRegistrationDetails(@RequestBody SignupDetails signupDetails) {
+        signupDetails.setNow(LocalDateTime.now());
         if (!signupDetailsRepository.findProfileByAadharNumber(signupDetails.getAadharNumber()).isPresent()) {
             SignupDetails signupDetails1 = signupDetailsRepository.save(signupDetails);
             if (!memberDetailsRepository.findProfileByAadharNumber(signupDetails1.getAadharNumber()).isPresent()) {
@@ -58,6 +61,10 @@ public class SignupController {
                 memberDetails.setOccupation(signupDetails1.getOccupation());
                 memberDetails.setNomineeRelation(signupDetails1.getNomineeRelation());
                 memberDetails.setMessage("REGISTERED");
+                memberDetails.setCibilConsent(signupDetails1.getCibilConsent());
+                memberDetails.setCfaConsent(signupDetails1.getCfaConsent());
+                memberDetails.setDataConsent(signupDetails1.getDataConsent());
+                memberDetails.setPrivacyConsent(signupDetails1.getPrivacyConsent());
                 memberDetailsRepository.save(memberDetails);
             }
             if(signupDetails1 != null){

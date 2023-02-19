@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -78,4 +80,18 @@ public class MemberDetails {
     @Column(name = "nominee_relation")
     private String nomineeRelation;
 
+    @Column(name = "cibil")
+    private String cibilConsent;
+    @Column(name = "cfa")
+    private String cfaConsent;
+    @Column(name = "privacy")
+    private String privacyConsent;
+    @Column(name = "data")
+    private String dataConsent;
+
+    @Column(name="now")
+    private LocalDateTime now;
+
+    @Column(name="updated")
+    private LocalDateTime updated;
 }

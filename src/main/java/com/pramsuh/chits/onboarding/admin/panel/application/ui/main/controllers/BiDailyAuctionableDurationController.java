@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -14,16 +15,19 @@ public class BiDailyAuctionableDurationController {
     @Autowired
     BiDailyAuctionableDurationsRepository biDailyAuctionableDurationsRepository;
 
-    @GetMapping
-    public List<BiDailyAuctionableDurations> getAllSelectedSchemeDurations() {
-        return biDailyAuctionableDurationsRepository.findAll();
-    }
-
     @PostMapping
     public ResponseEntity<String> createBiDailyChitDurationsList(@RequestBody BiDailyAuctionableDurations biDailyAuctionableDurations){
+       biDailyAuctionableDurations.setNow(LocalDateTime.now());
         if(null != biDailyAuctionableDurationsRepository.save(biDailyAuctionableDurations)){
             return ResponseEntity.ok("SUCCESS");
         }
         return ResponseEntity.ok("FAILURE");
     }
+
+    @GetMapping
+    public List<BiDailyAuctionableDurations> getAllSelectedSchemeDurations() {
+        return biDailyAuctionableDurationsRepository.findAll();
+    }
+
+
 }

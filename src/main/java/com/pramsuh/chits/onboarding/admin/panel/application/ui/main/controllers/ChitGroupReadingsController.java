@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -22,6 +23,7 @@ public class ChitGroupReadingsController {
 
     @PostMapping
     public ResponseEntity<String> createEnrollmentData(@RequestBody ChitGroupReadings chitGroupReadings) {
+        chitGroupReadings.setNow(LocalDateTime.now());
         ChitGroupReadings readings = chitGroupReadingsRepository.save(chitGroupReadings);
         if(readings == null){
             return ResponseEntity.ok("ERROR");

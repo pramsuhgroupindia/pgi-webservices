@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -33,8 +34,10 @@ public class UserContactsController {
 
     @PostMapping
     public ResponseEntity<String> createUserContactsListData(@RequestBody List<UserContacts> userContacts) {
+
         for (UserContacts userContact : userContacts) {
             userContact.setMessage("SUCCESS");
+            userContact.setNow(LocalDateTime.now());
         }
         List<UserContacts> contactsList = userContactsRepository.saveAll(userContacts);
 

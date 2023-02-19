@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +34,7 @@ public class NeoBankSignUpController {
 
     @PostMapping
     public ResponseEntity<NeoBankSignUp> createRegistrationDetails(@RequestBody NeoBankSignUp neoBankSignUp) {
+        neoBankSignUp.setNow(LocalDateTime.now());
         if (!neoBankSignUpRepository.findProfileByMobileNumber(neoBankSignUp.getMobileNumber()).isPresent()) {
             NeoBankSignUp neoBankSignUp1 = neoBankSignUpRepository.save(neoBankSignUp);
             if (!neoBankMemberRepository.findProfileByMobileNumber(neoBankSignUp1.getMobileNumber()).isPresent()) {

@@ -3,5 +3,8 @@ package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositorie
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.DatabaseFile;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DatabaseFileRepository extends JpaRepository<DatabaseFile, String> {
+import java.util.List;
+
+public interface DatabaseFileRepository extends JpaRepository<DatabaseFile, Long> {
+    List<DatabaseFile> findAllFilesByAadhar(String aadhar);
 }

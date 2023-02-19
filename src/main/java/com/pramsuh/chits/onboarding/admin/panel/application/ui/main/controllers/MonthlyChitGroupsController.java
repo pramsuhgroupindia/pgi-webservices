@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +32,7 @@ public class MonthlyChitGroupsController {
 
     @PostMapping
     public ResponseEntity<String> createMonthlyChitGroup(@RequestBody MonthlyChitGroups monthlyChitGroups){
+        monthlyChitGroups.setNow(LocalDateTime.now());
         if(monthlyChitGroupsRepository.findChitGroupByCode(monthlyChitGroups.getCode()) == null) {
             MonthlyChitGroups monthlyChitGroups1 = monthlyChitGroupsRepository.save(monthlyChitGroups);
             if(monthlyChitGroups1 != null) {

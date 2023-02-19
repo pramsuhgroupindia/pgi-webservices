@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -21,6 +22,7 @@ public class WeeklyAuctionableDurationController {
 
     @PostMapping
     public ResponseEntity<String> createWeeklyChitDurationsList(@RequestBody WeeklyAuctionableDurations weeklyAuctionableDurations){
+        weeklyAuctionableDurations.setNow(LocalDateTime.now());
         if(null != weeklyAuctionableDurationsRepository.save(weeklyAuctionableDurations)){
             return ResponseEntity.ok("SUCCESS");
         }

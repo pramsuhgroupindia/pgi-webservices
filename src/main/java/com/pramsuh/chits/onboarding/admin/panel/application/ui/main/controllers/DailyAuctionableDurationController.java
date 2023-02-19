@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,8 @@ public class DailyAuctionableDurationController {
 
     @PostMapping
     public ResponseEntity<String> createDailyChitDurationsList(@RequestBody DailyAuctionableDurations dailyAuctionableDurations){
-       if(null != dailyAuctionableDurationsRepository.save(dailyAuctionableDurations)){
+       dailyAuctionableDurations.setNow(LocalDateTime.now());
+        if(null != dailyAuctionableDurationsRepository.save(dailyAuctionableDurations)){
            return ResponseEntity.ok("SUCCESS");
        }
         return ResponseEntity.ok("FAILURE");

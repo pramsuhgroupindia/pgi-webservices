@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -28,6 +29,7 @@ public class FeedbackController {
 
     @PostMapping
     public ResponseEntity<String> createFeedback(@RequestBody Feedback feedback){
+        feedback.setNow(LocalDateTime.now());
         feedbackRepository.save(feedback);
         return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
     }

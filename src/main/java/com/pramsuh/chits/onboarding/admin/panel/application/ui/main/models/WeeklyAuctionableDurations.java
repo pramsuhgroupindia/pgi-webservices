@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -116,4 +118,10 @@ public class WeeklyAuctionableDurations {
 
     @Column(name = "w200dtoggle")
     private String w200dtoggle;
+
+    @Column(name="now")
+    private LocalDateTime now;
+
+    @Column(name="updated")
+    private LocalDateTime updated;
 }
