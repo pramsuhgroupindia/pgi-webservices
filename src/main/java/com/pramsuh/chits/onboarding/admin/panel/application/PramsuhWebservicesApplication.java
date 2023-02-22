@@ -1,19 +1,14 @@
 package com.pramsuh.chits.onboarding.admin.panel.application;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.mocking.*;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.*;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.mockers.NeoBankSignUpMocker;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.models.NeoBankSignUp;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.repositories.NeoBankMemberRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.neobanking.repositories.NeoBankSignUpRepository;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.*;
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.FileStorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-
 
 @SpringBootApplication
 public class PramsuhWebservicesApplication implements CommandLineRunner {

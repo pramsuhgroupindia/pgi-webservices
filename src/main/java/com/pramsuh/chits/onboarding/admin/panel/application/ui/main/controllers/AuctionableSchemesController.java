@@ -1,6 +1,5 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.controllers;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.AllScheduledChitGroups;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models.AuctionableSchemes;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.repositories.AuctionableSchemesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +31,18 @@ public class AuctionableSchemesController {
     @PutMapping
     public ResponseEntity<AuctionableSchemes> updateScheme(@RequestBody AuctionableSchemes newObject){
         AuctionableSchemes scheme = new AuctionableSchemes();
-        scheme.setE1d(newObject.getE1d());
-        scheme.setE1dtoggle(newObject.getE1dtoggle());
-        scheme.setE2d(newObject.getE2d());
-        scheme.setE2dtoggle(newObject.getE2dtoggle());
-        scheme.setE7d(newObject.getE7d());
-        scheme.setE7dtoggle(newObject.getE7dtoggle());
-        scheme.setE10d(newObject.getE10d());
-        scheme.setE10dtoggle(newObject.getE10dtoggle());
-        scheme.setE14d(newObject.getE14d());
-        scheme.setE14dtoggle(newObject.getE14dtoggle());
-        scheme.setE30d(newObject.getE30d());
-        scheme.setE30dtoggle(newObject.getE30dtoggle());
+        scheme.setTitle(newObject.getTitle());
+        scheme.setToggle(newObject.isToggle());
+        scheme.setTitle(newObject.getTitle());
+        scheme.setToggle(newObject.isToggle());
+        scheme.setTitle(newObject.getTitle());
+        scheme.setToggle(newObject.isToggle());
+        scheme.setTitle(newObject.getTitle());
+        scheme.setToggle(newObject.isToggle());
+        scheme.setTitle(newObject.getTitle());
+        scheme.setToggle(newObject.isToggle());
+        scheme.setTitle(newObject.getTitle());
+        scheme.setToggle(newObject.isToggle());
         return new ResponseEntity<AuctionableSchemes>(auctionableSchemesRepository.save(scheme), HttpStatus.OK);
     }
 

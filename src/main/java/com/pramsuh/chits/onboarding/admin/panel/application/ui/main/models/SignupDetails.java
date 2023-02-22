@@ -80,13 +80,13 @@ public class SignupDetails {
     @Column(name = "nominee_relation")
     private String nomineeRelation;
     @Column(name = "cibil")
-    private String cibilConsent;
+    private boolean cibilConsent;
     @Column(name = "cfa")
-    private String cfaConsent;
+    private boolean cfaConsent;
     @Column(name = "privacy")
-    private String privacyConsent;
+    private boolean privacyConsent;
     @Column(name = "data")
-    private String dataConsent;
+    private boolean dataConsent;
 
     @Column(name="now")
     private LocalDateTime now;

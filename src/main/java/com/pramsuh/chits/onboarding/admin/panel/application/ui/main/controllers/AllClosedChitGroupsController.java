@@ -39,7 +39,7 @@ public class AllClosedChitGroupsController {
         String code = allClosedChitGroups.getCode();
         AllClosedChitGroups allClosedChitGroups1 = allClosedChitGroupsRepository.findClosedChitGroupByCode(allClosedChitGroups.getCode());
         allClosedChitGroups1.setMTitle(allClosedChitGroups.getMTitle());
-        allClosedChitGroups1.setMVisibility(allClosedChitGroups.getMVisibility());
+        allClosedChitGroups1.setMVisibility(allClosedChitGroups.isMVisibility());
         allClosedChitGroups1.setMTotalNumberOfTickets(allClosedChitGroups.getMTotalNumberOfTickets());
         allClosedChitGroups1.setMTotalNumberOfAvailableTickets(allClosedChitGroups.getMTotalNumberOfAvailableTickets());
         allClosedChitGroups1.setMTotalNumberOfBookedTickets(allClosedChitGroups.getMTotalNumberOfBookedTickets());

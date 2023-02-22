@@ -20,43 +20,43 @@ public class BiDailyChitGroups {
     @Column(name = "mTitle")
     private String mTitle = "";
     @Column(name = "mVisibility")
-    private String mVisibility = "";
+    private boolean mVisibility = false;
     @Column(name = "mTotalNumberOfTickets")
-    private String mTotalNumberOfTickets = "";
+    private int mTotalNumberOfTickets ;
     @Column(name = "mTotalNumberOfAvailableTickets")
-    private String mTotalNumberOfAvailableTickets = "";
+    private int mTotalNumberOfAvailableTickets ;
     @Column(name = "mTotalNumberOfBookedTickets")
-    private String mTotalNumberOfBookedTickets = "";
+    private int mTotalNumberOfBookedTickets ;
     @Column(name = "mTotalNumberOfVacantTickets")
-    private String mTotalNumberOfVacantTickets = "";
+    private int mTotalNumberOfVacantTickets;
     @Column(name = "mTotalNumberOfAuctions")
-    private String mTotalNumberOfAuctions = "";
+    private int mTotalNumberOfAuctions;
     @Column(name = "mTotalNumberOfAgreementsSigned")
-    private String mTotalNumberOfAgreementsSigned = "";
+    private int mTotalNumberOfAgreementsSigned;
     @Column(name = "mTotalNumberOfTicketsSold")
-    private String mTotalNumberOfTicketsSold = "";
+    private int mTotalNumberOfTicketsSold;
     @Column(name = "mBookingStatus")
     private String mBookingStatus = "";
     @Column(name = "minBidRange")
-    private String minBidRange = "";
+    private int minBidRange;
     @Column(name = "maxBidRange")
-    private String maxBidRange = "";
+    private int maxBidRange;
     @Column(name = "minPrizeRange")
-    private String minPrizeRange = "";
+    private int minPrizeRange;
     @Column(name = "maxPrizeRange")
-    private String maxPrizeRange = "";
+    private int maxPrizeRange;
 
     @Column(name = "code")
     private String code = "";
 
     @Column(name = "numberOfTickets")
-    private String numberOfTickets = "";
+    private int numberOfTickets;
 
     @Column(name = "amount")
-    private String amount = "";
+    private int amount;
 
     @Column(name = "value")
-    private String value = "";
+    private int value;
 
     @Column(name = "duration")
     private String duration = "";
@@ -65,7 +65,7 @@ public class BiDailyChitGroups {
     private String time = "";
 
     @Column(name = "totalinstallmentsnumber")
-    private String totalinstallmentsnumber = "";
+    private int totalinstallmentsnumber ;
 
     @Column(name = "day")
     private String day = "";
@@ -83,22 +83,22 @@ public class BiDailyChitGroups {
     private String frequency = "";
 
     @Column(name = "subscription")
-    private String subscription = "";
+    private int subscription;
 
     @Column(name = "dividend")
-    private String dividend = "";
+    private int dividend;
 
     @Column(name = "method")
     private String method = "";
 
     @Column(name = "efees")
-    private String efees = "";
+    private int efees;
 
     @Column(name = "paymentfrequency")
     private String paymentfrequency = "";
 
     @Column(name = "noofguaranters")
-    private String noofguaranters = "";
+    private int noofguaranters;
 
     @Column(name = "joiningdocs")
     private String joiningdocs = "";
@@ -107,7 +107,7 @@ public class BiDailyChitGroups {
     private String prizeclaimdocs = "";
 
     @Column(name = "rollid")
-    private String rollid = "";
+    private int rollid;
 
     @Column(name="now")
     private LocalDateTime now;
@@ -116,5 +116,6 @@ public class BiDailyChitGroups {
     private LocalDateTime updated;
 
 }
+
 
 

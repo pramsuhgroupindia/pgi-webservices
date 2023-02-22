@@ -61,10 +61,10 @@ public class SignupController {
                 memberDetails.setOccupation(signupDetails1.getOccupation());
                 memberDetails.setNomineeRelation(signupDetails1.getNomineeRelation());
                 memberDetails.setMessage("REGISTERED");
-                memberDetails.setCibilConsent(signupDetails1.getCibilConsent());
-                memberDetails.setCfaConsent(signupDetails1.getCfaConsent());
-                memberDetails.setDataConsent(signupDetails1.getDataConsent());
-                memberDetails.setPrivacyConsent(signupDetails1.getPrivacyConsent());
+                memberDetails.setCibilConsent(signupDetails1.isCibilConsent());
+                memberDetails.setCfaConsent(signupDetails1.isCfaConsent());
+                memberDetails.setDataConsent(signupDetails1.isDataConsent());
+                memberDetails.setPrivacyConsent(signupDetails1.isPrivacyConsent());
                 memberDetailsRepository.save(memberDetails);
             }
             if(signupDetails1 != null){

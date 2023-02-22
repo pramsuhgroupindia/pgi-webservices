@@ -11,11 +11,14 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "chitgroupreadings")
-public class ChitGroupReadings {
+@Table(name = "subschitgroupreadings")
+public class SubscriberChitGroupReadings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "title")
     private String title;
@@ -45,6 +48,10 @@ public class ChitGroupReadings {
 
     @Column(name = "singledividend")
     private int singleDDividend;
+
+    @Column(name = "ticketnumber")
+    private int ticketnumber;
+
     @Column(name="now")
     private LocalDateTime now;
 

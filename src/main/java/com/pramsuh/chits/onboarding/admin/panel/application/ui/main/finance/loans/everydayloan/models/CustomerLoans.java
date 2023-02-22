@@ -1,5 +1,6 @@
-package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
+package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.finance.loans.everydayloan.models;
 
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.finance.loans.everydayloan.workers.LoanRequestsStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,11 +12,12 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "member_details")
-public class MemberDetails {
+@Table(name = "customerloans")
+public class CustomerLoans {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(name = "full_name")
     private String fullName;
 
@@ -80,18 +82,45 @@ public class MemberDetails {
     @Column(name = "nominee_relation")
     private String nomineeRelation;
 
-    @Column(name = "cibil")
-    private boolean cibilConsent;
-    @Column(name = "cfa")
-    private boolean cfaConsent;
-    @Column(name = "privacy")
-    private boolean privacyConsent;
-    @Column(name = "data")
-    private boolean dataConsent;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "loanRequestNumber")
+    private int loanRequestNumber;
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "loanNumber")
+    private int loanNumber;
+    @Column(name = "durationInDays)")
+    private int durationInDays;
+
+    @Column(name = "frequency")
+    private String frequency;
+
+    @Column(name = "loanAmount")
+    private int loanAmount;
+
+    @Column(name = "principleAmount")
+    private int principleAmount;
+
+    @Column(name="interestAmount")
+    private int interestAmount;
+
+    @Column(name="totalAmount")
+    private int totalAmount;
+
+    @Column(name="perDayAmount")
+    private int perDayAmount;
 
     @Column(name="now")
     private LocalDateTime now;
 
     @Column(name="updated")
     private LocalDateTime updated;
+
+    @Column(name = "date")
+    private String dateOfRequest;
+
+    @Column(name = "status")
+    private LoanRequestsStatus status;
+
+
 }

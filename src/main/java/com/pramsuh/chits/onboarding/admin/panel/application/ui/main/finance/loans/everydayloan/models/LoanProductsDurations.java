@@ -1,4 +1,4 @@
-package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
+package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.finance.loans.everydayloan.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,13 +11,17 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "biweeklydurations")
-public class BiWeeklyAuctionableDurations {
+@Table(name = "loanproductsdurations")
+public class LoanProductsDurations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "title")
-    private String title;
+
+    @Column(name = "durationInDays)")
+    private int durationInDays;
+
+    @Column(name = "frequency")
+    private String frequency;
 
     @Column(name = "toggle")
     private boolean toggle;
@@ -27,4 +31,6 @@ public class BiWeeklyAuctionableDurations {
 
     @Column(name="updated")
     private LocalDateTime updated;
+
+
 }

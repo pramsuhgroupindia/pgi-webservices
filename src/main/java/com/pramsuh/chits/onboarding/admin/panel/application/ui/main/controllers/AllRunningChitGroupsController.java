@@ -39,7 +39,7 @@ public class AllRunningChitGroupsController {
         String code = updatedObject.getCode();
         AllRunningChitGroups newObject = allRunningChitGroupsRepository.findRunningChitGroupByCode(updatedObject.getCode());
         newObject.setMTitle(updatedObject.getMTitle());
-        newObject.setMVisibility(updatedObject.getMVisibility());
+        newObject.setMVisibility(updatedObject.isMVisibility());
         newObject.setMTotalNumberOfTickets(updatedObject.getMTotalNumberOfTickets());
         newObject.setMTotalNumberOfAvailableTickets(updatedObject.getMTotalNumberOfAvailableTickets());
         newObject.setMTotalNumberOfBookedTickets(updatedObject.getMTotalNumberOfBookedTickets());

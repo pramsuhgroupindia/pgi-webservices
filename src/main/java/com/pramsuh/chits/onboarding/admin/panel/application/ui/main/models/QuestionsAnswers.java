@@ -19,7 +19,7 @@ public class QuestionsAnswers {
     private long id;
 
     @Column(name = "number")
-    private String number;
+    private int number;
 
     @Column(name = "question", columnDefinition = "LONGTEXT")
     private String question;
