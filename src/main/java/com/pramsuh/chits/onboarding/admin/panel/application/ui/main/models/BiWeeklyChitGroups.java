@@ -1,5 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.BookingStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ public class BiWeeklyChitGroups {
     @Column(name = "mTitle")
     private String mTitle = "";
     @Column(name = "mVisibility")
-    private boolean mVisibility = false;
+    private boolean mVisibility;
     @Column(name = "mTotalNumberOfTickets")
     private int mTotalNumberOfTickets ;
     @Column(name = "mTotalNumberOfAvailableTickets")
@@ -36,7 +37,7 @@ public class BiWeeklyChitGroups {
     @Column(name = "mTotalNumberOfTicketsSold")
     private int mTotalNumberOfTicketsSold;
     @Column(name = "mBookingStatus")
-    private String mBookingStatus = "";
+    private BookingStatus mBookingStatus;
     @Column(name = "minBidRange")
     private int minBidRange;
     @Column(name = "maxBidRange")

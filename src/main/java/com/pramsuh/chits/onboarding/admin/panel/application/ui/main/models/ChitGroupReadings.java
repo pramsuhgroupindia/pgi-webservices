@@ -1,5 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.BookingStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,8 @@ public class ChitGroupReadings {
     @Column(name = "psinstallment")
     private int psinstallment;
 
+    @Column(name = "mBookingStatus")
+    private BookingStatus mBookingStatus;
     @Column(name = "npsinstallment")
     private int npsinstallment;
     @Column(name = "prize")

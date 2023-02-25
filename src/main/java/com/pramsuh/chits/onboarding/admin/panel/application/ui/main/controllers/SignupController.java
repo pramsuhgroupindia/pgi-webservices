@@ -35,6 +35,7 @@ public class SignupController {
     @PostMapping
     public ResponseEntity<SignupDetails> createRegistrationDetails(@RequestBody SignupDetails signupDetails) {
         signupDetails.setNow(LocalDateTime.now());
+        signupDetails.setUpdated(LocalDateTime.now());
         if (!signupDetailsRepository.findProfileByAadharNumber(signupDetails.getAadharNumber()).isPresent()) {
             SignupDetails signupDetails1 = signupDetailsRepository.save(signupDetails);
             if (!memberDetailsRepository.findProfileByAadharNumber(signupDetails1.getAadharNumber()).isPresent()) {
@@ -65,6 +66,8 @@ public class SignupController {
                 memberDetails.setCfaConsent(signupDetails1.isCfaConsent());
                 memberDetails.setDataConsent(signupDetails1.isDataConsent());
                 memberDetails.setPrivacyConsent(signupDetails1.isPrivacyConsent());
+                memberDetails.setNow(LocalDateTime.now());
+                memberDetails.setUpdated(LocalDateTime.now());
                 memberDetailsRepository.save(memberDetails);
             }
             if(signupDetails1 != null){
