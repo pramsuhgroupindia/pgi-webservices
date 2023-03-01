@@ -1,6 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.BookingStatus;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.Frequency;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +28,7 @@ public class ChitGroupReadings {
     private String value;
 
     @Column(name = "frequency")
-    private String frequency;
+    private Frequency frequency ;
 
     @Column(name = "number")
     private int rownum;
@@ -37,7 +37,7 @@ public class ChitGroupReadings {
     private int psinstallment;
 
     @Column(name = "mBookingStatus")
-    private BookingStatus mBookingStatus;
+    private int mBookingStatus;
     @Column(name = "npsinstallment")
     private int npsinstallment;
     @Column(name = "prize")

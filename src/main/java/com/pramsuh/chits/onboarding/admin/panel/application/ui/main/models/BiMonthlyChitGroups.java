@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "biweeklychitgroups")
-public class BiWeeklyChitGroups {
+@Table(name = "BiMonthlyChitGroups")
+public class BiMonthlyChitGroups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

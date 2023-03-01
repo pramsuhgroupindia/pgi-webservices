@@ -19,8 +19,8 @@ public class AuctionableSchemesController {
     @PostMapping
     public ResponseEntity<AuctionableSchemes> createScheme(@RequestBody AuctionableSchemes object){
         object.setNow(LocalDateTime.now());
-        AuctionableSchemes scheme = auctionableSchemesRepository.save(object);
-        return new ResponseEntity<AuctionableSchemes>(scheme, HttpStatus.OK);
+        object.setUpdated(object.getNow());
+        return new ResponseEntity<AuctionableSchemes>(auctionableSchemesRepository.save(object), HttpStatus.OK);
     }
 
     @GetMapping
@@ -28,23 +28,14 @@ public class AuctionableSchemesController {
         return auctionableSchemesRepository.findAll();
     }
 
-    @PutMapping
-    public ResponseEntity<AuctionableSchemes> updateScheme(@RequestBody AuctionableSchemes newObject){
-        AuctionableSchemes scheme = new AuctionableSchemes();
-        scheme.setTitle(newObject.getTitle());
-        scheme.setToggle(newObject.isToggle());
-        scheme.setTitle(newObject.getTitle());
-        scheme.setToggle(newObject.isToggle());
-        scheme.setTitle(newObject.getTitle());
-        scheme.setToggle(newObject.isToggle());
-        scheme.setTitle(newObject.getTitle());
-        scheme.setToggle(newObject.isToggle());
-        scheme.setTitle(newObject.getTitle());
-        scheme.setToggle(newObject.isToggle());
-        scheme.setTitle(newObject.getTitle());
-        scheme.setToggle(newObject.isToggle());
-        return new ResponseEntity<AuctionableSchemes>(auctionableSchemesRepository.save(scheme), HttpStatus.OK);
-    }
+//    @PutMapping
+//    public ResponseEntity<AuctionableSchemes> updateScheme(@RequestBody AuctionableSchemes newObject){
+//        AuctionableSchemes scheme = new AuctionableSchemes();
+//        scheme.setTitle(newObject.getTitle());
+//        scheme.setToggle(newObject.isToggle());
+//
+//        return new ResponseEntity<AuctionableSchemes>(auctionableSchemesRepository.save(scheme), HttpStatus.OK);
+//    }
 
     @DeleteMapping
     public ResponseEntity<String> deleteScheme(@RequestBody AuctionableSchemes objectToDelete){

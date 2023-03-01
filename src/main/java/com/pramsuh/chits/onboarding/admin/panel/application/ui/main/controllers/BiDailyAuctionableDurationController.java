@@ -18,6 +18,7 @@ public class BiDailyAuctionableDurationController {
     @PostMapping
     public ResponseEntity<String> createBiDailyChitDurationsList(@RequestBody BiDailyAuctionableDurations biDailyAuctionableDurations){
        biDailyAuctionableDurations.setNow(LocalDateTime.now());
+        biDailyAuctionableDurations.setUpdated(biDailyAuctionableDurations.getNow());
         if(null != biDailyAuctionableDurationsRepository.save(biDailyAuctionableDurations)){
             return ResponseEntity.ok("SUCCESS");
         }

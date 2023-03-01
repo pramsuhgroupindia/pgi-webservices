@@ -1,6 +1,7 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.EnrollmentStatus;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.Frequency;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -92,7 +93,7 @@ public class EnrollRequests {
     private EnrollmentStatus status;
 
     @Column(name = "frequency")
-    private String frequency;
+    private Frequency frequency ;
 
     @Column(name="now")
     private LocalDateTime now;

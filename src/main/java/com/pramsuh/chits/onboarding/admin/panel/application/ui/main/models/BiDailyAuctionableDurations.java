@@ -1,6 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.BookingStatus;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.Frequency;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,10 +20,12 @@ public class BiDailyAuctionableDurations {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "frequency")
+    private Frequency frequency ;
     @Column(name = "toggle")
     private boolean toggle;
     @Column(name = "mBookingStatus")
-    private BookingStatus mBookingStatus;
+    private int mBookingStatus;
     @Column(name="now")
     private LocalDateTime now;
 

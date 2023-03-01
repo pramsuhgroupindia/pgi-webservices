@@ -1,6 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.BookingStatus;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.Frequency;
 import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.PrizeDeliveryStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -65,7 +65,11 @@ public class ChitGroupAuctions {
     private String mobile;
 
     @Column(name = "mBookingStatus")
-    private BookingStatus mBookingStatus;
+    private int mBookingStatus;
+
+    @Column(name = "frequency")
+    private Frequency frequency ;
+
     @Column(name="now")
     private LocalDateTime now;
 

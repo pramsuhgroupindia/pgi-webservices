@@ -1,6 +1,6 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.BookingStatus;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.Frequency;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,7 +37,7 @@ public class AllRunningChitGroups {
     @Column(name = "mTotalNumberOfTicketsSold")
     private int mTotalNumberOfTicketsSold;
     @Column(name = "mBookingStatus")
-    private BookingStatus mBookingStatus;
+    private int mBookingStatus;
     @Column(name = "minBidRange")
     private int minBidRange;
     @Column(name = "maxBidRange")
@@ -81,7 +81,7 @@ public class AllRunningChitGroups {
     private String distribution = "";
 
     @Column(name = "frequency")
-    private String frequency = "";
+    private Frequency frequency ;
 
     @Column(name = "subscription")
     private int subscription;
@@ -109,6 +109,12 @@ public class AllRunningChitGroups {
 
     @Column(name = "rollid")
     private int rollid;
+
+    @Column(name = "start")
+    private String startDate = "";
+
+    @Column(name = "end")
+    private String endDate = "";
 
     @Column(name="now")
     private LocalDateTime now;

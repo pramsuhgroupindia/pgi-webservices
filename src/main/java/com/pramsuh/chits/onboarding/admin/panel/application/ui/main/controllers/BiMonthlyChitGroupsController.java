@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/chit/funds/web/services/auctionable/schemes/durations/biweekly/amounts")
-public class BiWeeklyChitGroupsController {
+@RequestMapping("/api/v1/chit/funds/web/services/auctionable/schemes/durations/bimonthly/amounts")
+public class BiMonthlyChitGroupsController {
     @Autowired
-    BiWeeklyChitGroupsRepository biWeeklyChitGroupsRepository;
+    BiMonthlyChitGroupsRepository biMonthlyChitGroupsRepository;
     @Autowired
     AllScheduledChitGroupsRepository allScheduledChitGroupsRepository;
     @Autowired
@@ -24,26 +24,26 @@ public class BiWeeklyChitGroupsController {
     @Autowired
     AllClosedChitGroupsRepository allClosedChitGroupsRepository;
 //    @GetMapping("{duration}")
-//    public List<BiWeeklyChitGroups> getAllSelectedBiWeeklySchemeDurationAmountGroups(@PathVariable String duration) {
-//        return biWeeklyChitGroupsRepository.findAllChitGroupsByDuration(duration);
+//    public List<MonthlyChitGroups> getAllSelectedMonthlySchemeDurationAmountGroups(@PathVariable String duration) {
+//        return monthlyChitGroupsRepository.findAllChitGroupsByDuration(duration);
 //    }
 
     @GetMapping("{code}")
-    public BiWeeklyChitGroups getSelectedBiWeeklySchemeDurationAmountGroup(@PathVariable String code) {
-        return biWeeklyChitGroupsRepository.findChitGroupByCode(code);
+    public BiMonthlyChitGroups getSelectedBiMonthlySchemeDurationAmountGroup(@PathVariable String code) {
+        return biMonthlyChitGroupsRepository.findChitGroupByCode(code);
     }
 
     @GetMapping
-    public List<BiWeeklyChitGroups> getAllBiWeeklySchemeDurationAmountGroups() {
-        return biWeeklyChitGroupsRepository.findAll();
+    public List<BiMonthlyChitGroups> getAllBiMonthlySchemeDurationAmountGroups() {
+        return biMonthlyChitGroupsRepository.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<BiWeeklyChitGroups> createBiWeeklyChitGroup(@RequestBody BiWeeklyChitGroups object){
+    public ResponseEntity<BiMonthlyChitGroups> createBiMonthlyChitGroup(@RequestBody BiMonthlyChitGroups object){
         object.setNow(LocalDateTime.now());
-        if(biWeeklyChitGroupsRepository.findChitGroupByCode(object.getCode()) == null) {
-            BiWeeklyChitGroups biWeeklyChitGroups1 = biWeeklyChitGroupsRepository.save(object);
-            if(biWeeklyChitGroups1 != null) {
+        if(biMonthlyChitGroupsRepository.findChitGroupByCode(object.getCode()) == null) {
+            BiMonthlyChitGroups monthlyChitGroups1 = biMonthlyChitGroupsRepository.save(object);
+            if(monthlyChitGroups1 != null) {
                 switch(object.getMBookingStatus()){
                     case 0:
                         AllScheduledChitGroups allScheduledChitGroups = new AllScheduledChitGroups();
@@ -261,12 +261,12 @@ public class BiWeeklyChitGroupsController {
                         allScheduledChitGroupsRepository.save(allScheduledChitGroups);
                         break;
                 }
-                return new ResponseEntity<BiWeeklyChitGroups>(object, HttpStatus.OK);
+                return new ResponseEntity<BiMonthlyChitGroups>(object, HttpStatus.OK);
             } else{
-                return new ResponseEntity<BiWeeklyChitGroups>(object, HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<BiMonthlyChitGroups>(object, HttpStatus.BAD_REQUEST);
             }
         } else {
-            return new ResponseEntity<BiWeeklyChitGroups>(object, HttpStatus.ALREADY_REPORTED);
+            return new ResponseEntity<BiMonthlyChitGroups>(object, HttpStatus.ALREADY_REPORTED);
         }
     }
 }

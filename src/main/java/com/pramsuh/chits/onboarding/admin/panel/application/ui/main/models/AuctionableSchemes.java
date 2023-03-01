@@ -1,11 +1,12 @@
 package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.models;
 
-import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.BookingStatus;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.Frequency;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "schemes")
-public class AuctionableSchemes {
+public class AuctionableSchemes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -21,13 +22,20 @@ public class AuctionableSchemes {
     private String title;
 
     @Column(name = "frequency")
-    private String frequency;
+    private Frequency frequency;
 
     @Column(name = "toggle")
     private boolean toggle;
 
     @Column(name = "mBookingStatus")
-    private BookingStatus mBookingStatus;
+    private int mBookingStatus;
+
+    @Column(name = "auctionFrequency")
+    private String auctionFrequency;
+
+    @Column(name = "paymentFrequency")
+    private String paymentFrequency;
+
     @Column(name="now")
     private LocalDateTime now;
 
