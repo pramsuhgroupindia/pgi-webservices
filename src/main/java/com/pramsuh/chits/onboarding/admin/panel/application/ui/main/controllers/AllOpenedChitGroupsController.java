@@ -39,7 +39,7 @@ public class AllOpenedChitGroupsController {
         String code = updatedObject.getCode();
         AllOpenedChitGroups newObject = allOpenedChitGroupsRepository.findOpenChitGroupByCode(updatedObject.getCode());
         newObject.setMTitle(updatedObject.getMTitle());
-        newObject.setMVisibility(updatedObject.isMVisibility());
+        newObject.setMVisibility(updatedObject.getMVisibility());
         newObject.setMTotalNumberOfTickets(updatedObject.getMTotalNumberOfTickets());
         newObject.setMTotalNumberOfAvailableTickets(updatedObject.getMTotalNumberOfAvailableTickets());
         newObject.setMTotalNumberOfBookedTickets(updatedObject.getMTotalNumberOfBookedTickets());

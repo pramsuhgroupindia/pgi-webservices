@@ -21,7 +21,8 @@ public class WeeklyAuctionableDurations {
     private String title;
 
     @Column(name = "toggle")
-    private boolean toggle;
+    private int toggle;
+
     @Column(name = "mBookingStatus")
     private int mBookingStatus;
 

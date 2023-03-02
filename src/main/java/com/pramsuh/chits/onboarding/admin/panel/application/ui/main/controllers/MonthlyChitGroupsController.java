@@ -48,7 +48,7 @@ public class MonthlyChitGroupsController {
                     case 0:
                         AllScheduledChitGroups allScheduledChitGroups = new AllScheduledChitGroups();
                         allScheduledChitGroups.setMTitle(object.getMTitle());
-                        allScheduledChitGroups.setMVisibility(object.isMVisibility());
+                        allScheduledChitGroups.setMVisibility(object.getMVisibility());
                         allScheduledChitGroups.setMTotalNumberOfTickets(object.getMTotalNumberOfTickets());
                         allScheduledChitGroups.setMTotalNumberOfAvailableTickets(object.getMTotalNumberOfAvailableTickets());
                         allScheduledChitGroups.setMTotalNumberOfBookedTickets(object.getMTotalNumberOfBookedTickets());
@@ -91,7 +91,7 @@ public class MonthlyChitGroupsController {
                     case 1:
                         AllOpenedChitGroups allOpenedChitGroups = new AllOpenedChitGroups();
                         allOpenedChitGroups.setMTitle(object.getMTitle());
-                        allOpenedChitGroups.setMVisibility(object.isMVisibility());
+                        allOpenedChitGroups.setMVisibility(object.getMVisibility());
                         allOpenedChitGroups.setMTotalNumberOfTickets(object.getMTotalNumberOfTickets());
                         allOpenedChitGroups.setMTotalNumberOfAvailableTickets(object.getMTotalNumberOfAvailableTickets());
                         allOpenedChitGroups.setMTotalNumberOfBookedTickets(object.getMTotalNumberOfBookedTickets());
@@ -134,7 +134,7 @@ public class MonthlyChitGroupsController {
                     case 2:
                         AllRunningChitGroups allRunningChitGroups = new AllRunningChitGroups();
                         allRunningChitGroups.setMTitle(object.getMTitle());
-                        allRunningChitGroups.setMVisibility(object.isMVisibility());
+                        allRunningChitGroups.setMVisibility(object.getMVisibility());
                         allRunningChitGroups.setMTotalNumberOfTickets(object.getMTotalNumberOfTickets());
                         allRunningChitGroups.setMTotalNumberOfAvailableTickets(object.getMTotalNumberOfAvailableTickets());
                         allRunningChitGroups.setMTotalNumberOfBookedTickets(object.getMTotalNumberOfBookedTickets());
@@ -177,7 +177,7 @@ public class MonthlyChitGroupsController {
                     case 3:
                         AllClosedChitGroups allClosedChitGroups = new AllClosedChitGroups();
                         allClosedChitGroups.setMTitle(object.getMTitle());
-                        allClosedChitGroups.setMVisibility(object.isMVisibility());
+                        allClosedChitGroups.setMVisibility(object.getMVisibility());
                         allClosedChitGroups.setMTotalNumberOfTickets(object.getMTotalNumberOfTickets());
                         allClosedChitGroups.setMTotalNumberOfAvailableTickets(object.getMTotalNumberOfAvailableTickets());
                         allClosedChitGroups.setMTotalNumberOfBookedTickets(object.getMTotalNumberOfBookedTickets());
@@ -220,7 +220,7 @@ public class MonthlyChitGroupsController {
                     default:
                         allScheduledChitGroups = new AllScheduledChitGroups();
                         allScheduledChitGroups.setMTitle(object.getMTitle());
-                        allScheduledChitGroups.setMVisibility(object.isMVisibility());
+                        allScheduledChitGroups.setMVisibility(object.getMVisibility());
                         allScheduledChitGroups.setMTotalNumberOfTickets(object.getMTotalNumberOfTickets());
                         allScheduledChitGroups.setMTotalNumberOfAvailableTickets(object.getMTotalNumberOfAvailableTickets());
                         allScheduledChitGroups.setMTotalNumberOfBookedTickets(object.getMTotalNumberOfBookedTickets());

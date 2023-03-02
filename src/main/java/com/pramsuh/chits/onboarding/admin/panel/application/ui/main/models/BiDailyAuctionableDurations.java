@@ -23,7 +23,7 @@ public class BiDailyAuctionableDurations {
     @Column(name = "frequency")
     private Frequency frequency ;
     @Column(name = "toggle")
-    private boolean toggle;
+    private int toggle;
     @Column(name = "mBookingStatus")
     private int mBookingStatus;
     @Column(name="now")

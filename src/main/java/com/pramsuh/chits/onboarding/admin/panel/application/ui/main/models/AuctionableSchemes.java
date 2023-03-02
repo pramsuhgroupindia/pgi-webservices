@@ -25,7 +25,7 @@ public class AuctionableSchemes implements Serializable {
     private Frequency frequency;
 
     @Column(name = "toggle")
-    private boolean toggle;
+    private int toggle;
 
     @Column(name = "mBookingStatus")
     private int mBookingStatus;

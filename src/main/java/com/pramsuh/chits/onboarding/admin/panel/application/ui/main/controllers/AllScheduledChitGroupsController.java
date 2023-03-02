@@ -39,7 +39,7 @@ public class AllScheduledChitGroupsController {
         String code = updatedObject.getCode();
         AllScheduledChitGroups newObject = allScheduledChitGroupsRepository.findScheduledChitGroupByCode(updatedObject.getCode());
         newObject.setMTitle(updatedObject.getMTitle());
-        newObject.setMVisibility(updatedObject.isMVisibility());
+        newObject.setMVisibility(updatedObject.getMVisibility());
         newObject.setMTotalNumberOfTickets(updatedObject.getMTotalNumberOfTickets());
         newObject.setMTotalNumberOfAvailableTickets(updatedObject.getMTotalNumberOfAvailableTickets());
         newObject.setMTotalNumberOfBookedTickets(updatedObject.getMTotalNumberOfBookedTickets());

@@ -21,7 +21,7 @@ public class DailyChitGroups {
     @Column(name = "mTitle")
     private String mTitle = "";
     @Column(name = "mVisibility")
-    private boolean mVisibility;
+    private int mVisibility;
     @Column(name = "mTotalNumberOfTickets")
     private int mTotalNumberOfTickets ;
     @Column(name = "mTotalNumberOfAvailableTickets")

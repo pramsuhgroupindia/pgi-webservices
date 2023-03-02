@@ -21,7 +21,7 @@ public class TeeklyAuctionableDurations {
     private String title;
 
     @Column(name = "toggle")
-    private boolean toggle;
+    private int toggle;
 
     @Column(name = "frequency")
     private Frequency frequency ;
