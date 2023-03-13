@@ -20,6 +20,9 @@ public class MonthlyAuctionableDurations {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "duration")
+    private String duration ;
+
     @Column(name = "toggle")
     private int toggle;
 

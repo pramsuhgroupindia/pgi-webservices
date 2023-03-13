@@ -20,6 +20,9 @@ public class TriDailyAuctionableDurations {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "duration")
+    private String duration ;
+
     @Column(name = "frequency")
     private Frequency frequency ;
     @Column(name = "toggle")

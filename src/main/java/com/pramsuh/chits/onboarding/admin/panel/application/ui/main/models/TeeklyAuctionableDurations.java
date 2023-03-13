@@ -17,6 +17,10 @@ public class TeeklyAuctionableDurations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "duration")
+    private String duration ;
+
     @Column(name = "title")
     private String title;
 
