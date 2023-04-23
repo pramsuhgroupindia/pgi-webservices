@@ -1,6 +1,15 @@
-package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers;
+package com.pramsuh.chits.onboarding.admin.panel.application.ui.main.hoogmati.services.workers;
 
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.FileNotFoundException;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.FileStorageException;
+import com.pramsuh.chits.onboarding.admin.panel.application.ui.main.workers.FileStorageProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -8,20 +17,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
-
-
 
 @Service
-public class FileStorageService {
+public class HoogmaticBorrowerFileStorageService {
     private final Path fileStorageLocation;
 
     @Autowired
-    public FileStorageService(FileStorageProperties fileStorageProperties) {
+    public HoogmaticBorrowerFileStorageService(FileStorageProperties fileStorageProperties) {
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
                 .toAbsolutePath().normalize();
 
